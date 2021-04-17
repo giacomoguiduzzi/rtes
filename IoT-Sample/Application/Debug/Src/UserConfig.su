@@ -1,0 +1,74 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+UserConfig.cpp:61:6:void UserConfig::GetConfig(UserConfig::Config_t*)	24	static
+UserConfig.cpp:86:6:bool UserConfig::SetConfig(std::unique_ptr<UserConfig::Config_t>)	24	static
+UserConfig.cpp:107:29:const UserConfig::Cloud_t& UserConfig::GetCloudConfig() const	16	static
+UserConfig.cpp:116:28:const UserConfig::Wifi_t& UserConfig::GetWifiConfig() const	16	static
+UserConfig.cpp:128:6:bool UserConfig::SetCloudKey(std::unique_ptr<UserConfig::Key_t>)	32	static
+UserConfig.cpp:144:6:bool UserConfig::SetCloudCert(std::unique_ptr<UserConfig::Cert_t>)	32	static
+UserConfig.cpp:160:6:bool UserConfig::SetCloudEndpointUrl(const EndpointUrlValue_t*)	40	static
+UserConfig.cpp:175:6:bool UserConfig::SetCloudThingName(const ThingNameValue_t*)	40	static
+UserConfig.cpp:190:6:bool UserConfig::SetWifiOn(bool)	32	static
+UserConfig.cpp:206:6:bool UserConfig::SetWifiPassword(const PasswordValue_t*, size_t)	40	static
+UserConfig.cpp:222:6:bool UserConfig::SetWifiSsid(const SsidValue_t*, size_t)	40	static
+UserConfig.cpp:240:17:void GetCloudKey(UCHandle, const uint8_t**, const uint16_t**)	32	static
+UserConfig.cpp:254:17:void GetCloudCert(UCHandle, const uint8_t**, const uint16_t**)	32	static
+UserConfig.cpp:267:17:void GetCloudEndpointUrl(UCHandle, const char**)	24	static
+UserConfig.cpp:279:17:void GetCloudThingName(UCHandle, const char**)	24	static
+unique_ptr.h:360:7:std::unique_ptr<_Tp, _Dp>::pointer std::unique_ptr<_Tp, _Dp>::get() const [with _Tp = UserConfig::Config_t; _Dp = std::default_delete<UserConfig::Config_t>]	16	static
+unique_ptr.h:856:5:) [with _Tp = UserConfig::Config_t; _Args = {}]	24	static
+unique_ptr.h:286:7:std::unique_ptr<_Tp, _Dp>::~unique_ptr() [with _Tp = UserConfig::Config_t; _Dp = std::default_delete<UserConfig::Config_t>]	32	static
+unique_ptr.h:352:7:std::unique_ptr<_Tp, _Dp>::pointer std::unique_ptr<_Tp, _Dp>::operator->() const [with _Tp = UserConfig::Config_t; _Dp = std::default_delete<UserConfig::Config_t>]	16	static
+unique_ptr.h:352:7:std::unique_ptr<_Tp, _Dp>::pointer std::unique_ptr<_Tp, _Dp>::operator->() const [with _Tp = UserConfig::Key_t; _Dp = std::default_delete<UserConfig::Key_t>]	16	static
+move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = std::unique_ptr<UserConfig::Config_t>&]	16	static
+unique_ptr.h:257:7:std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>&&) [with _Tp = UserConfig::Config_t; _Dp = std::default_delete<UserConfig::Config_t>]	24	static
+unique_ptr.h:352:7:std::unique_ptr<_Tp, _Dp>::pointer std::unique_ptr<_Tp, _Dp>::operator->() const [with _Tp = UserConfig::Cert_t; _Dp = std::default_delete<UserConfig::Cert_t>]	16	static
+array:59:7:static constexpr _Tp* std::__array_traits<_Tp, _Nm>::_S_ptr(const _Tp (&)[_Nm]) [with _Tp = unsigned char; unsigned int _Nm = 2048]	16	static
+array:238:7:constexpr const value_type* std::array<_Tp, _Nm>::data() const [with _Tp = unsigned char; unsigned int _Nm = 2048]	16	static
+array:59:7:static constexpr _Tp* std::__array_traits<_Tp, _Nm>::_S_ptr(const _Tp (&)[_Nm]) [with _Tp = char; unsigned int _Nm = 64]	16	static
+array:238:7:constexpr const value_type* std::array<_Tp, _Nm>::data() const [with _Tp = char; unsigned int _Nm = 64]	16	static
+unique_ptr.h:154:18:std::__uniq_ptr_impl<_Tp, _Dp>::pointer std::__uniq_ptr_impl<_Tp, _Dp>::_M_ptr() const [with _Tp = UserConfig::Config_t; _Dp = std::default_delete<UserConfig::Config_t>]	16	static
+unique_ptr.h:211:2:std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>::pointer) [with _Del = std::default_delete<UserConfig::Config_t>; <template-parameter-2-2> = void; _Tp = UserConfig::Config_t; _Dp = std::default_delete<UserConfig::Config_t>]	16	static
+unique_ptr.h:153:18:std::__uniq_ptr_impl<_Tp, _Dp>::pointer& std::__uniq_ptr_impl<_Tp, _Dp>::_M_ptr() [with _Tp = UserConfig::Config_t; _Dp = std::default_delete<UserConfig::Config_t>]	16	static
+unique_ptr.h:365:7:std::unique_ptr<_Tp, _Dp>::deleter_type& std::unique_ptr<_Tp, _Dp>::get_deleter() [with _Tp = UserConfig::Config_t; _Dp = std::default_delete<UserConfig::Config_t>]	16	static
+move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = UserConfig::Config_t*&]	16	static
+unique_ptr.h:75:7:void std::default_delete<_Tp>::operator()(_Tp*) const [with _Tp = UserConfig::Config_t]	16	static
+unique_ptr.h:360:7:std::unique_ptr<_Tp, _Dp>::pointer std::unique_ptr<_Tp, _Dp>::get() const [with _Tp = UserConfig::Key_t; _Dp = std::default_delete<UserConfig::Key_t>]	16	static
+unique_ptr.h:381:7:std::unique_ptr<_Tp, _Dp>::pointer std::unique_ptr<_Tp, _Dp>::release() [with _Tp = UserConfig::Config_t; _Dp = std::default_delete<UserConfig::Config_t>]	24	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::default_delete<UserConfig::Config_t>]	16	static
+unique_ptr.h:150:7:std::__uniq_ptr_impl<_Tp, _Dp>::__uniq_ptr_impl(std::__uniq_ptr_impl<_Tp, _Dp>::pointer, _Del&&) [with _Del = std::default_delete<UserConfig::Config_t>; _Tp = UserConfig::Config_t; _Dp = std::default_delete<UserConfig::Config_t>]	32	static
+unique_ptr.h:360:7:std::unique_ptr<_Tp, _Dp>::pointer std::unique_ptr<_Tp, _Dp>::get() const [with _Tp = UserConfig::Cert_t; _Dp = std::default_delete<UserConfig::Cert_t>]	16	static
+tuple:1326:5:>&) [with unsigned int __i = 0; _Elements = {UserConfig::Config_t*, std::default_delete<UserConfig::Config_t>}]	16	static
+unique_ptr.h:147:7:std::__uniq_ptr_impl<_Tp, _Dp>::__uniq_ptr_impl(std::__uniq_ptr_impl<_Tp, _Dp>::pointer) [with _Tp = UserConfig::Config_t; _Dp = std::default_delete<UserConfig::Config_t>]	24	static
+tuple:1320:5:>&) [with unsigned int __i = 0; _Elements = {UserConfig::Config_t*, std::default_delete<UserConfig::Config_t>}]	16	static
+unique_ptr.h:155:18:_Dp& std::__uniq_ptr_impl<_Tp, _Dp>::_M_deleter() [with _Tp = UserConfig::Config_t; _Dp = std::default_delete<UserConfig::Config_t>]	16	static
+unique_ptr.h:154:18:std::__uniq_ptr_impl<_Tp, _Dp>::pointer std::__uniq_ptr_impl<_Tp, _Dp>::_M_ptr() const [with _Tp = UserConfig::Key_t; _Dp = std::default_delete<UserConfig::Key_t>]	16	static
+tuple:968:19:constexpr std::tuple<_T1, _T2>::tuple(_U1&&, _U2&&) [with _U1 = UserConfig::Config_t*&; _U2 = std::default_delete<UserConfig::Config_t>; typename std::enable_if<((std::_TC<true, _T1, _T2>::_MoveConstructibleTuple<_U1, _U2>() && std::_TC<true, _T1, _T2>::_ImplicitlyMoveConvertibleTuple<_U1, _U2>()) && (! std::is_same<typename std::remove_cv<typename std::remove_reference<_SrcTuple>::type>::type, std::allocator_arg_t>::value)), bool>::type <anonymous> = true; _T1 = UserConfig::Config_t*; _T2 = std::default_delete<UserConfig::Config_t>]	32	static
+unique_ptr.h:154:18:std::__uniq_ptr_impl<_Tp, _Dp>::pointer std::__uniq_ptr_impl<_Tp, _Dp>::_M_ptr() const [with _Tp = UserConfig::Cert_t; _Dp = std::default_delete<UserConfig::Cert_t>]	16	static
+tuple:1314:5:>&) [with unsigned int __i = 0; _Head = UserConfig::Config_t*; _Tail = {std::default_delete<UserConfig::Config_t>}]	16	static
+tuple:918:12:constexpr std::tuple<_T1, _T2>::tuple() [with _U1 = UserConfig::Config_t*; _U2 = std::default_delete<UserConfig::Config_t>; typename std::enable_if<std::__and_<std::__is_implicitly_default_constructible<_U1>, std::__is_implicitly_default_constructible<_U2> >::value, bool>::type <anonymous> = true; _T1 = UserConfig::Config_t*; _T2 = std::default_delete<UserConfig::Config_t>]	16	static
+tuple:1309:5:>&) [with unsigned int __i = 0; _Head = UserConfig::Config_t*; _Tail = {std::default_delete<UserConfig::Config_t>}]	16	static
+tuple:1320:5:>&) [with unsigned int __i = 1; _Elements = {UserConfig::Config_t*, std::default_delete<UserConfig::Config_t>}]	16	static
+tuple:1326:5:>&) [with unsigned int __i = 0; _Elements = {UserConfig::Key_t*, std::default_delete<UserConfig::Key_t>}]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = UserConfig::Config_t*&]	16	static
+tuple:216:19:) [with _UHead = UserConfig::Config_t*&; _UTail = {std::default_delete<UserConfig::Config_t>}; <template-parameter-2-3> = void; unsigned int _Idx = 0; _Head = UserConfig::Config_t*; _Tail = {std::default_delete<UserConfig::Config_t>}]	32	static
+tuple:1326:5:>&) [with unsigned int __i = 0; _Elements = {UserConfig::Cert_t*, std::default_delete<UserConfig::Cert_t>}]	16	static
+tuple:198:7:>&) [with unsigned int _Idx = 0; _Head = UserConfig::Config_t*; _Tail = {std::default_delete<UserConfig::Config_t>}]	16	static
+tuple:206:17:>::_Tuple_impl() [with unsigned int _Idx = 0; _Head = UserConfig::Config_t*; _Tail = {std::default_delete<UserConfig::Config_t>}]	16	static
+tuple:195:7:>&) [with unsigned int _Idx = 0; _Head = UserConfig::Config_t*; _Tail = {std::default_delete<UserConfig::Config_t>}]	16	static
+tuple:1309:5:>&) [with unsigned int __i = 1; _Head = std::default_delete<UserConfig::Config_t>; _Tail = {}]	16	static
+tuple:1314:5:>&) [with unsigned int __i = 0; _Head = UserConfig::Key_t*; _Tail = {std::default_delete<UserConfig::Key_t>}]	16	static
+tuple:348:19:constexpr std::_Tuple_impl<_Idx, _Head>::_Tuple_impl(_UHead&&) [with _UHead = std::default_delete<UserConfig::Config_t>; unsigned int _Idx = 1; _Head = std::default_delete<UserConfig::Config_t>]	16	static
+tuple:132:19:constexpr std::_Head_base<_Idx, _Head, false>::_Head_base(_UHead&&) [with _UHead = UserConfig::Config_t*&; unsigned int _Idx = 0; _Head = UserConfig::Config_t*]	16	static
+tuple:1314:5:>&) [with unsigned int __i = 0; _Head = UserConfig::Cert_t*; _Tail = {std::default_delete<UserConfig::Cert_t>}]	16	static
+tuple:163:7:static constexpr const _Head& std::_Head_base<_Idx, _Head, false>::_M_head(const std::_Head_base<_Idx, _Head, false>&) [with unsigned int _Idx = 0; _Head = UserConfig::Config_t*]	16	static
+tuple:339:17:constexpr std::_Tuple_impl<_Idx, _Head>::_Tuple_impl() [with unsigned int _Idx = 1; _Head = std::default_delete<UserConfig::Config_t>]	16	static
+tuple:122:17:constexpr std::_Head_base<_Idx, _Head, false>::_Head_base() [with unsigned int _Idx = 0; _Head = UserConfig::Config_t*]	16	static
+tuple:160:7:static constexpr _Head& std::_Head_base<_Idx, _Head, false>::_M_head(std::_Head_base<_Idx, _Head, false>&) [with unsigned int _Idx = 0; _Head = UserConfig::Config_t*]	16	static
+tuple:334:7:static constexpr _Head& std::_Tuple_impl<_Idx, _Head>::_M_head(std::_Tuple_impl<_Idx, _Head>&) [with unsigned int _Idx = 1; _Head = std::default_delete<UserConfig::Config_t>]	16	static
+tuple:198:7:>&) [with unsigned int _Idx = 0; _Head = UserConfig::Key_t*; _Tail = {std::default_delete<UserConfig::Key_t>}]	16	static
+tuple:86:19:constexpr std::_Head_base<_Idx, _Head, true>::_Head_base(_UHead&&) [with _UHead = std::default_delete<UserConfig::Config_t>; unsigned int _Idx = 1; _Head = std::default_delete<UserConfig::Config_t>]	16	static
+tuple:198:7:>&) [with unsigned int _Idx = 0; _Head = UserConfig::Cert_t*; _Tail = {std::default_delete<UserConfig::Cert_t>}]	16	static
+tuple:76:17:constexpr std::_Head_base<_Idx, _Head, true>::_Head_base() [with unsigned int _Idx = 1; _Head = std::default_delete<UserConfig::Config_t>]	16	static
+tuple:113:7:static constexpr _Head& std::_Head_base<_Idx, _Head, true>::_M_head(std::_Head_base<_Idx, _Head, true>&) [with unsigned int _Idx = 1; _Head = std::default_delete<UserConfig::Config_t>]	16	static
+tuple:163:7:static constexpr const _Head& std::_Head_base<_Idx, _Head, false>::_M_head(const std::_Head_base<_Idx, _Head, false>&) [with unsigned int _Idx = 0; _Head = UserConfig::Key_t*]	16	static
+tuple:163:7:static constexpr const _Head& std::_Head_base<_Idx, _Head, false>::_M_head(const std::_Head_base<_Idx, _Head, false>&) [with unsigned int _Idx = 0; _Head = UserConfig::Cert_t*]	16	static

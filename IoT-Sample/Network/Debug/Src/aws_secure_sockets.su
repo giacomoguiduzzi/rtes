@@ -1,0 +1,15 @@
+aws_secure_sockets.c:233:17:prvGetFreeSocket	16	static
+aws_secure_sockets.c:272:13:prvReturnSocket	16	static
+aws_secure_sockets.c:285:19:prvIsValidSocket	24	static
+aws_secure_sockets.c:311:19:prvNetworkSend	56	static,ignoring_inline_asm
+aws_secure_sockets.c:402:19:prvNetworkRecv	64	static
+aws_secure_sockets.c:534:10:SOCKETS_Socket	40	static,ignoring_inline_asm
+aws_secure_sockets.c:576:9:SOCKETS_Connect	96	static
+aws_secure_sockets.c:753:9:SOCKETS_Recv	40	static
+aws_secure_sockets.c:810:9:SOCKETS_Send	40	static
+aws_secure_sockets.c:867:9:SOCKETS_Shutdown	32	static
+aws_secure_sockets.c:923:9:SOCKETS_Close	48	static
+aws_secure_sockets.c:1001:9:SOCKETS_SetSockOpt	40	static
+aws_secure_sockets.c:1159:10:SOCKETS_GetHostByName	24	static
+aws_secure_sockets.c:1186:12:SOCKETS_Init	16	static
+aws_secure_sockets.c:1206:9:SOCKETS_GetTransportSettings	32	static

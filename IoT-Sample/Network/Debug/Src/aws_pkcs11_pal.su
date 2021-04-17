@@ -1,0 +1,4 @@
+aws_pkcs11_pal.c:312:18:PKCS11_PAL_SaveObject	32	static
+aws_pkcs11_pal.c:499:18:PKCS11_PAL_FindObject	24	static
+aws_pkcs11_pal.c:572:7:PKCS11_PAL_GetObjectValue	48	static
+aws_pkcs11_pal.c:718:6:PKCS11_PAL_GetObjectValueCleanup	16	static

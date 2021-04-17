@@ -1,0 +1,6 @@
+dvUsb1.c:66:5:usb1_open_r	24	static
+dvUsb1.c:78:5:usb1_close_r	16	static
+dvUsb1.c:97:10:usb1_write_r	40	static
+dvUsb1.c:171:6:SYS_CDC_TxCompleteIsr	16	static,ignoring_inline_asm
+dvUsb1.c:200:10:usb1_read_r	24	static
+dvUsb1.c:240:6:SYS_CDC_RxMessageIsr	24	static,ignoring_inline_asm

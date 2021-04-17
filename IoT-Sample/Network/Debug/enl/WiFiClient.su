@@ -1,0 +1,68 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+WiFiClient.cpp:52:2:enl::WiFiClient::impl::impl()	16	static
+WiFiClient.cpp:59:2:enl::WiFiClient::impl::impl(enl::Type)	16	static
+WiFiClient.cpp:66:2:enl::WiFiClient::impl::impl(intptr_t)	16	static
+WiFiClient.cpp:80:1:enl::WiFiClient::~WiFiClient()	16	static
+WiFiClient.cpp:90:1:enl::WiFiClient::WiFiClient()	16	static
+WiFiClient.cpp:101:1:enl::WiFiClient::WiFiClient(enl::Type)	16	static
+WiFiClient.cpp:113:1:enl::WiFiClient::WiFiClient(intptr_t)	16	static
+WiFiClient.cpp:125:6:bool enl::WiFiClient::connect(enl::IPAddress&, uint16_t)	40	static
+WiFiClient.cpp:166:6:bool enl::WiFiClient::connect(const char*, uint16_t)	32	static
+WiFiClient.cpp:180:8:size_t enl::WiFiClient::write(const uint8_t*, size_t)	40	static
+WiFiClient.cpp:199:8:size_t enl::WiFiClient::write(uint8_t)	16	static
+WiFiClient.cpp:209:9:int32_t enl::WiFiClient::available()	16	static
+WiFiClient.cpp:224:5:int enl::WiFiClient::read()	24	static
+WiFiClient.cpp:236:8:size_t enl::WiFiClient::read(uint8_t*, size_t)	40	static
+WiFiClient.cpp:257:5:int enl::WiFiClient::peek()	16	static
+WiFiClient.cpp:272:6:void enl::WiFiClient::flush()	16	static
+WiFiClient.cpp:285:6:void enl::WiFiClient::stop()	16	static
+WiFiClient.cpp:299:6:bool enl::WiFiClient::connected()	16	static
+WiFiClient.cpp:309:8:enl::Status enl::WiFiClient::status()	16	static
+WiFiClient.cpp:319:1:enl::WiFiClient::operator bool()	16	static
+WiFiClient.cpp:330:11:enl::IPAddress enl::WiFiClient::remoteIP()	24	static
+WiFiClient.cpp:342:10:uint16_t enl::WiFiClient::remotePort()	16	static
+NetworkAddress.hpp:53:2:enl::NetworkAddress<addrSize>::NetworkAddress() [with unsigned int addrSize = 4]	16	static
+NetworkAddress.hpp:72:2:enl::NetworkAddress<addrSize>::NetworkAddress(uint8_t, uint8_t, uint8_t, uint8_t) [with unsigned int Tsize = 4; <template-parameter-2-2> = void; unsigned int addrSize = 4]	24	static
+unique_ptr.h:286:7:std::unique_ptr<_Tp, _Dp>::~unique_ptr() [with _Tp = enl::WiFiClient::impl; _Dp = std::default_delete<enl::WiFiClient::impl>]	32	static
+unique_ptr.h:856:5:) [with _Tp = enl::WiFiClient::impl; _Args = {}]	24	static
+unique_ptr.h:856:5:) [with _Tp = enl::WiFiClient::impl; _Args = {enl::Type&}]	24	static
+unique_ptr.h:856:5:) [with _Tp = enl::WiFiClient::impl; _Args = {int&}]	24	static
+unique_ptr.h:352:7:std::unique_ptr<_Tp, _Dp>::pointer std::unique_ptr<_Tp, _Dp>::operator->() const [with _Tp = enl::WiFiClient::impl; _Dp = std::default_delete<enl::WiFiClient::impl>]	16	static
+NetworkAddress.hpp:86:2:enl::NetworkAddress<addrSize>::operator uint32_t() const [with unsigned int Tsize = 4; <template-parameter-2-2> = void; unsigned int addrSize = 4]	24	static
+NetworkAddress.hpp:111:19:enl::NetworkAddress<addrSize>& enl::NetworkAddress<addrSize>::operator=(T) [with T = long unsigned int; <template-parameter-2-2> = void; unsigned int addrSize = 4]	24	static
+NetworkAddress.hpp:55:11:enl::NetworkAddress<addrSize>::NetworkAddress(const uint8_t*) [with unsigned int addrSize = 4]	16	static
+array:185:7:constexpr std::array<_Tp, _Nm>::value_type& std::array<_Tp, _Nm>::operator[](std::array<_Tp, _Nm>::size_type) [with _Tp = unsigned char; unsigned int _Nm = 4]	16	static
+unique_ptr.h:153:18:std::__uniq_ptr_impl<_Tp, _Dp>::pointer& std::__uniq_ptr_impl<_Tp, _Dp>::_M_ptr() [with _Tp = enl::WiFiClient::impl; _Dp = std::default_delete<enl::WiFiClient::impl>]	16	static
+unique_ptr.h:365:7:std::unique_ptr<_Tp, _Dp>::deleter_type& std::unique_ptr<_Tp, _Dp>::get_deleter() [with _Tp = enl::WiFiClient::impl; _Dp = std::default_delete<enl::WiFiClient::impl>]	16	static
+move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = enl::WiFiClient::impl*&]	16	static
+unique_ptr.h:75:7:void std::default_delete<_Tp>::operator()(_Tp*) const [with _Tp = enl::WiFiClient::impl]	16	static
+unique_ptr.h:211:2:std::unique_ptr<_Tp, _Dp>::unique_ptr(std::unique_ptr<_Tp, _Dp>::pointer) [with _Del = std::default_delete<enl::WiFiClient::impl>; <template-parameter-2-2> = void; _Tp = enl::WiFiClient::impl; _Dp = std::default_delete<enl::WiFiClient::impl>]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = enl::Type&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = int&]	16	static
+unique_ptr.h:360:7:std::unique_ptr<_Tp, _Dp>::pointer std::unique_ptr<_Tp, _Dp>::get() const [with _Tp = enl::WiFiClient::impl; _Dp = std::default_delete<enl::WiFiClient::impl>]	16	static
+array:189:7:constexpr const value_type& std::array<_Tp, _Nm>::operator[](std::array<_Tp, _Nm>::size_type) const [with _Tp = unsigned char; unsigned int _Nm = 4]	16	static
+array:234:7:constexpr std::array<_Tp, _Nm>::value_type* std::array<_Tp, _Nm>::data() [with _Tp = unsigned char; unsigned int _Nm = 4]	16	static
+array:55:7:static constexpr _Tp& std::__array_traits<_Tp, _Nm>::_S_ref(const _Tp (&)[_Nm], std::size_t) [with _Tp = unsigned char; unsigned int _Nm = 4]	16	static
+tuple:1320:5:>&) [with unsigned int __i = 0; _Elements = {enl::WiFiClient::impl*, std::default_delete<enl::WiFiClient::impl>}]	16	static
+unique_ptr.h:155:18:_Dp& std::__uniq_ptr_impl<_Tp, _Dp>::_M_deleter() [with _Tp = enl::WiFiClient::impl; _Dp = std::default_delete<enl::WiFiClient::impl>]	16	static
+unique_ptr.h:147:7:std::__uniq_ptr_impl<_Tp, _Dp>::__uniq_ptr_impl(std::__uniq_ptr_impl<_Tp, _Dp>::pointer) [with _Tp = enl::WiFiClient::impl; _Dp = std::default_delete<enl::WiFiClient::impl>]	24	static
+unique_ptr.h:154:18:std::__uniq_ptr_impl<_Tp, _Dp>::pointer std::__uniq_ptr_impl<_Tp, _Dp>::_M_ptr() const [with _Tp = enl::WiFiClient::impl; _Dp = std::default_delete<enl::WiFiClient::impl>]	16	static
+array:59:7:static constexpr _Tp* std::__array_traits<_Tp, _Nm>::_S_ptr(const _Tp (&)[_Nm]) [with _Tp = unsigned char; unsigned int _Nm = 4]	16	static
+tuple:1309:5:>&) [with unsigned int __i = 0; _Head = enl::WiFiClient::impl*; _Tail = {std::default_delete<enl::WiFiClient::impl>}]	16	static
+tuple:1320:5:>&) [with unsigned int __i = 1; _Elements = {enl::WiFiClient::impl*, std::default_delete<enl::WiFiClient::impl>}]	16	static
+tuple:918:12:constexpr std::tuple<_T1, _T2>::tuple() [with _U1 = enl::WiFiClient::impl*; _U2 = std::default_delete<enl::WiFiClient::impl>; typename std::enable_if<std::__and_<std::__is_implicitly_default_constructible<_U1>, std::__is_implicitly_default_constructible<_U2> >::value, bool>::type <anonymous> = true; _T1 = enl::WiFiClient::impl*; _T2 = std::default_delete<enl::WiFiClient::impl>]	16	static
+tuple:1326:5:>&) [with unsigned int __i = 0; _Elements = {enl::WiFiClient::impl*, std::default_delete<enl::WiFiClient::impl>}]	16	static
+tuple:195:7:>&) [with unsigned int _Idx = 0; _Head = enl::WiFiClient::impl*; _Tail = {std::default_delete<enl::WiFiClient::impl>}]	16	static
+tuple:1309:5:>&) [with unsigned int __i = 1; _Head = std::default_delete<enl::WiFiClient::impl>; _Tail = {}]	16	static
+tuple:206:17:>::_Tuple_impl() [with unsigned int _Idx = 0; _Head = enl::WiFiClient::impl*; _Tail = {std::default_delete<enl::WiFiClient::impl>}]	16	static
+tuple:1314:5:>&) [with unsigned int __i = 0; _Head = enl::WiFiClient::impl*; _Tail = {std::default_delete<enl::WiFiClient::impl>}]	16	static
+tuple:160:7:static constexpr _Head& std::_Head_base<_Idx, _Head, false>::_M_head(std::_Head_base<_Idx, _Head, false>&) [with unsigned int _Idx = 0; _Head = enl::WiFiClient::impl*]	16	static
+tuple:334:7:static constexpr _Head& std::_Tuple_impl<_Idx, _Head>::_M_head(std::_Tuple_impl<_Idx, _Head>&) [with unsigned int _Idx = 1; _Head = std::default_delete<enl::WiFiClient::impl>]	16	static
+tuple:339:17:constexpr std::_Tuple_impl<_Idx, _Head>::_Tuple_impl() [with unsigned int _Idx = 1; _Head = std::default_delete<enl::WiFiClient::impl>]	16	static
+tuple:122:17:constexpr std::_Head_base<_Idx, _Head, false>::_Head_base() [with unsigned int _Idx = 0; _Head = enl::WiFiClient::impl*]	16	static
+tuple:198:7:>&) [with unsigned int _Idx = 0; _Head = enl::WiFiClient::impl*; _Tail = {std::default_delete<enl::WiFiClient::impl>}]	16	static
+tuple:113:7:static constexpr _Head& std::_Head_base<_Idx, _Head, true>::_M_head(std::_Head_base<_Idx, _Head, true>&) [with unsigned int _Idx = 1; _Head = std::default_delete<enl::WiFiClient::impl>]	16	static
+tuple:76:17:constexpr std::_Head_base<_Idx, _Head, true>::_Head_base() [with unsigned int _Idx = 1; _Head = std::default_delete<enl::WiFiClient::impl>]	16	static
+tuple:163:7:static constexpr const _Head& std::_Head_base<_Idx, _Head, false>::_M_head(const std::_Head_base<_Idx, _Head, false>&) [with unsigned int _Idx = 0; _Head = enl::WiFiClient::impl*]	16	static
+WiFiClient.cpp:348:1:void __static_initialization_and_destruction_0(int, int)	24	static
+WiFiClient.cpp:348:1:cpp)	8	static

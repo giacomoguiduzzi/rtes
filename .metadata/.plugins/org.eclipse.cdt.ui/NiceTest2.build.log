@@ -1,20 +1,10 @@
-19:22:39 **** Incremental Build of configuration Debug for project NiceTest2 ****
-make -j2 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32L475xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "NiceTest2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/bevil/STM32CubeIDE/workspace_1.5.0/NiceTest2/STM32L475VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NiceTest2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: NiceTest2.elf
- 
-arm-none-eabi-objdump -h -S  NiceTest2.elf  > "NiceTest2.list"
-arm-none-eabi-objcopy  -O binary  NiceTest2.elf  "NiceTest2.bin"
-Finished building: NiceTest2.bin
- 
+19:25:35 **** Incremental Build of configuration Debug for project NiceTest2 ****
+make -j8 all 
 arm-none-eabi-size   NiceTest2.elf 
    text	   data	    bss	    dec	    hex	filename
-  21912	    124	   5852	  27888	   6cf0	NiceTest2.elf
+  22192	    124	   5868	  28184	   6e18	NiceTest2.elf
 Finished building: default.size.stdout
  
-Finished building: NiceTest2.list
- 
 
-19:22:41 Build Finished. 0 errors, 0 warnings. (took 2s.56ms)
+19:25:35 Build Finished. 0 errors, 0 warnings. (took 709ms)
 

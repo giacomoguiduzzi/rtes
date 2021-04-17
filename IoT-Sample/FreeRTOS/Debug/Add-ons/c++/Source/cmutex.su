@@ -1,0 +1,10 @@
+cmutex.cpp:46:1:cpp_freertos::Mutex::Mutex()	16	static
+cmutex.cpp:51:1:cpp_freertos::Mutex::~Mutex()	16	static
+cmutex.cpp:51:1:virtual cpp_freertos::Mutex::~Mutex()	16	static
+cmutex.cpp:57:1:cpp_freertos::MutexStandard::MutexStandard()	24	static,ignoring_inline_asm
+cmutex.cpp:71:6:virtual bool cpp_freertos::MutexStandard::Lock(TickType_t)	24	static
+cmutex.cpp:78:6:virtual bool cpp_freertos::MutexStandard::Unlock()	24	static
+cmutex.cpp:117:1:cpp_freertos::LockGuard::LockGuard(cpp_freertos::Mutex&)	16	static
+cmutex.cpp:124:1:cpp_freertos::LockGuard::~LockGuard()	16	static
+mutex.hpp:169:7:cpp_freertos::MutexStandard::~MutexStandard()	16	static
+mutex.hpp:169:7:virtual cpp_freertos::MutexStandard::~MutexStandard()	16	static

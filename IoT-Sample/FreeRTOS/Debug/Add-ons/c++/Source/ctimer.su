@@ -1,0 +1,14 @@
+ctimer.cpp:46:1:cpp_freertos::Timer::Timer(const char*, TickType_t, bool)	40	static,ignoring_inline_asm
+ctimer.cpp:67:1:cpp_freertos::Timer::Timer(TickType_t, bool)	40	static,ignoring_inline_asm
+ctimer.cpp:87:1:cpp_freertos::Timer::~Timer()	24	static
+ctimer.cpp:87:1:virtual cpp_freertos::Timer::~Timer()	16	static
+ctimer.cpp:93:6:bool cpp_freertos::Timer::IsActive()	16	static
+ctimer.cpp:99:6:bool cpp_freertos::Timer::Start(TickType_t)	32	static
+ctimer.cpp:105:6:bool cpp_freertos::Timer::StartFromISR(BaseType_t*)	32	static
+ctimer.cpp:112:6:bool cpp_freertos::Timer::Stop(TickType_t)	24	static
+ctimer.cpp:118:6:bool cpp_freertos::Timer::StopFromISR(BaseType_t*)	24	static
+ctimer.cpp:125:6:bool cpp_freertos::Timer::Reset(TickType_t)	32	static
+ctimer.cpp:131:6:bool cpp_freertos::Timer::ResetFromISR(BaseType_t*)	32	static
+ctimer.cpp:138:6:bool cpp_freertos::Timer::SetPeriod(TickType_t, TickType_t)	32	static
+ctimer.cpp:146:6:bool cpp_freertos::Timer::SetPeriodFromISR(TickType_t, BaseType_t*)	32	static
+ctimer.cpp:165:6:static void cpp_freertos::Timer::TimerCallbackFunctionAdapter(TimerHandle_t)	24	static

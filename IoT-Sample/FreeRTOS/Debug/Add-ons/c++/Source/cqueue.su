@@ -1,0 +1,25 @@
+cqueue.cpp:46:1:cpp_freertos::Queue::Queue(UBaseType_t, UBaseType_t, const char*)	32	static,ignoring_inline_asm
+cqueue.cpp:61:1:cpp_freertos::Queue::~Queue()	16	static
+cqueue.cpp:61:1:virtual cpp_freertos::Queue::~Queue()	16	static
+cqueue.cpp:67:6:virtual bool cpp_freertos::Queue::Enqueue(void*)	24	static
+cqueue.cpp:77:6:virtual bool cpp_freertos::Queue::Enqueue(void*, TickType_t)	32	static
+cqueue.cpp:87:6:bool cpp_freertos::Queue::Dequeue(void*, TickType_t)	32	static
+cqueue.cpp:97:6:bool cpp_freertos::Queue::Peek(void*, TickType_t)	32	static
+cqueue.cpp:107:6:virtual bool cpp_freertos::Queue::EnqueueFromISR(void*, BaseType_t*)	32	static
+cqueue.cpp:117:6:bool cpp_freertos::Queue::DequeueFromISR(void*, BaseType_t*)	32	static
+cqueue.cpp:127:6:bool cpp_freertos::Queue::PeekFromISR(void*)	24	static
+cqueue.cpp:137:6:bool cpp_freertos::Queue::IsEmpty()	24	static
+cqueue.cpp:145:6:bool cpp_freertos::Queue::IsFull()	24	static
+cqueue.cpp:153:6:void cpp_freertos::Queue::Flush()	16	static
+cqueue.cpp:159:13:UBaseType_t cpp_freertos::Queue::NumItems()	16	static
+cqueue.cpp:165:13:UBaseType_t cpp_freertos::Queue::NumSpacesLeft()	16	static
+cqueue.cpp:171:1:cpp_freertos::Deque::Deque(UBaseType_t, UBaseType_t)	24	static
+cqueue.cpp:177:6:bool cpp_freertos::Deque::EnqueueToFront(void*, TickType_t)	32	static
+cqueue.cpp:187:6:bool cpp_freertos::Deque::EnqueueToFrontFromISR(void*, BaseType_t*)	32	static
+cqueue.cpp:197:1:cpp_freertos::BinaryQueue::BinaryQueue(UBaseType_t)	16	static
+cqueue.cpp:203:6:virtual bool cpp_freertos::BinaryQueue::Enqueue(void*)	16	static
+cqueue.cpp:210:6:virtual bool cpp_freertos::BinaryQueue::EnqueueFromISR(void*, BaseType_t*)	24	static
+queue.hpp:314:7:cpp_freertos::BinaryQueue::~BinaryQueue()	16	static
+queue.hpp:314:7:virtual cpp_freertos::BinaryQueue::~BinaryQueue()	16	static
+queue.hpp:261:7:cpp_freertos::Deque::~Deque()	16	static
+queue.hpp:261:7:virtual cpp_freertos::Deque::~Deque()	16	static

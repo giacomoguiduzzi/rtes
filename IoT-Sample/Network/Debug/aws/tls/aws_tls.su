@@ -1,0 +1,12 @@
+aws_tls.c:113:13:prvFreeContext	16	static
+aws_tls.c:142:12:prvNetworkSend	32	static
+aws_tls.c:160:12:prvNetworkRecv	32	static
+aws_tls.c:178:12:prvGenerateRandomBytes	32	static
+aws_tls.c:207:12:prvCheckCertificate	96	static
+aws_tls.c:277:12:prvPrivateKeySigningCallback	56	static
+aws_tls.c:330:12:prvInitializeClientCredential	72	static
+aws_tls.c:530:12:TLS_Init	32	static
+aws_tls.c:600:12:TLS_Connect	32	static
+aws_tls.c:756:12:TLS_Recv	40	static
+aws_tls.c:807:12:TLS_Send	40	static
+aws_tls.c:859:6:TLS_Cleanup	24	static

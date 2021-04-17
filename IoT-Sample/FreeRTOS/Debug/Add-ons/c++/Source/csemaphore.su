@@ -1,0 +1,13 @@
+csemaphore.cpp:46:6:bool cpp_freertos::Semaphore::Take(TickType_t)	24	static
+csemaphore.cpp:56:6:bool cpp_freertos::Semaphore::TakeFromISR(BaseType_t*)	24	static
+csemaphore.cpp:66:6:bool cpp_freertos::Semaphore::Give()	24	static
+csemaphore.cpp:76:6:bool cpp_freertos::Semaphore::GiveFromISR(BaseType_t*)	24	static
+csemaphore.cpp:86:1:cpp_freertos::Semaphore::Semaphore()	16	static
+csemaphore.cpp:91:1:cpp_freertos::Semaphore::~Semaphore()	16	static
+csemaphore.cpp:91:1:virtual cpp_freertos::Semaphore::~Semaphore()	16	static
+csemaphore.cpp:97:1:cpp_freertos::BinarySemaphore::BinarySemaphore(bool)	24	static,ignoring_inline_asm
+csemaphore.cpp:115:1:cpp_freertos::CountingSemaphore::CountingSemaphore(UBaseType_t, UBaseType_t)	40	static,ignoring_inline_asm
+semaphore.hpp:216:7:cpp_freertos::CountingSemaphore::~CountingSemaphore()	16	static
+semaphore.hpp:216:7:virtual cpp_freertos::CountingSemaphore::~CountingSemaphore()	16	static
+semaphore.hpp:194:7:cpp_freertos::BinarySemaphore::~BinarySemaphore()	16	static
+semaphore.hpp:194:7:virtual cpp_freertos::BinarySemaphore::~BinarySemaphore()	16	static

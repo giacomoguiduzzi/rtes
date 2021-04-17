@@ -1,0 +1,11 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+thread.hpp:162:28:static void cpp_freertos::Thread::StartScheduler()	8	static
+UserConfig.hpp:101:3:UserConfig::UserConfig()	16	static
+StartApplication.cpp:84:6:void StartApplication()	8	static
+CloudInterface.hpp:37:7:CloudInterface::~CloudInterface()	16	static
+CloudInterface.hpp:37:7:virtual CloudInterface::~CloudInterface()	16	static
+CommandInterface.hpp:37:7:CommandInterface::~CommandInterface()	16	static
+CommandInterface.hpp:37:7:virtual CommandInterface::~CommandInterface()	16	static
+StartApplication.cpp:103:1:void __static_initialization_and_destruction_0(int, int)	16	static
+StartApplication.cpp:103:1:cpp)	8	static
+StartApplication.cpp:103:1:cpp)	8	static

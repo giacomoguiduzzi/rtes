@@ -1,0 +1,5 @@
+busArbitrator-I2C.c:71:6:BA_I2C_init	16	static
+busArbitrator-I2C.c:101:6:BA_I2C_read	24	static
+busArbitrator-I2C.c:163:6:BA_I2C_write	24	static
+busArbitrator-I2C.c:204:6:HAL_I2C_MasterTxCpltCallback	32	static,ignoring_inline_asm
+busArbitrator-I2C.c:239:6:HAL_I2C_MasterRxCpltCallback	32	static,ignoring_inline_asm

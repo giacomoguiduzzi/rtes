@@ -1,0 +1,6 @@
+aws_crypto.c:61:15:prvCalloc	24	static
+aws_crypto.c:78:19:prvVerifySignature	360	static
+aws_crypto.c:144:6:CRYPTO_ConfigureHeap	8	static
+aws_crypto.c:155:12:CRYPTO_SignatureVerificationStart	32	static
+aws_crypto.c:203:6:CRYPTO_SignatureVerificationUpdate	32	static
+aws_crypto.c:225:12:CRYPTO_SignatureVerificationFinal	88	static

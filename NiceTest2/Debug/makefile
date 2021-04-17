@@ -1,5 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (9-2020-q2-update)
 ################################################################################
 
 -include ../makefile.init
@@ -32,6 +33,12 @@ endif
 
 -include ../makefile.defs
 
+OPTIONAL_TOOL_DEPS := \
+$(wildcard ../makefile.defs) \
+$(wildcard ../makefile.init) \
+$(wildcard ../makefile.targets) \
+
+
 BUILD_ARTIFACT_NAME := NiceTest2
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX := 
@@ -58,22 +65,22 @@ all: main-build
 main-build: NiceTest2.elf secondary-outputs
 
 # Tool invocations
-NiceTest2.elf: $(OBJS) $(USER_OBJS) /home/bevil/STM32CubeIDE/workspace_1.5.0/NiceTest2/STM32L475VGTX_FLASH.ld
-	arm-none-eabi-gcc -o "NiceTest2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/bevil/STM32CubeIDE/workspace_1.5.0/NiceTest2/STM32L475VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NiceTest2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+NiceTest2.elf: $(OBJS) $(USER_OBJS) D:\ST\workspace\NiceTest2\STM32L475VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "NiceTest2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\ST\workspace\NiceTest2\STM32L475VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NiceTest2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-default.size.stdout: $(EXECUTABLES)
+default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-size  $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-NiceTest2.list: $(EXECUTABLES)
+NiceTest2.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "NiceTest2.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-NiceTest2.bin: $(EXECUTABLES)
+NiceTest2.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "NiceTest2.bin"
 	@echo 'Finished building: $@'
 	@echo ' '

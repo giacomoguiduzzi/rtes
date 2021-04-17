@@ -1,0 +1,26 @@
+char_traits.h:329:7:static constexpr std::size_t std::char_traits<char>::length(const char_type*)	24	static
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+cthread.cpp:56:1:cpp_freertos::Thread::Thread(std::string, uint16_t, UBaseType_t)	24	static
+cthread.cpp:70:1:cpp_freertos::Thread::Thread(uint16_t, UBaseType_t)	40	static
+cthread.cpp:123:6:bool cpp_freertos::Thread::Start()	40	static
+cthread.cpp:179:6:virtual void cpp_freertos::Thread::Cleanup()	16	static
+cthread.cpp:184:1:cpp_freertos::Thread::~Thread()	16	static
+cthread.cpp:184:1:virtual cpp_freertos::Thread::~Thread()	16	static
+cthread.cpp:201:6:static void cpp_freertos::Thread::TaskFunctionAdapter(void*)	24	static
+cthread.cpp:222:6:void cpp_freertos::Thread::DelayUntil(TickType_t)	16	static
+cthread.cpp:233:6:void cpp_freertos::Thread::ResetDelayUntil()	16	static
+char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
+char_traits.h:161:5:static constexpr std::size_t __gnu_cxx::char_traits<_CharT>::length(const char_type*) [with _CharT = char]	24	static
+basic_string.h:525:7:std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, const _Alloc&) [with <template-parameter-2-1> = std::allocator<char>; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	32	static
+basic_string.h:263:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct(_InIterator, _InIterator) [with _InIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	24	static
+basic_string.h:243:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct_aux(_InIterator, _InIterator, std::__false_type) [with _InIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	40	static
+stl_iterator_base_funcs.h:138:5:constexpr typename std::iterator_traits<_Iterator>::difference_type std::distance(_InputIterator, _InputIterator) [with _InputIterator = const char*]	24	static
+basic_string.tcc:206:7:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct(_InIterator, _InIterator, std::forward_iterator_tag) [with _FwdIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	32	static
+type_traits.h:152:5:bool __gnu_cxx::__is_null_pointer(_Type*) [with _Type = const char]	16	static
+stl_iterator_base_types.h:205:5:constexpr typename std::iterator_traits<_Iterator>::iterator_category std::__iterator_category(const _Iter&) [with _Iter = const char*]	16	static
+stl_iterator_base_funcs.h:98:5:constexpr typename std::iterator_traits<_Iterator>::difference_type std::__distance(_RandomAccessIterator, _RandomAccessIterator, std::random_access_iterator_tag) [with _RandomAccessIterator = const char*]	24	static
+mutex.hpp:169:7:cpp_freertos::MutexStandard::~MutexStandard()	16	static
+mutex.hpp:169:7:virtual cpp_freertos::MutexStandard::~MutexStandard()	16	static
+cthread.cpp:236:1:void __static_initialization_and_destruction_0(int, int)	16	static
+cthread.cpp:236:1:cpp)	8	static
+cthread.cpp:236:1:cpp)	8	static

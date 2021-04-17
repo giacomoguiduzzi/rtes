@@ -1,0 +1,3 @@
+aws_bufferpool_static_thread_safe.c:117:12:BUFFERPOOL_Init	16	static
+aws_bufferpool_static_thread_safe.c:133:11:BUFFERPOOL_GetFreeBuffer	24	static
+aws_bufferpool_static_thread_safe.c:181:6:BUFFERPOOL_ReturnBuffer	16	static

@@ -1,0 +1,3 @@
+sysdbg.c:35:6:_SysMemCheckpoint	16	static
+sysdbg.c:49:5:_SysMemDifference	24	static
+sysdbg.c:74:6:_SysMemDumpStatistics	16	static

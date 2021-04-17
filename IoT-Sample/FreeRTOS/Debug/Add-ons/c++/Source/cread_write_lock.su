@@ -1,0 +1,16 @@
+cread_write_lock.cpp:46:1:cpp_freertos::ReadWriteLock::ReadWriteLock()	24	static,ignoring_inline_asm
+cread_write_lock.cpp:82:1:cpp_freertos::ReadWriteLock::~ReadWriteLock()	16	static
+cread_write_lock.cpp:82:1:virtual cpp_freertos::ReadWriteLock::~ReadWriteLock()	16	static
+cread_write_lock.cpp:89:6:virtual void cpp_freertos::ReadWriteLockPreferReader::ReaderLock()	16	static
+cread_write_lock.cpp:102:6:virtual void cpp_freertos::ReadWriteLockPreferReader::ReaderUnlock()	16	static
+cread_write_lock.cpp:115:6:virtual void cpp_freertos::ReadWriteLockPreferReader::WriterLock()	16	static
+cread_write_lock.cpp:121:6:virtual void cpp_freertos::ReadWriteLockPreferReader::WriterUnlock()	16	static
+cread_write_lock.cpp:127:1:cpp_freertos::ReadWriteLockPreferWriter::ReadWriteLockPreferWriter()	24	static,ignoring_inline_asm
+cread_write_lock.cpp:164:1:cpp_freertos::ReadWriteLockPreferWriter::~ReadWriteLockPreferWriter()	16	static
+cread_write_lock.cpp:164:1:virtual cpp_freertos::ReadWriteLockPreferWriter::~ReadWriteLockPreferWriter()	16	static
+cread_write_lock.cpp:171:6:virtual void cpp_freertos::ReadWriteLockPreferWriter::ReaderLock()	16	static
+cread_write_lock.cpp:186:6:virtual void cpp_freertos::ReadWriteLockPreferWriter::ReaderUnlock()	16	static
+cread_write_lock.cpp:199:6:virtual void cpp_freertos::ReadWriteLockPreferWriter::WriterLock()	16	static
+cread_write_lock.cpp:214:6:virtual void cpp_freertos::ReadWriteLockPreferWriter::WriterUnlock()	16	static
+read_write_lock.hpp:182:7:cpp_freertos::ReadWriteLockPreferReader::~ReadWriteLockPreferReader()	16	static
+read_write_lock.hpp:182:7:virtual cpp_freertos::ReadWriteLockPreferReader::~ReadWriteLockPreferReader()	16	static

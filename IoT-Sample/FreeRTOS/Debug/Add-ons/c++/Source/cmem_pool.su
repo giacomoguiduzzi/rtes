@@ -1,0 +1,56 @@
+new:173:33:void* operator new(std::size_t, void*)	16	static
+stl_list.h:109:7:std::__detail::_List_node_header::_List_node_header()	16	static
+stl_list.h:149:7:void std::__detail::_List_node_header::_M_init()	16	static
+cmem_pool.cpp:49:6:void cpp_freertos::MemoryPool::CalculateValidAlignment()	32	static,ignoring_inline_asm
+cmem_pool.cpp:78:6:void cpp_freertos::MemoryPool::CalculateItemSize()	24	static
+stl_list.h:456:7:std::__cxx11::_List_base<_Tp, _Alloc>::_List_base() [with _Tp = void*; _Alloc = std::allocator<void*>]	16	static
+stl_list.h:669:7:std::__cxx11::list<_Tp, _Alloc>::list() [with _Tp = void*; _Alloc = std::allocator<void*>]	16	static
+cmem_pool.cpp:96:1:cpp_freertos::MemoryPool::MemoryPool(int, int, int)	48	static,ignoring_inline_asm
+cmem_pool.cpp:125:1:cpp_freertos::MemoryPool::MemoryPool(int, void*, int, int)	40	static
+cmem_pool.cpp:149:7:void* cpp_freertos::MemoryPool::Allocate()	32	static
+cmem_pool.cpp:163:6:void cpp_freertos::MemoryPool::Free(void*)	24	static
+cmem_pool.cpp:170:6:void cpp_freertos::MemoryPool::AddMemory(int)	40	static,ignoring_inline_asm
+cmem_pool.cpp:192:6:void cpp_freertos::MemoryPool::AddMemory(void*, int)	40	static
+stl_list.h:375:2:std::__cxx11::_List_base<_Tp, _Alloc>::_List_impl::_List_impl() [with _Tp = void*; _Alloc = std::allocator<void*>]	16	static
+stl_list.h:1212:7:void std::__cxx11::list<_Tp, _Alloc>::push_back(std::__cxx11::list<_Tp, _Alloc>::value_type&&) [with _Tp = void*; _Alloc = std::allocator<void*>]	24	static
+stl_list.h:1051:7:bool std::__cxx11::list<_Tp, _Alloc>::empty() const [with _Tp = void*; _Alloc = std::allocator<void*>]	16	static
+stl_list.h:1110:7:std::__cxx11::list<_Tp, _Alloc>::reference std::__cxx11::list<_Tp, _Alloc>::front() [with _Tp = void*; _Alloc = std::allocator<void*>]	24	static
+stl_list.h:1193:7:void std::__cxx11::list<_Tp, _Alloc>::pop_front() [with _Tp = void*; _Alloc = std::allocator<void*>]	16	static
+stl_list.h:1207:7:void std::__cxx11::list<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = void*; _Alloc = std::allocator<void*>]	16	static
+allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = std::_List_node<void*>]	16	static
+stl_list.h:959:7:std::__cxx11::list<_Tp, _Alloc>::iterator std::__cxx11::list<_Tp, _Alloc>::end() [with _Tp = void*; _Alloc = std::allocator<void*>]	24	static
+move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = void*&]	16	static
+stl_list.h:1905:8:) [with _Args = {void*}; _Tp = void*; _Alloc = std::allocator<void*>]	32	static
+stl_list.h:941:7:std::__cxx11::list<_Tp, _Alloc>::iterator std::__cxx11::list<_Tp, _Alloc>::begin() [with _Tp = void*; _Alloc = std::allocator<void*>]	24	static
+stl_list.h:209:7:_Tp& std::_List_iterator< <template-parameter-1-1> >::operator*() const [with _Tp = void*]	16	static
+stl_list.h:1915:7:void std::__cxx11::list<_Tp, _Alloc>::_M_erase(std::__cxx11::list<_Tp, _Alloc>::iterator) [with _Tp = void*; _Alloc = std::allocator<void*>]	32	static
+stl_list.h:1905:8:) [with _Args = {void* const&}; _Tp = void*; _Alloc = std::allocator<void*>]	32	static
+new_allocator.h:80:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = std::_List_node<void*>]	16	static
+stl_list.h:170:18:_Tp* std::_List_node<_Tp>::_M_valptr() [with _Tp = void*]	16	static
+stl_list.h:448:7:std::__cxx11::_List_base<_Tp, _Alloc>::_Node_alloc_type& std::__cxx11::_List_base<_Tp, _Alloc>::_M_get_Node_allocator() [with _Tp = void*; _Alloc = std::allocator<void*>]	16	static
+alloc_traits.h:495:2:static void std::allocator_traits<std::allocator<_Tp1> >::destroy(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, _Up*) [with _Up = void*; _Tp = std::_List_node<void*>]	16	static
+stl_list.h:441:7:void std::__cxx11::_List_base<_Tp, _Alloc>::_M_put_node(typename std::__cxx11::_List_base<_Tp, _Alloc>::_Node_alloc_traits::pointer) [with _Tp = void*; _Alloc = std::allocator<void*>]	16	static
+stl_list.h:200:7:std::_List_iterator< <template-parameter-1-1> >::_List_iterator(std::__detail::_List_node_base*) [with _Tp = void*]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = void*]	16	static
+stl_list.h:628:2:) [with _Args = {void*}; _Tp = void*; _Alloc = std::allocator<void*>]	40	static
+stl_list.h:404:12:void std::__cxx11::_List_base<_Tp, _Alloc>::_M_inc_size(std::size_t) [with _Tp = void*; _Alloc = std::allocator<void*>]	16	static
+stl_list.h:406:12:void std::__cxx11::_List_base<_Tp, _Alloc>::_M_dec_size(std::size_t) [with _Tp = void*; _Alloc = std::allocator<void*>]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = void* const&]	16	static
+stl_list.h:628:2:) [with _Args = {void* const&}; _Tp = void*; _Alloc = std::allocator<void*>]	40	static
+aligned_buffer.h:72:7:_Tp* __gnu_cxx::__aligned_membuf<_Tp>::_M_ptr() [with _Tp = void*]	16	static
+new_allocator.h:151:2:void __gnu_cxx::new_allocator<_Tp>::destroy(_Up*) [with _Up = void*; _Tp = std::_List_node<void*>]	16	static
+alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_Tp1> >::deallocate(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, std::allocator_traits<std::allocator<_Tp1> >::pointer, std::allocator_traits<std::allocator<_Tp1> >::size_type) [with _Tp = std::_List_node<void*>]	24	static
+stl_list.h:437:7:typename std::__cxx11::_List_base<_Tp, _Alloc>::_Node_alloc_traits::pointer std::__cxx11::_List_base<_Tp, _Alloc>::_M_get_node() [with _Tp = void*; _Alloc = std::allocator<void*>]	16	static
+allocated_ptr.h:52:7:std::__allocated_ptr<_Alloc>::__allocated_ptr(_Alloc&, std::__allocated_ptr<_Alloc>::pointer) [with _Alloc = std::allocator<std::_List_node<void*> >]	24	static
+allocated_ptr.h:70:7:std::__allocated_ptr<_Alloc>::~__allocated_ptr() [with _Alloc = std::allocator<std::_List_node<void*> >]	16	static
+alloc_traits.h:482:2:) [with _Up = void*; _Args = {void*}; _Tp = std::_List_node<void*>]	24	static
+allocated_ptr.h:78:7:std::__allocated_ptr<_Alloc>& std::__allocated_ptr<_Alloc>::operator=(std::nullptr_t) [with _Alloc = std::allocator<std::_List_node<void*> >]	16	static
+alloc_traits.h:482:2:) [with _Up = void*; _Args = {void* const&}; _Tp = std::_List_node<void*>]	24	static
+aligned_buffer.h:64:7:void* __gnu_cxx::__aligned_membuf<_Tp>::_M_addr() [with _Tp = void*]	16	static
+new_allocator.h:119:7:void __gnu_cxx::new_allocator<_Tp>::deallocate(__gnu_cxx::new_allocator<_Tp>::pointer, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = std::_List_node<void*>]	24	static
+alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp1> >::allocate(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, std::allocator_traits<std::allocator<_Tp1> >::size_type) [with _Tp = std::_List_node<void*>]	16	static
+move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = std::allocator<std::_List_node<void*> >]	16	static
+new_allocator.h:144:2:) [with _Up = void*; _Args = {void*}; _Tp = std::_List_node<void*>]	32	static
+new_allocator.h:144:2:) [with _Up = void*; _Args = {void* const&}; _Tp = std::_List_node<void*>]	32	static
+new_allocator.h:102:7:_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = std::_List_node<void*>]	24	static
+new_allocator.h:132:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_allocator<_Tp>::max_size() const [with _Tp = std::_List_node<void*>]	16	static

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;NiceTest2/Core/Src/retarget&apos; to &apos;retarget.c&apos;" description="Rename resource &apos;retarget&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/retarget" name="retarget.c" stamp="1617487116353" updateReferences="true"/>
-</session>

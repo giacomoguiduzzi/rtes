@@ -1,0 +1,9 @@
+dvStorage.c:65:5:storage_open_r	24	static
+dvStorage.c:81:5:storage_close_r	16	static
+dvStorage.c:95:10:storage_write_r	32	static
+dvStorage.c:136:10:storage_read_r	40	static
+dvStorage.c:160:17:EraseAllStorage	48	static
+dvStorage.c:191:17:WriteAllStorage	32	static
+dvStorage.c:232:17:GetPage	24	static
+dvStorage.c:255:17:GetBank	24	static
+dvStorage.c:311:10:crc_mpeg2	32	static

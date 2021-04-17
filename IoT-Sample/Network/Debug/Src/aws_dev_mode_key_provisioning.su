@@ -1,0 +1,6 @@
+aws_dev_mode_key_provisioning.c:88:7:xInitializePkcsSession	56	static
+aws_dev_mode_key_provisioning.c:144:5:convert_pem_to_der	56	static
+aws_dev_mode_key_provisioning.c:219:7:xProvisionCertificate	96	static
+aws_dev_mode_key_provisioning.c:305:7:xProvisionDevice	112	static
+aws_dev_mode_key_provisioning.c:401:6:vAlternateKeyProvisioning	32	static
+aws_dev_mode_key_provisioning.c:422:6:vDevModeKeyProvisioning	32	static

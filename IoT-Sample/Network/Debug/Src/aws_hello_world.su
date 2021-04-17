@@ -1,0 +1,7 @@
+aws_hello_world.c:185:19:prvCreateClientAndConnectToBroker	72	static,ignoring_inline_asm
+aws_hello_world.c:251:13:prvPublishNextMessage	64	static,ignoring_inline_asm
+aws_hello_world.c:293:13:prvMessageEchoingTask	72	static,ignoring_inline_asm
+aws_hello_world.c:358:19:prvSubscribe	32	static
+aws_hello_world.c:391:19:prvMQTTCallback	56	static,ignoring_inline_asm
+aws_hello_world.c:447:13:prvMQTTConnectAndPublishTask	48	static
+aws_hello_world.c:517:6:vStartMQTTEchoDemo	24	static,ignoring_inline_asm
