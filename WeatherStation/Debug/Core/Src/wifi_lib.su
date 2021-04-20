@@ -1,0 +1,3 @@
+wifi_lib.c:3:6:Initialize_WiFi	16	static
+wifi_lib.c:41:6:WebServerProcess	24	static
+wifi_lib.c:115:15:SendWebPage	280	static

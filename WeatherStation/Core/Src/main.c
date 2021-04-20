@@ -31,6 +31,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <inttypes.h>
+#include "wifi_lib.h"
 
 /* USER CODE END Includes */
 
@@ -60,6 +61,9 @@ osThreadId readPressureHandle;
 osThreadId readMagnetoHandle;
 osThreadId WebServerHandle;
 /* USER CODE BEGIN PV */
+
+sensors_delay_t delay = FAST;
+sensor_data_t sensor_data;
 
 /* USER CODE END PV */
 
@@ -354,7 +358,7 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	 HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+	 // HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
 	 osDelay(1000);
   }
 
@@ -387,9 +391,9 @@ void StartReadTemp(void const * argument)
 		tmpInt2 = trunc(tmpFrac * 100);
 		snprintf(output_str, sizeof(output_str), str_tmp, tmpInt1, tmpInt2);
 		HAL_UART_Transmit(&huart1, (uint8_t *)output_str, sizeof(str_tmp), 1000);
-		osDelay(1000);
+		osDelay(delay);
 	}
-	/* USER CODE END StartReadTemp */
+  /* USER CODE END StartReadTemp */
 }
 
 /* USER CODE BEGIN Header_StartReadHum */
@@ -404,7 +408,7 @@ void StartReadHum(void const * argument)
   /* USER CODE BEGIN StartReadHum */
   /* Infinite loop */
 	float hum_value = 0;
-	char *str_hum = "Umidita' = %d\%\n\r";
+	char *str_hum = "Umidita' = %d.%02d\n\r";
 	char output_str[sizeof(str_hum)];
 	int humInt1, humInt2;
 	float humFrac;
@@ -419,7 +423,7 @@ void StartReadHum(void const * argument)
 		humInt2 = trunc(humFrac * 100);
 		snprintf(output_str, sizeof(output_str), str_hum, humInt1, humInt2);
 		HAL_UART_Transmit(&huart1, (uint8_t *)output_str, sizeof(str_hum), 1000);
-		osDelay(1000);
+		osDelay(delay);
 	}
   /* USER CODE END StartReadHum */
 }
@@ -450,7 +454,7 @@ void StartReadPressure(void const * argument)
 		presInt2 = trunc(presFrac * 100);
 		snprintf(output_str, sizeof(output_str), str_pres, presInt1, presInt2);
 		HAL_UART_Transmit(&huart1, (uint8_t *)output_str, sizeof(str_pres), 1000);
-		osDelay(1000);
+		osDelay(delay);
 	}
   /* USER CODE END StartReadPressure */
 }
@@ -502,7 +506,7 @@ void StartReadMagnetometer(void const * argument)
 			HAL_UART_Transmit(&huart1, (uint8_t *)output_str, sizeof(str_tmp), 1000);
 		}
 
-		osDelay(1000);
+		osDelay(delay);
 	}
   /* USER CODE END StartReadMagnetometer */
 }
@@ -517,10 +521,15 @@ void StartReadMagnetometer(void const * argument)
 void StartWebServer(void const * argument)
 {
   /* USER CODE BEGIN StartWebServer */
+
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1000);
+	  do{
+		  Initialize_WiFi(LED2_GPIO_Port, LED2_Pin);
+	  }while(State == WS_ERROR);
+
+	  WebServerProcess();
   }
   /* USER CODE END StartWebServer */
 }

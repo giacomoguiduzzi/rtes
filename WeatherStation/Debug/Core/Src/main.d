@@ -61,7 +61,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  D:/ST/workspace/WeatherStation/Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_psensor.h \
  d:\st\workspace\weatherstation\drivers\bsp\components\lps22hb\lps22hb.h \
  d:\st\workspace\weatherstation\drivers\bsp\components\common\psensor.h \
- d:\st\workspace\weatherstation\drivers\bsp\components\common\tsensor.h
+ d:\st\workspace\weatherstation\drivers\bsp\components\common\tsensor.h \
+ ../Core/Inc/wifi_lib.h ../Core/Inc/wifi.h ../Core/Inc/es_wifi.h \
+ ../Core/Inc/es_wifi_conf.h ../Core/Inc/es_wifi_io.h \
+ ../Core/Inc/sensors.h
 
 ../Core/Inc/main.h:
 
@@ -190,3 +193,15 @@ d:\st\workspace\weatherstation\drivers\bsp\components\lps22hb\lps22hb.h:
 d:\st\workspace\weatherstation\drivers\bsp\components\common\psensor.h:
 
 d:\st\workspace\weatherstation\drivers\bsp\components\common\tsensor.h:
+
+../Core/Inc/wifi_lib.h:
+
+../Core/Inc/wifi.h:
+
+../Core/Inc/es_wifi.h:
+
+../Core/Inc/es_wifi_conf.h:
+
+../Core/Inc/es_wifi_io.h:
+
+../Core/Inc/sensors.h:
