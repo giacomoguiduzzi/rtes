@@ -50,7 +50,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-SPI_HandleTypeDef hspi3;
+SPI_HandleTypeDef hspi1;
 
 UART_HandleTypeDef huart1;
 
@@ -59,7 +59,7 @@ osThreadId readTempHandle;
 osThreadId readHumidityHandle;
 osThreadId readPressureHandle;
 osThreadId readMagnetoHandle;
-osThreadId WebServerHandle;
+osThreadId SendDataHandle;
 /* USER CODE BEGIN PV */
 
 sensors_delay_t delay = FAST;
@@ -70,17 +70,18 @@ sensor_data_t sensor_data;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_SPI3_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_SPI1_Init(void);
 void StartDefaultTask(void const * argument);
 void StartReadTemp(void const * argument);
 void StartReadHum(void const * argument);
 void StartReadPressure(void const * argument);
 void StartReadMagnetometer(void const * argument);
-void StartWebServer(void const * argument);
+void StartSendData(void const * argument);
 
 /* USER CODE BEGIN PFP */
 int _write(int file, char *ptr, int len);
+void SendSPIData();
 
 /* USER CODE END PFP */
 
@@ -90,6 +91,25 @@ int _write(int file, char *ptr, int len){
 	HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, 10);
 	return len;
 }
+
+void SendSPIData(){
+	sensor_data.written_data = 0;
+
+	// Send SPI Data
+}
+
+/* void StartWebServer(void const * argument)
+{
+  for(;;)
+  {
+	  do{
+		  Initialize_WiFi(LED2_GPIO_Port, LED2_Pin);
+	  }while(State == WS_ERROR);
+
+	  WebServerProcess();
+  }
+} */
+
 /* USER CODE END 0 */
 
 /**
@@ -120,8 +140,8 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_SPI3_Init();
   MX_USART1_UART_Init();
+  MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -163,9 +183,9 @@ int main(void)
   osThreadDef(readMagneto, StartReadMagnetometer, osPriorityNormal, 0, 128);
   readMagnetoHandle = osThreadCreate(osThread(readMagneto), NULL);
 
-  /* definition and creation of WebServer */
-  osThreadDef(WebServer, StartWebServer, osPriorityNormal, 0, 128);
-  WebServerHandle = osThreadCreate(osThread(WebServer), NULL);
+  /* definition and creation of SendData */
+  osThreadDef(SendData, StartSendData, osPriorityNormal, 0, 128);
+  SendDataHandle = osThreadCreate(osThread(SendData), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -241,42 +261,41 @@ void SystemClock_Config(void)
 }
 
 /**
-  * @brief SPI3 Initialization Function
+  * @brief SPI1 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_SPI3_Init(void)
+static void MX_SPI1_Init(void)
 {
 
-  /* USER CODE BEGIN SPI3_Init 0 */
+  /* USER CODE BEGIN SPI1_Init 0 */
 
-  /* USER CODE END SPI3_Init 0 */
+  /* USER CODE END SPI1_Init 0 */
 
-  /* USER CODE BEGIN SPI3_Init 1 */
+  /* USER CODE BEGIN SPI1_Init 1 */
 
-  /* USER CODE END SPI3_Init 1 */
-  /* SPI3 parameter configuration*/
-  hspi3.Instance = SPI3;
-  hspi3.Init.Mode = SPI_MODE_MASTER;
-  hspi3.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi3.Init.DataSize = SPI_DATASIZE_4BIT;
-  hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi3.Init.NSS = SPI_NSS_SOFT;
-  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
-  hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
-  hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi3.Init.CRCPolynomial = 7;
-  hspi3.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  hspi3.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
-  if (HAL_SPI_Init(&hspi3) != HAL_OK)
+  /* USER CODE END SPI1_Init 1 */
+  /* SPI1 parameter configuration*/
+  hspi1.Instance = SPI1;
+  hspi1.Init.Mode = SPI_MODE_SLAVE;
+  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi1.Init.NSS = SPI_NSS_SOFT;
+  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi1.Init.CRCPolynomial = 7;
+  hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+  hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+  if (HAL_SPI_Init(&hspi1) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN SPI3_Init 2 */
+  /* USER CODE BEGIN SPI1_Init 2 */
 
-  /* USER CODE END SPI3_Init 2 */
+  /* USER CODE END SPI1_Init 2 */
 
 }
 
@@ -325,9 +344,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
@@ -391,6 +409,13 @@ void StartReadTemp(void const * argument)
 		tmpInt2 = trunc(tmpFrac * 100);
 		snprintf(output_str, sizeof(output_str), str_tmp, tmpInt1, tmpInt2);
 		HAL_UART_Transmit(&huart1, (uint8_t *)output_str, sizeof(str_tmp), 1000);
+
+		sensor_data.temperature = temp_value;
+		sensor_data.written_data++;
+
+		if(sensor_data.written_data >= 4)
+			xTaskNotifyGive(SendDataHandle);
+
 		osDelay(delay);
 	}
   /* USER CODE END StartReadTemp */
@@ -423,6 +448,13 @@ void StartReadHum(void const * argument)
 		humInt2 = trunc(humFrac * 100);
 		snprintf(output_str, sizeof(output_str), str_hum, humInt1, humInt2);
 		HAL_UART_Transmit(&huart1, (uint8_t *)output_str, sizeof(str_hum), 1000);
+
+		sensor_data.temperature = temp_value;
+		sensor_data.written_data++;
+
+		if(sensor_data.written_data >= 4)
+			xTaskNotifyGive(SendDataHandle);
+
 		osDelay(delay);
 	}
   /* USER CODE END StartReadHum */
@@ -454,6 +486,13 @@ void StartReadPressure(void const * argument)
 		presInt2 = trunc(presFrac * 100);
 		snprintf(output_str, sizeof(output_str), str_pres, presInt1, presInt2);
 		HAL_UART_Transmit(&huart1, (uint8_t *)output_str, sizeof(str_pres), 1000);
+
+		sensor_data.temperature = temp_value;
+		sensor_data.written_data++;
+
+		if(sensor_data.written_data >= 4)
+			xTaskNotifyGive(SendDataHandle);
+
 		osDelay(delay);
 	}
   /* USER CODE END StartReadPressure */
@@ -504,6 +543,12 @@ void StartReadMagnetometer(void const * argument)
 			magnInt2 = trunc(magnFrac * 100);
 			snprintf(output_str, sizeof(output_str), str_tmp, magnInt1, magnInt2);
 			HAL_UART_Transmit(&huart1, (uint8_t *)output_str, sizeof(str_tmp), 1000);
+
+			sensor_data.temperature = temp_value;
+			sensor_data.written_data++;
+
+			if(sensor_data.written_data >= 4)
+				xTaskNotifyGive(SendDataHandle);
 		}
 
 		osDelay(delay);
@@ -511,27 +556,24 @@ void StartReadMagnetometer(void const * argument)
   /* USER CODE END StartReadMagnetometer */
 }
 
-/* USER CODE BEGIN Header_StartWebServer */
+/* USER CODE BEGIN Header_StartSendData */
 /**
-* @brief Function implementing the WebServer thread.
+* @brief Function implementing the SendData thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_StartWebServer */
-void StartWebServer(void const * argument)
+/* USER CODE END Header_StartSendData */
+void StartSendData(void const * argument)
 {
-  /* USER CODE BEGIN StartWebServer */
-
+  /* USER CODE BEGIN StartSendData */
+	const TickType_t xBlockTime = pdMS_TO_TICS( 2000 );
   /* Infinite loop */
   for(;;)
   {
-	  do{
-		  Initialize_WiFi(LED2_GPIO_Port, LED2_Pin);
-	  }while(State == WS_ERROR);
-
-	  WebServerProcess();
+	  ulTaskNotifyTake(pdTRUE, xBlockTime);
+	  SendSPIData();
   }
-  /* USER CODE END StartWebServer */
+  /* USER CODE END StartSendData */
 }
 
  /**

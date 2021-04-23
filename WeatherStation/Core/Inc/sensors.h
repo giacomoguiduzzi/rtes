@@ -2,10 +2,27 @@
 #define SENSORS
 
 typedef struct {
-	float temperature;
-	float pressure;
-	float humidity;
-	float north_direction;
+	union {
+		float temp;
+		uint8_t uint_temp[4];
+	} temperature;
+
+	union {
+		float pres;
+		uint8_t uint_pres[4];
+	} pressure;
+
+	union {
+		float hum;
+		uint8_t uint_hum[4];
+	} humidity;
+
+	union{
+		float n_dir;
+		uint8_t uint_ndir[4];
+	} north_direction;
+
+	uint8_t written_data;
 } sensor_data_t;
 
 typedef enum
