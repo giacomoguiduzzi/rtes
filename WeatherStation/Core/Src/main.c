@@ -401,7 +401,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : LED2_Pin */
   GPIO_InitStruct.Pin = LED2_Pin;
@@ -451,8 +451,19 @@ void StartReadTemp(void const * argument)
 	char output_str[sizeof(str_tmp)];
 	int tmpInt1, tmpInt2;
 	float tmpFrac;
+	uint32_t ret;
 
-	BSP_TSENSOR_Init();
+		do{
+			 ret = BSP_TSENSOR_Init();
+
+			if(ret == TSENSOR_ERROR){
+				HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+				HAL_Delay(500);
+				HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+			}
+
+		}while(ret == TSENSOR_ERROR);
+
 	/* Infinite loop */
 	for(;;)
 	{
@@ -469,7 +480,7 @@ void StartReadTemp(void const * argument)
 		if(written_data >= 4)
 			xTaskNotifyGive(SendDataHandle);
 
-		osDelay(delay);
+		osDelay(HAL_MAX_DELAY);
 	}
   /* USER CODE END StartReadTemp */
 }
@@ -490,8 +501,19 @@ void StartReadHum(void const * argument)
 	char output_str[sizeof(str_hum)];
 	int humInt1, humInt2;
 	float humFrac;
+	uint32_t ret;
 
-	BSP_HSENSOR_Init();
+		do{
+			 ret = BSP_HSENSOR_Init();
+
+			if(ret == HSENSOR_ERROR){
+				HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+				HAL_Delay(500);
+				HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+			}
+
+		}while(ret == HSENSOR_ERROR);
+
 	/* Infinite loop */
 	for(;;)
 	{
@@ -508,7 +530,7 @@ void StartReadHum(void const * argument)
 		if(written_data >= 4)
 			xTaskNotifyGive(SendDataHandle);
 
-		osDelay(delay);
+		osDelay(HAL_MAX_DELAY);
 	}
   /* USER CODE END StartReadHum */
 }
@@ -528,8 +550,20 @@ void StartReadPressure(void const * argument)
 	char output_str[sizeof(str_pres)];
 	int presInt1, presInt2;
 	float presFrac;
+	uint32_t ret;
 
-	BSP_PSENSOR_Init();
+	do{
+		 ret = BSP_PSENSOR_Init();
+
+		if(ret == PSENSOR_ERROR){
+			HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+			HAL_Delay(500);
+			HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+		}
+
+	}while(ret == PSENSOR_ERROR);
+
+
 	/* Infinite loop */
 	for(;;)
 	{
@@ -568,9 +602,19 @@ void StartReadMagnetometer(void const * argument)
 	double direction, magnFrac;
 	int magnInt1, magnInt2;
 	double declination_angle = 3.45;
+	MAGNETO_StatusTypeDef ret;
 
+	do{
+		 ret = BSP_MAGNETO_Init();
 
-	BSP_MAGNETO_Init();
+		if(ret != MAGNETO_OK){
+			HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+			HAL_Delay(500);
+			HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+		}
+
+	}while(ret != MAGNETO_OK);
+
 	/* Infinite loop */
 	for(;;)
 	{
@@ -624,7 +668,10 @@ void StartSendData(void const * argument)
   for(;;)
   {
 	  ulTaskNotifyTake(pdTRUE, xBlockTime);
-	  SendSPIData();
+	  if(written_data >= 4)
+		  SendSPIData();
+
+	  osDelay(1000);
   }
   /* USER CODE END StartSendData */
 }

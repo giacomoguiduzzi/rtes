@@ -50,7 +50,7 @@ static TSENSOR_DrvTypeDef *tsensor_drv;
   */
 uint32_t BSP_TSENSOR_Init(void)
 {  
-  uint8_t ret = TSENSOR_ERROR;
+  uint32_t ret = TSENSOR_ERROR;
 
 #ifdef USE_LPS22HB_TEMP
   tsensor_drv = &LPS22HB_T_Drv;

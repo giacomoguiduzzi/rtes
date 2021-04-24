@@ -65,6 +65,8 @@ void loop() {
   readSensorData();  
 
   // Send data to website
+
+  delay(1000);
 }
 
 void readSensorData(){
@@ -82,10 +84,32 @@ void readSensorData(){
   }
   
   sensor_data = (sensor_data_t *) sent_data;
-  Serial.println(snprintf(message, sizeof(message), "Temperature: %f °C", sensor_data->temperature));
-  Serial.println(snprintf(message, sizeof(message), "Pressure: %f hPa", sensor_data->pressure));
-  Serial.println(snprintf(message, sizeof(message), "Humidity: %f\%", sensor_data->humidity));
-  Serial.println(snprintf(message, sizeof(message), "North direction: %f°", sensor_data->north_direction));
+  // Serial.println(snprintf(message, sizeof(message), "Temperature: %f °C", sensor_data->temperature));
+  Serial.print("Temperature: ");
+  Serial.print(sensor_data->temperature);
+  Serial.println("°C");
+  
+  Serial.print("(HEX: ");
+  Serial.print(sent_data[0], HEX);
+  Serial.print(sent_data[1], HEX);
+  Serial.print(sent_data[2], HEX);
+  Serial.print(sent_data[3], HEX);
+  Serial.println(")");
+
+  Serial.print("Pressure: ");
+  Serial.print(sensor_data->humidity);
+  Serial.println(" hPa");
+
+  Serial.print("Humidity: ");
+  Serial.print(sensor_data->humidity);
+  Serial.println("%");
+
+  Serial.print("North direction: ");
+  Serial.print(sensor_data->north_direction);
+  Serial.println("°");
+  // Serial.println(snprintf(message, sizeof(message), "Pressure: %f hPa", sensor_data->pressure));
+  // Serial.println(snprintf(message, sizeof(message), "Humidity: %f\%", sensor_data->humidity));
+  // Serial.println(snprintf(message, sizeof(message), "North direction: %f°", sensor_data->north_direction));
 
   digitalWrite(ss_pin, HIGH);
   SPI.endTransaction();

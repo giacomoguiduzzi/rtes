@@ -7,10 +7,10 @@ main.c:321:13:MX_SPI1_Init	8	static
 main.c:360:13:MX_USART1_UART_Init	8	static
 main.c:395:13:MX_GPIO_Init	40	static
 main.c:426:6:StartDefaultTask	16	static
-main.c:446:6:StartReadTemp	48	static
-main.c:484:6:StartReadHum	48	static
-main.c:523:6:StartReadPressure	48	static
-main.c:561:6:StartReadMagnetometer	80	static
-main.c:619:6:StartSendData	24	static
-main.c:640:6:HAL_TIM_PeriodElapsedCallback	16	static
-main.c:657:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:446:6:StartReadTemp	56	static
+main.c:495:6:StartReadHum	56	static
+main.c:545:6:StartReadPressure	56	static
+main.c:595:6:StartReadMagnetometer	88	static
+main.c:663:6:StartSendData	24	static
+main.c:687:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:704:6:Error_Handler	4	static,ignoring_inline_asm
