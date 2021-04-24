@@ -40,13 +40,15 @@ typedef struct {
   float north_direction;
 } sensor_data_t;
 
-sensor_data_t sensor_data;
+sensor_data_t *sensor_data;
 
 void setup() {
   Serial.begin(9600);
 
   // sensor data struct initialization
-  sensor_data = (sensor_data_t) {.temperature = 0.0, .pressure = 0.0, .humidity = 0.0, .north_direction = 0.0};
+  sensor_data = malloc(sizeof(sensor_data_t));
+  sensor_data->temperature = sensor_data->pressure = sensor_data->humidity = sensor_data->north_direction = 0.0;
+  // sensor_data = (sensor_data_t) {.temperature = 0.0, .pressure = 0.0, .humidity = 0.0, .north_direction = 0.0};
 
   // setting SS pin value
   pinMode(10, OUTPUT);
@@ -60,95 +62,116 @@ void setup() {
   // pinMode(chipSelectPin, OUTPUT);
 }
 
-void loop() {  
-  readTemperature();
-  readPressure();
-  readHumidity();
-  readNorthDirection(); 
+void loop() {
+  readSensorData();  
 
   // Send data to website
 }
 
-
-void readTemperature(){
-  byte recv_data[4];
+void readSensorData(){
+  byte sent_data[sizeof(sensor_data)];
+  char message[100];
   
-  Serial.print("Temperature reading: ");
+  Serial.println("Reading data structure: ");
   SPI.beginTransaction(spisettings);
   digitalWrite(ss_pin, LOW);
   
-  for(int i=0; i<4; i++){
-    recv_data[i] = SPI.transfer();
-    Serial.print(recv_data[i], BIN);
+  for(int i=0; i<sizeof(sensor_data); i+=8){
+    sent_data[i] = SPI.transfer(0);
+    // Serial.print(recv_data[i], BIN);
     // shifting 8 bits and using OR to copy the recv_data[i] bits on the last 8 bits of the variable
-    sensor_data.temperature << 8 | recv_data[i];
+    // sensor_data.temperature << 8 | recv_data[i];
   }
-
-  Serial.println(" (that is " + sensor_data.temperature + "°C)");
+  
+  sensor_data = (sensor_data_t *) sent_data;
+  Serial.println(snprintf(message, sizeof(message), "Temperature: %f °C", sensor_data->temperature));
+  Serial.println(snprintf(message, sizeof(message), "Pressure: %f hPa", sensor_data->pressure));
+  Serial.println(snprintf(message, sizeof(message), "Humidity: %f\%", sensor_data->humidity));
+  Serial.println(snprintf(message, sizeof(message), "North direction: %f°", sensor_data->north_direction));
 
   digitalWrite(ss_pin, HIGH);
-  SPI.endTransaction();
+  SPI.endTransaction();  
 }
 
-void readPressure(){
-  byte recv_data[4];
-
-  SPI.beginTransaction(spisettings);
-  digitalWrite(ss_pin, LOW);
-  
-  Serial.print("Pressure reading: ");
-  
-  for(int i=0; i<4; i++){
-    recv_data[i] = SPI.transfer();
-    Serial.print(recv_data[i], BIN);
-    // shifting 8 bits and using OR to copy the recv_data[i] bits on the last 8 bits of the variable
-    sensor_data.pressure << 8 | recv_data[i];
-  }
-
-  Serial.println(" (that is " + sensor_data.pressure + "hPa)");
-
-  digitalWrite(ss_pin, HIGH);
-  SPI.endTransaction();
-}
-
-void readHumidity(){
-  byte recv_data[4];
-
-  SPI.beginTransaction(spisettings);
-  digitalWrite(ss_pin, LOW);
-
-  Serial.print("Humidity reading: ");
-  
-  for(int i=0; i<4; i++){
-    recv_data[i] = SPI.transfer();
-    Serial.print(recv_data[i], BIN);
-    // shifting 8 bits and using OR to copy the recv_data[i] bits on the last 8 bits of the variable
-    sensor_data.humidity << 8 | recv_data[i];
-  }
-
-  Serial.println(" (that is " + sensor_data.humidity + "%)");
-
-  digitalWrite(ss_pin, HIGH);
-  SPI.endTransaction();
-}
-
-void readNorthDirection(){
-  byte recv_data[4];
-
-  SPI.beginTransaction(spisettings);
-  digitalWrite(ss_pin, LOW);
-
-  Serial.print("North direction reading: ");
-  
-  for(int i=0; i<4; i++){
-    recv_data[i] = SPI.transfer();
-    Serial.print(recv_data[i], BIN);
-    // shifting 8 bits and using OR to copy the recv_data[i] bits on the last 8 bits of the variable
-    sensor_data.north_direction << 8 | recv_data[i];
-  }
-
-  Serial.println(" (that is " + sensor_data.north_direction + "°)");
-
-  digitalWrite(ss_pin, HIGH);
-  SPI.endTransaction();
-}
+//void readTemperature(){
+//  byte recv_data[4];
+//  
+//  Serial.print("Temperature reading: ");
+//  SPI.beginTransaction(spisettings);
+//  digitalWrite(ss_pin, LOW);
+//  
+//  for(int i=0; i<4; i++){
+//    recv_data[i] = SPI.transfer(0);
+//    Serial.print(recv_data[i], BIN);
+//    // shifting 8 bits and using OR to copy the recv_data[i] bits on the last 8 bits of the variable
+//    sensor_data.temperature << 8 | recv_data[i];
+//  }
+//
+//  Serial.println(" (that is " + sensor_data.temperature + "°C)");
+//
+//  digitalWrite(ss_pin, HIGH);
+//  SPI.endTransaction();
+//}
+//
+//void readPressure(){
+//  byte recv_data[4];
+//
+//  SPI.beginTransaction(spisettings);
+//  digitalWrite(ss_pin, LOW);
+//  
+//  Serial.print("Pressure reading: ");
+//  
+//  for(int i=0; i<4; i++){
+//    recv_data[i] = SPI.transfer(0);
+//    Serial.print(recv_data[i], BIN);
+//    // shifting 8 bits and using OR to copy the recv_data[i] bits on the last 8 bits of the variable
+//    sensor_data.pressure << 8 | recv_data[i];
+//  }
+//
+//  Serial.println(" (that is " + sensor_data.pressure + "hPa)");
+//
+//  digitalWrite(ss_pin, HIGH);
+//  SPI.endTransaction();
+//}
+//
+//void readHumidity(){
+//  byte recv_data[4];
+//
+//  SPI.beginTransaction(spisettings);
+//  digitalWrite(ss_pin, LOW);
+//
+//  Serial.print("Humidity reading: ");
+//  
+//  for(int i=0; i<4; i++){
+//    recv_data[i] = SPI.transfer(0);
+//    Serial.print(recv_data[i], BIN);
+//    // shifting 8 bits and using OR to copy the recv_data[i] bits on the last 8 bits of the variable
+//    sensor_data.humidity << 8 | recv_data[i];
+//  }
+//
+//  Serial.println(" (that is " + sensor_data.humidity + "%)");
+//
+//  digitalWrite(ss_pin, HIGH);
+//  SPI.endTransaction();
+//}
+//
+//void readNorthDirection(){
+//  byte recv_data[4];
+//
+//  SPI.beginTransaction(spisettings);
+//  digitalWrite(ss_pin, LOW);
+//
+//  Serial.print("North direction reading: ");
+//  
+//  for(int i=0; i<4; i++){
+//    recv_data[i] = SPI.transfer(0);
+//    Serial.print(recv_data[i], BIN);
+//    // shifting 8 bits and using OR to copy the recv_data[i] bits on the last 8 bits of the variable
+//    sensor_data.north_direction << 8 | recv_data[i];
+//  }
+//
+//  Serial.println(" (that is " + sensor_data.north_direction + "°)");
+//
+//  digitalWrite(ss_pin, HIGH);
+//  SPI.endTransaction();
+//}

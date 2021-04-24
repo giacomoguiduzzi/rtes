@@ -64,6 +64,7 @@ osThreadId SendDataHandle;
 
 sensors_delay_t delay = FAST;
 sensor_data_t sensor_data;
+uint8_t written_data;
 
 /* USER CODE END PV */
 
@@ -82,6 +83,7 @@ void StartSendData(void const * argument);
 /* USER CODE BEGIN PFP */
 int _write(int file, char *ptr, int len);
 void SendSPIData();
+void _set_delay(const uint16_t new_delay);
 
 /* USER CODE END PFP */
 
@@ -92,10 +94,55 @@ int _write(int file, char *ptr, int len){
 	return len;
 }
 
+void _set_delay(const uint16_t new_delay){
+	switch(new_delay){
+		case 500:
+			delay = FAST;
+			break;
+		case 1000:
+			delay = MEDIUM;
+			break;
+		case 2500:
+			delay = SLOW;
+			break;
+		case 5000:
+			delay = VERY_SLOW;
+			break;
+		case 10000:
+			delay = TAKE_A_BREAK;
+			break;
+		default:
+			// Blink LED to say there was a problem, maybe transmission?
+			HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+			HAL_Delay(500);
+			HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+			break;
+	}
+}
+
 void SendSPIData(){
 	sensor_data.written_data = 0;
+	HAL_StatusTypeDef status;
+	uint16_t new_delay = 0;
 
 	// Send SPI Data
+	/*
+	 * typedef enum
+	 * {
+		  HAL_OK       = 0x00,
+		  HAL_ERROR    = 0x01,
+		  HAL_BUSY     = 0x02,
+		  HAL_TIMEOUT  = 0x03
+		} HAL_StatusTypeDef;
+	 */
+	do{
+		status = HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)&sensor_data, &new_delay, sizeof(sensor_data), 1000);
+
+		if(new_delay != 0)
+			_set_delay(new_delay);
+
+	}while(status != HAL_OK);
+
 }
 
 /* void StartWebServer(void const * argument)
@@ -282,7 +329,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi1.Init.NSS = SPI_NSS_SOFT;
+  hspi1.Init.NSS = SPI_NSS_HARD_INPUT;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -377,7 +424,7 @@ void StartDefaultTask(void const * argument)
   for(;;)
   {
 	 // HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
-	 osDelay(1000);
+	 osDelay(HAL_MAX_DELAY);
   }
 
   /* USER CODE END 5 */
