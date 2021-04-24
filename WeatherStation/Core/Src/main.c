@@ -31,7 +31,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <inttypes.h>
-#include "wifi_lib.h"
+#include "sensors.h"
 
 /* USER CODE END Includes */
 
@@ -121,9 +121,13 @@ void _set_delay(const uint16_t new_delay){
 }
 
 void SendSPIData(){
-	sensor_data.written_data = 0;
+	written_data = 0;
 	HAL_StatusTypeDef status;
-	uint16_t new_delay = 0;
+	// uint16_t new_delay = 0;
+	uint8_t tmp_new_delay[2];
+	uint16_t *new_delay;
+
+	tmp_new_delay[0] = tmp_new_delay[1] = 0;
 
 	// Send SPI Data
 	/*
@@ -136,10 +140,12 @@ void SendSPIData(){
 		} HAL_StatusTypeDef;
 	 */
 	do{
-		status = HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)&sensor_data, &new_delay, sizeof(sensor_data), 1000);
+		status = HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)&sensor_data, tmp_new_delay, sizeof(sensor_data), 1000);
 
-		if(new_delay != 0)
-			_set_delay(new_delay);
+		new_delay = (uint16_t *)tmp_new_delay;
+
+		if(*new_delay != 0)
+			_set_delay(*new_delay);
 
 	}while(status != HAL_OK);
 
@@ -458,9 +464,9 @@ void StartReadTemp(void const * argument)
 		HAL_UART_Transmit(&huart1, (uint8_t *)output_str, sizeof(str_tmp), 1000);
 
 		sensor_data.temperature = temp_value;
-		sensor_data.written_data++;
+		written_data++;
 
-		if(sensor_data.written_data >= 4)
+		if(written_data >= 4)
 			xTaskNotifyGive(SendDataHandle);
 
 		osDelay(delay);
@@ -496,10 +502,10 @@ void StartReadHum(void const * argument)
 		snprintf(output_str, sizeof(output_str), str_hum, humInt1, humInt2);
 		HAL_UART_Transmit(&huart1, (uint8_t *)output_str, sizeof(str_hum), 1000);
 
-		sensor_data.temperature = temp_value;
-		sensor_data.written_data++;
+		sensor_data.humidity = hum_value;
+		written_data++;
 
-		if(sensor_data.written_data >= 4)
+		if(written_data >= 4)
 			xTaskNotifyGive(SendDataHandle);
 
 		osDelay(delay);
@@ -534,10 +540,10 @@ void StartReadPressure(void const * argument)
 		snprintf(output_str, sizeof(output_str), str_pres, presInt1, presInt2);
 		HAL_UART_Transmit(&huart1, (uint8_t *)output_str, sizeof(str_pres), 1000);
 
-		sensor_data.temperature = temp_value;
-		sensor_data.written_data++;
+		sensor_data.pressure = pres_value;
+		written_data++;
 
-		if(sensor_data.written_data >= 4)
+		if(written_data >= 4)
 			xTaskNotifyGive(SendDataHandle);
 
 		osDelay(delay);
@@ -591,10 +597,10 @@ void StartReadMagnetometer(void const * argument)
 			snprintf(output_str, sizeof(output_str), str_tmp, magnInt1, magnInt2);
 			HAL_UART_Transmit(&huart1, (uint8_t *)output_str, sizeof(str_tmp), 1000);
 
-			sensor_data.temperature = temp_value;
-			sensor_data.written_data++;
+			sensor_data.north_direction = direction;
+			written_data++;
 
-			if(sensor_data.written_data >= 4)
+			if(written_data >= 4)
 				xTaskNotifyGive(SendDataHandle);
 		}
 
@@ -613,7 +619,7 @@ void StartReadMagnetometer(void const * argument)
 void StartSendData(void const * argument)
 {
   /* USER CODE BEGIN StartSendData */
-	const TickType_t xBlockTime = pdMS_TO_TICS( 2000 );
+	const TickType_t xBlockTime = pdMS_TO_TICKS( 2000 );
   /* Infinite loop */
   for(;;)
   {

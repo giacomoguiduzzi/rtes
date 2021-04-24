@@ -41,13 +41,12 @@ typedef struct {
 } sensor_data_t;
 
 sensor_data_t *sensor_data;
+byte *sent_data = malloc(sizeof(sensor_data));
 
 void setup() {
   Serial.begin(9600);
 
   // sensor data struct initialization
-  sensor_data = malloc(sizeof(sensor_data_t));
-  sensor_data->temperature = sensor_data->pressure = sensor_data->humidity = sensor_data->north_direction = 0.0;
   // sensor_data = (sensor_data_t) {.temperature = 0.0, .pressure = 0.0, .humidity = 0.0, .north_direction = 0.0};
 
   // setting SS pin value
@@ -69,14 +68,13 @@ void loop() {
 }
 
 void readSensorData(){
-  byte sent_data[sizeof(sensor_data)];
   char message[100];
   
   Serial.println("Reading data structure: ");
   SPI.beginTransaction(spisettings);
   digitalWrite(ss_pin, LOW);
   
-  for(int i=0; i<sizeof(sensor_data); i+=8){
+  for(int i=0; i<sizeof(sensor_data); i++){
     sent_data[i] = SPI.transfer(0);
     // Serial.print(recv_data[i], BIN);
     // shifting 8 bits and using OR to copy the recv_data[i] bits on the last 8 bits of the variable
@@ -90,7 +88,7 @@ void readSensorData(){
   Serial.println(snprintf(message, sizeof(message), "North direction: %f°", sensor_data->north_direction));
 
   digitalWrite(ss_pin, HIGH);
-  SPI.endTransaction();  
+  SPI.endTransaction();
 }
 
 //void readTemperature(){
