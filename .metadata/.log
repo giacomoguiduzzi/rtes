@@ -867,3 +867,57 @@ Contains: Device debug script
 !MESSAGE Device debug script
 !SUBENTRY 2 com.st.stm32cube.ide.mcu.debug.launch 4 0 2021-04-24 18:19:30.408
 !MESSAGE Device debug script
+!SESSION 2021-04-24 20:23:31.281 -----------------------------------------------
+eclipse.buildId=Version 1.6.1
+java.version=11.0.9.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-04-24 20:23:36.653
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-04-24 20:23:36.819
+!MESSAGE Log4j initialized with config file D:\ST\workspace\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-04-24 20:24:01.957
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2021-04-24 20:24:02.476
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+!SESSION 2021-04-26 16:56:40.695 -----------------------------------------------
+eclipse.buildId=Version 1.6.1
+java.version=11.0.9.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-04-26 16:56:55.480
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-04-26 16:56:55.695
+!MESSAGE Log4j initialized with config file D:\ST\workspace\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-04-26 16:57:34.905
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2021-04-26 16:57:35.234
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+!SESSION 2021-04-27 14:29:11.492 -----------------------------------------------
+eclipse.buildId=Version 1.6.1
+java.version=11.0.9.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-04-27 14:29:40.059
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-04-27 14:29:40.834
+!MESSAGE Log4j initialized with config file D:\ST\workspace\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2021-04-27 14:31:08.083
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-04-27 14:31:08.209
+!MESSAGE Started RMI Server, listening on port 41337

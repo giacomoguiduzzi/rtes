@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<!-- Rui Santos - Complete project details at https://RandomNerdTutorials.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software. -->
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script language="JavaScript" type="text/JavaScript" src="functions.js"></script>
+
+  <style>
+    h2 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+  </style>
+
+</head>
+<body>
+  <h2>STM32L475VG + ESP8266 Weather Station</h2>
+  <div id="chart-temperature" class="container"></div>
+  <div id="chart-humidity" class="container"></div>
+  <div id="chart-pressure" class="container"></div>
+  <div id="north-direction" class="container"></div>
+
+  <!-- border solid, rounded 20px circa, radio button uno sotto l'altro
+  in verticale, può essere utile flexbox -->
+  <fieldset>
+      <legend>Sensors refresh rate</legend>
+      <input type="radio" name="delay" value="Fast" checked="checked">Fast</input>
+      <input type="radio" name="delay" value="Medium">Medium</input>
+      <input type="radio" name="delay" value="Slow">Slow</input>
+      <input type="radio" name="delay" value="Very slow">Very slow</input>
+      <input type="radio" name="delay" value="Take a break">Take a break</input>
+
+      <button onclick="sendDelay()"> Set refresh rate</button>
+      <div id="delay-confirm" hidden=true></div>
+  </fieldset>
+</body>
+</html>

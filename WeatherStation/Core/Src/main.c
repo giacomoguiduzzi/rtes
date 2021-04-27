@@ -82,7 +82,7 @@ void StartSendData(void const * argument);
 
 /* USER CODE BEGIN PFP */
 int _write(int file, char *ptr, int len);
-void SendSPIData();
+void SendReceiveSPIData();
 void _set_delay(const uint16_t new_delay);
 
 /* USER CODE END PFP */
@@ -120,14 +120,22 @@ void _set_delay(const uint16_t new_delay){
 	}
 }
 
-void SendSPIData(){
+void SendReceiveSPIData(){
 	written_data = 0;
-	HAL_StatusTypeDef status;
+	HAL_StatusTypeDef status = HAL_TIMEOUT;
 	// uint16_t new_delay = 0;
-	uint8_t tmp_new_delay[2];
-	uint16_t *new_delay;
+	union{
+		uint8_t uint8_delay[2];
+		uint16_t uint16_delay;
+	} new_delay;
 
-	tmp_new_delay[0] = tmp_new_delay[1] = 0;
+	uint8_t new_delay_counter = 0;
+
+	uint8_t *to_send = (uint8_t *)&sensor_data;
+
+
+	new_delay.uint8_delay[0] = new_delay.uint8_delay[1] = 0;
+
 
 	// Send SPI Data
 	/*
@@ -139,7 +147,8 @@ void SendSPIData(){
 		  HAL_TIMEOUT  = 0x03
 		} HAL_StatusTypeDef;
 	 */
-	do{
+	/* do{
+
 		status = HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)&sensor_data, tmp_new_delay, sizeof(sensor_data), 1000);
 
 		new_delay = (uint16_t *)tmp_new_delay;
@@ -147,7 +156,26 @@ void SendSPIData(){
 		if(*new_delay != 0)
 			_set_delay(*new_delay);
 
-	}while(status != HAL_OK);
+	}while(status != HAL_OK); */
+
+	// status = HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)to_send[i], tmp_new_delay, sizeof(uint8_t), 0); // testing active wait with 0 Timeout, never blocks (maybe)
+
+	// osMutexWait(spi_commHandle, 0);
+
+	for(uint8_t i=0; i<sizeof(sensor_data_t); i++){
+		while(status != HAL_OK){
+
+			status = HAL_SPI_TransmitReceive(&hspi1, to_send + i, &new_delay.uint8_delay[new_delay_counter], sizeof(uint8_t), 0); // testing active wait with 0 Timeout, never blocks (maybe)
+
+			if(new_delay_counter >= 2 && new_delay.uint16_delay != 0)
+				_set_delay(new_delay.uint16_delay);
+
+		}
+		new_delay_counter++;
+		new_delay_counter %= 2; // counter can be only 0 or 1
+	}
+
+	// osMutexRelease(spi_commHandle);
 
 }
 
@@ -347,6 +375,8 @@ static void MX_SPI1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN SPI1_Init 2 */
+
+
 
   /* USER CODE END SPI1_Init 2 */
 
@@ -663,15 +693,13 @@ void StartReadMagnetometer(void const * argument)
 void StartSendData(void const * argument)
 {
   /* USER CODE BEGIN StartSendData */
-	const TickType_t xBlockTime = pdMS_TO_TICKS( 2000 );
+	const TickType_t xBlockTime = pdMS_TO_TICKS( HAL_MAX_DELAY );
   /* Infinite loop */
   for(;;)
   {
 	  ulTaskNotifyTake(pdTRUE, xBlockTime);
 	  if(written_data >= 4)
-		  SendSPIData();
-
-	  osDelay(1000);
+		  SendReceiveSPIData();
   }
   /* USER CODE END StartSendData */
 }

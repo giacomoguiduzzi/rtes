@@ -32,7 +32,8 @@
 
 const int ss_pin = 10;
 
-SPISettings spisettings = SPISettings(40000000, MSBFIRST, SPI_MODE0);
+// SPISettings spisettings = SPISettings(40000000, MSBFIRST, SPI_MODE0);
+SPISettings spisettings = SPISettings(40000, MSBFIRST, SPI_MODE0);
 typedef struct {
   float temperature;
   float pressure;
@@ -62,9 +63,7 @@ void setup() {
 }
 
 void loop() {
-  readSensorData();  
-
-  // Send data to website
+  readSensorData();
 
   delay(1000);
 }
@@ -77,7 +76,10 @@ void readSensorData(){
   digitalWrite(ss_pin, LOW);
   
   for(int i=0; i<sizeof(sensor_data); i++){
-    sent_data[i] = SPI.transfer(0);
+    if(i%2 == 0)
+      sent_data[i] = SPI.transfer(0);
+    else
+      sent_data[i] = SPI.transfer(1);
     // Serial.print(recv_data[i], BIN);
     // shifting 8 bits and using OR to copy the recv_data[i] bits on the last 8 bits of the variable
     // sensor_data.temperature << 8 | recv_data[i];
@@ -107,6 +109,7 @@ void readSensorData(){
   Serial.print("North direction: ");
   Serial.print(sensor_data->north_direction);
   Serial.println("°");
+  Serial.println("");
   // Serial.println(snprintf(message, sizeof(message), "Pressure: %f hPa", sensor_data->pressure));
   // Serial.println(snprintf(message, sizeof(message), "Humidity: %f\%", sensor_data->humidity));
   // Serial.println(snprintf(message, sizeof(message), "North direction: %f°", sensor_data->north_direction));
