@@ -7,9 +7,9 @@ function getTemperature(){
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            console.log("Getting new temperature value in getTemperature() and plotting");
             var x = (new Date()).getTime(),
             y = parseFloat(this.responseText);
+            console.log("New temperature value: " + y);
             //console.log(this.responseText);
             if(chartT.series[0].data.length > 40) {
                 chartT.series[0].addPoint([x, y], true, true, true);
@@ -32,6 +32,7 @@ function getHumidity(){
             console.log("Getting new humidity value in getHumidity() and plotting");
             var x = (new Date()).getTime(),
             y = parseFloat(this.responseText);
+            console.log("New humidity value: " + y);
             //console.log(this.responseText);
             if(chartH.series[0].data.length > 40) {
                 chartH.series[0].addPoint([x, y], true, true, true);
@@ -53,6 +54,7 @@ function getPressure(){
         if (this.readyState == 4 && this.status == 200) {
             var x = (new Date()).getTime(),
             y = parseFloat(this.responseText);
+            console.log("New pressure value: " + y);
             //console.log(this.responseText);
             if(chartP.series[0].data.length > 40) {
                 chartP.series[0].addPoint([x, y], true, true, true);
@@ -71,7 +73,7 @@ function getNorth(){
     xhttp.onreadystatechange=function(){
         if(xhttp.readyState == 4 && this.status == 200){
             document.getElementById("north-direction").innerHTML =
-            (xhttp.responseText + "°");
+            ("North direction: " + xhttp.responseText + "°");
         }
     }
 
@@ -98,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         dateTimeLabelFormats: { second: '%H:%M:%S' }
       },
       yAxis: {
-        title: { text: 'Temperature (Celsius)' }
+        title: { text: 'Temperature (°C)' }
         //title: { text: 'Temperature (Fahrenheit)' }
       },
       credits: { enabled: false }
@@ -255,10 +257,10 @@ function notifyok(){
         var timer = setInterval(function () {
             if (op <= 0.1){
                 clearInterval(timer);
-                element.style.visibility = 'none';
+                div.style.visibility = 'none';
             }
-            element.style.opacity = op;
-            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            div.style.opacity = op;
+            div.style.filter = 'alpha(opacity=' + op * 100 + ")";
             op -= op * 0.1;
         }, 50);
     }, 3000);

@@ -92,17 +92,25 @@ void setup() {
     request->send(SPIFFS, "/functions.js");
     });
   server.on("/temperature", HTTP_GET, [](AsyncWebServerRequest * request) {
-    request->send_P(200, "text/plain", getTemperature());
+    char *temp = getTemperature();
+    request->send_P(200, "text/plain", temp);
+    free(temp);
   });
   server.on("/humidity", HTTP_GET, [](AsyncWebServerRequest * request) {
-    request->send_P(200, "text/plain", getHumidity());
+    char *hum = getHumidity();
+    request->send_P(200, "text/plain", hum);
+    free(hum);
   });
   server.on("/pressure", HTTP_GET, [](AsyncWebServerRequest * request) {
-    request->send_P(200, "text/plain", getPressure());
+    char *pres = getPressure();
+    request->send_P(200, "text/plain", pres);
+    free(pres);
   });
 
   server.on("/north", HTTP_GET, [](AsyncWebServerRequest * request) {
-    request->send_P(200, "text/plain", getNorth());
+    char *n_dir = getNorth();
+    request->send_P(200, "text/plain", n_dir);
+    free(n_dir);
   });
 
   server.on("/delay", HTTP_GET, [](AsyncWebServerRequest * request) {
@@ -110,7 +118,9 @@ void setup() {
       AsyncWebParameter *p = request->getParam("delay");
       Serial.print("Received new delay request with argument: ");
       Serial.println(p->value());
-      request->send_P(200, "text/plain", setDelay(p->value()));
+      char * ok = setDelay(p->value());
+      request->send_P(200, "text/plain", ok);
+      free(ok);
     }
   });
 
@@ -125,7 +135,7 @@ void loop() {
 }
 
 char *getTemperature() {
-  char temp[5];
+  char *temp = (char *)malloc(sizeof(char) * 5);
   sprintf(temp, "%.02f", sensor_data->temperature);
   Serial.print("Sending temperature value to client: ");
   Serial.println(temp);
@@ -133,7 +143,7 @@ char *getTemperature() {
 }
 
 char *getHumidity() {
-  char hum[5];
+  char *hum = (char *)malloc(sizeof(char) * 5);
   sprintf(hum, "%.02f", sensor_data->humidity);
   Serial.print("Sending humidity value to client: ");
   Serial.println(hum);
@@ -141,7 +151,7 @@ char *getHumidity() {
 }
 
 char *getPressure() {
-  char pres[5];
+  char *pres = (char *)malloc(sizeof(char) * 5);
   sprintf(pres, "%.02f", sensor_data->pressure);
   Serial.print("Sending pressure value to client: ");
   Serial.println(pres);
@@ -149,7 +159,7 @@ char *getPressure() {
 }
 
 char *getNorth() {
-  char n_dir[5];
+  char *n_dir = (char *)malloc(sizeof(char) * 5);
   sprintf(n_dir, "%.02f", sensor_data->north_direction);
   Serial.print("Sending north direction value to client: ");
   Serial.println(n_dir);
@@ -157,7 +167,7 @@ char *getNorth() {
 }
 
 char *setDelay(String delay_) {
-  char ok[3]; 
+  char *ok = (char *)malloc(sizeof(char) * 3); 
   new_delay = strtol(delay_.c_str(), NULL, 10);
   
   Serial.print("New delay in setDelay(): ");
@@ -192,9 +202,9 @@ void readSensorData() {
   // Enable Slave comunication
   digitalWrite(SSPIN, LOW);
 
-  for (int i = 0; i < sizeof(sensor_data); i++) {
+  for (uint8_t i = 0; i < sizeof(sensor_data); i++) {
     if(new_delay_counter < 2 && new_delay != 0){
-      sent_data[i] = SPI.transfer(new_delay);
+      sent_data[i] = SPI.transfer(uint8_new_delay[new_delay_counter]);
       new_delay_counter++;
     }
     else
