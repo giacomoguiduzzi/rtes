@@ -238,19 +238,24 @@ function sendDelay(){
     console.log("Sent delay update request");
 }
 
-var delay = (function() {
+/* var delay = (function() {
     var timer = 0;
     return function(callback, ms) {
         clearTimeout(timer);
         timer = setTimeout(callback, ms);
     };
-})();
+})(); */
 
 function notifyok(){
-    document.getElementById("delay-confirm").innerHTML = "Delay correctly set!";
-    document.getElementById("delay-confirm").style.visibility = "visible";
+    var delay_btn = document.getElementById("delay-confirm");
+    delay_btn.style.opacity = "1";
+    setTimeout(function() {
+        delay_btn.style.opacity = "0";
+    }, 3000);
 
-    delay(function(){
+    // document.getElementById("delay-confirm").style.visibility = "visible";
+
+    /* delay(function(){
         var op = 1;  // initial opacity
         var div = document.getElementById("delay-confirm");
 
@@ -263,5 +268,7 @@ function notifyok(){
             div.style.filter = 'alpha(opacity=' + op * 100 + ")";
             op -= op * 0.1;
         }, 50);
-    }, 3000);
+    }, 3000); */
+
+
 }

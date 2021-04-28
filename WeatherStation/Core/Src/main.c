@@ -122,7 +122,7 @@ void _set_delay(const uint16_t new_delay){
 
 void SendReceiveSPIData(){
 	written_data = 0;
-	HAL_StatusTypeDef status = HAL_TIMEOUT;
+	HAL_StatusTypeDef status;
 	// uint16_t new_delay = 0;
 	union{
 		uint8_t uint8_delay[2];
@@ -163,9 +163,10 @@ void SendReceiveSPIData(){
 	// osMutexWait(spi_commHandle, 0);
 
 	for(uint8_t i=0; i<sizeof(sensor_data_t); i++){
+		status = HAL_TIMEOUT;
 		while(status != HAL_OK){
 
-			status = HAL_SPI_TransmitReceive(&hspi1, to_send + i, &new_delay.uint8_delay[new_delay_counter], sizeof(uint8_t), 0); // testing active wait with 0 Timeout, never blocks (maybe)
+			status = HAL_SPI_TransmitReceive(&hspi1, to_send + i, &new_delay.uint8_delay[new_delay_counter], sizeof(uint8_t), delay*2); // testing active wait with 0 Timeout, never blocks (maybe)
 
 			if(new_delay_counter >= 2 && new_delay.uint16_delay != 0)
 				_set_delay(new_delay.uint16_delay);

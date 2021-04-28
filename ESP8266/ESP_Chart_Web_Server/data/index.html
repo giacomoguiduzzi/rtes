@@ -17,6 +17,36 @@ copies or substantial portions of the Software. -->
                 font-size: 2.5rem;
                 text-align: center;
             }
+
+            #delay-confirm{
+                opacity: 0;
+                color: white;
+                background-color: green;
+                transition: .5s all ease;
+                display: inline-block;
+                border-radius:5px;
+                display: inline-block;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border: none;
+            }
+
+            /* #delay-confirm span{
+                padding: 10px;
+            } */
+
+            fieldset{
+                border-radius: 5px;
+                border: solid;
+                border-color: black;
+            }
+
+            fieldset span, #delay-confirm{
+                display: block;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
         </style>
     </head>
     <body>
@@ -26,18 +56,26 @@ copies or substantial portions of the Software. -->
       <div id="chart-pressure" class="container"></div>
       <div id="north-direction" class="container"></div>
 
-      <!-- border solid, rounded 20px circa, radio button uno sotto l'altro
-      in verticale, può essere utile flexbox -->
       <fieldset>
           <legend>Sensors refresh rate</legend>
-          <input type="radio" name="delay" value="Fast" checked="checked">Fast</input>
-          <input type="radio" name="delay" value="Medium">Medium</input>
-          <input type="radio" name="delay" value="Slow">Slow</input>
-          <input type="radio" name="delay" value="Very slow">Very slow</input>
-          <input type="radio" name="delay" value="Take a break">Take a break</input>
+          <span>
+              <input type="radio" name="delay" value="Fast" checked="checked" />Fast
+          </span>
+          <span>
+              <input type="radio" name="delay" value="Medium" />Medium
+          </span>
+          <span>
+              <input type="radio" name="delay" value="Slow" />Slow
+          </span>
+          <span>
+              <input type="radio" name="delay" value="Very slow" />Very slow
+          </span>
+          <span>
+              <input type="radio" name="delay" value="Take a break" />Take a break
+          </span>
 
           <button onclick="sendDelay()"> Set refresh rate</button>
-          <div id="delay-confirm" hidden=true></div>
+          <button id="delay-confirm">Delay correctly set!</button>
       </fieldset>
     </body>
 </html>

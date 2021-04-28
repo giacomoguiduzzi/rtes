@@ -18,7 +18,6 @@
 #include <FS.h>
 #include <ESP8266mDNS.h>
 #include <SPI.h>
-// #include <stdio.h>
 
 const uint8_t SSPIN = 15;
 
@@ -45,7 +44,7 @@ uint16_t sensors_delay = FAST;
 uint16_t new_delay = 0;
 
 sensor_data_t *sensor_data;
-uint8_t *sent_data = (uint8_t *)malloc(sizeof(sensor_data));
+uint8_t *sent_data;
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
@@ -53,6 +52,14 @@ AsyncWebServer server(80);
 void setup() {
   // Serial port for debugging purposes
   Serial.begin(9600);
+
+  sensor_data = (sensor_data_t *)malloc(sizeof(sensor_data));
+  sensor_data->temperature = 0.0;
+  sensor_data->humidity = 0.0;
+  sensor_data->pressure = 0.0;
+  sensor_data->north_direction = 0.0;
+
+  sent_data = (uint8_t *)sensor_data;
 
   // Initialization of SPI library, setting transmitting rate as 1/4 of chip clock (80 MHz / 4 = 20 MHz)
   SPI.begin();
@@ -136,33 +143,41 @@ void loop() {
 
 char *getTemperature() {
   char *temp = (char *)malloc(sizeof(char) * 5);
+  // active wait, can't use delay() here
+  while(!digitalRead(SSPIN));
   sprintf(temp, "%.02f", sensor_data->temperature);
-  Serial.print("Sending temperature value to client: ");
-  Serial.println(temp);
+  // Serial.print("Sending temperature value to client: ");
+  // Serial.println(String(temp));
   return temp;
 }
 
 char *getHumidity() {
   char *hum = (char *)malloc(sizeof(char) * 5);
+  // active wait, can't use delay() here
+  while(!digitalRead(SSPIN));
   sprintf(hum, "%.02f", sensor_data->humidity);
-  Serial.print("Sending humidity value to client: ");
-  Serial.println(hum);
+  // Serial.print("Sending humidity value to client: ");
+  // Serial.println(String(hum));
   return hum;
 }
 
 char *getPressure() {
   char *pres = (char *)malloc(sizeof(char) * 5);
+  // active wait, can't use delay() here
+  while(!digitalRead(SSPIN));
   sprintf(pres, "%.02f", sensor_data->pressure);
-  Serial.print("Sending pressure value to client: ");
-  Serial.println(pres);
+  // Serial.print("Sending pressure value to client: ");
+  //Serial.println(String(pres));
   return pres;
 }
 
 char *getNorth() {
   char *n_dir = (char *)malloc(sizeof(char) * 5);
+  // active wait, can't use delay() here
+  while(!digitalRead(SSPIN));
   sprintf(n_dir, "%.02f", sensor_data->north_direction);
-  Serial.print("Sending north direction value to client: ");
-  Serial.println(n_dir);
+  // Serial.print("Sending north direction value to client: ");
+  // Serial.println(String(n_dir));
   return n_dir;
 }
 
@@ -215,9 +230,12 @@ void readSensorData() {
   digitalWrite(SSPIN, HIGH);
   // SPI.endTransaction();
 
-  sensor_data = (sensor_data_t *) sent_data;
+  if(sensor_data->temperature < -20 || sensor_data->temperature > 60)
+    sensor_data->temperature = 0.0;
+
+  // sensor_data = (sensor_data_t *) sent_data;
   // Serial.println(snprintf(message, sizeof(message), "Temperature: %f °C", sensor_data->temperature));
-  /* Serial.print("Temperature: ");
+  Serial.print("Temperature: ");
   Serial.print(sensor_data->temperature);
   Serial.println("°C");
 
@@ -238,8 +256,8 @@ void readSensorData() {
 
   Serial.print("North direction: ");
   Serial.print(sensor_data->north_direction);
-  Serial.println("°");*/
-  // Serial.println("");
+  Serial.println("°");
+   Serial.println("");
   // Serial.println(snprintf(message, sizeof(message), "Pressure: %f hPa", sensor_data->pressure));
   // Serial.println(snprintf(message, sizeof(message), "Humidity: %f\%", sensor_data->humidity));
   // Serial.println(snprintf(message, sizeof(message), "North direction: %f°", sensor_data->north_direction));
