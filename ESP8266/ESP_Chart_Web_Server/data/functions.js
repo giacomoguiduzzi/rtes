@@ -212,7 +212,7 @@ function sendDelay(){
             if(this.responseText == "ok"){
                 console.log("Received ok response for delay");
                 currentDelay = delay_int;
-                notifyok();
+
                 // change intervals
                 clearInterval(temp_interval);
                 temp_interval = setInterval(getTemperature, currentDelay);
@@ -231,6 +231,8 @@ function sendDelay(){
                 document.getElementById("delay-confirm").innerHTML = "There \
                 was an error during the delay set-up.";
             }
+
+            notifyresult(this.responseText);
         }
     };
     xhttp.open("GET", url, true);
@@ -246,11 +248,22 @@ function sendDelay(){
     };
 })(); */
 
-function notifyok(){
+function notifyresult(result){
     var delay_btn = document.getElementById("delay-confirm");
+
+    if(result == "ok")
+        delay_btn.classList.add("ok");
+    else
+        delay_btn.classList.add("no");
+
     delay_btn.style.opacity = "1";
+
     setTimeout(function() {
         delay_btn.style.opacity = "0";
+        if(result == "ok")
+            delay_btn.classList.remove("ok");
+        else
+            delay_btn.classList.remove("no");
     }, 3000);
 
     // document.getElementById("delay-confirm").style.visibility = "visible";
