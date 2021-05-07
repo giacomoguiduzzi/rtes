@@ -9837,3 +9837,1697 @@
 2021-04-27 14:30:08,079 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.instructionSet.879704905 uses a null category that is invalid in its context. The option was ignored.
 2021-04-27 14:30:08,087 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.fpu.2067778931 uses a null category that is invalid in its context. The option was ignored.
 2021-04-27 14:30:08,092 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.floatabi.370052024 uses a null category that is invalid in its context. The option was ignored.
+2021-04-28 12:19:27,751 [INFO] Activator:170 - 
+
+
+2021-04-28 12:19:27,770 [INFO] Activator:171 - !SESSION log4j initialized
+2021-04-28 12:19:39,918 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.prefix.2122135264 uses a null category that is invalid in its context. The option was ignored.
+2021-04-28 12:19:39,946 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.mcu.1769491298 uses a null category that is invalid in its context. The option was ignored.
+2021-04-28 12:19:39,951 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.board.1838371139 uses a null category that is invalid in its context. The option was ignored.
+2021-04-28 12:19:39,956 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.instructionSet.879704905 uses a null category that is invalid in its context. The option was ignored.
+2021-04-28 12:19:39,960 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.fpu.2067778931 uses a null category that is invalid in its context. The option was ignored.
+2021-04-28 12:19:39,965 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.floatabi.370052024 uses a null category that is invalid in its context. The option was ignored.
+2021-04-29 13:00:11,188 [INFO] McuFinderGlobals:39 - Set McuFinder mode to 2 (CubeIDE integrated)
+2021-04-29 13:00:12,433 [INFO] ApplicationProperties:181 - Using Application install path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236
+2021-04-29 13:00:12,485 [INFO] DbMcusXml:74 - Set database path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/mcu/
+2021-04-29 13:00:12,492 [INFO] DbBoardsPdsc:56 - Set plugin database path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/plugins/boardmanager/
+2021-04-29 13:00:12,492 [INFO] DbMcus:258 - Set plugin images path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/plugins/mcufinder/images/
+2021-04-29 13:00:12,493 [INFO] DbBoards:264 - Set plugin images path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/plugins/mcufinder/images/
+2021-04-29 13:00:12,496 [INFO] DbExamples:333 - Set plugin images path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/plugins/mcufinder/images/
+2021-04-29 13:00:12,528 [INFO] DbMcusAds:85 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:12,530 [INFO] DbMcusDocs:110 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:12,535 [INFO] DbMcusJson:65 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:12,537 [INFO] DbBoardsDocs:110 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:12,538 [INFO] DbBoardsJson:58 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:12,579 [INFO] CrossReferenceDbSqlite:196 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/cs/
+2021-04-29 13:00:12,592 [INFO] DbExamplesSqlite:690 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:12,853 [INFO] RulesReader:52 - Compatibility file has been processed (237 Rules)
+2021-04-29 13:00:13,176 [INFO] MicroXplorer:622 - Detected Java Version = 11.0.9.1
+2021-04-29 13:00:13,177 [INFO] DbMcusXml:74 - Set database path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/mcu/
+2021-04-29 13:00:13,178 [INFO] DbBoardsPdsc:56 - Set plugin database path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/plugins/boardmanager/
+2021-04-29 13:00:13,178 [INFO] DbMcus:258 - Set plugin images path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/plugins/mcufinder/images/
+2021-04-29 13:00:13,191 [INFO] DbBoards:264 - Set plugin images path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/plugins/mcufinder/images/
+2021-04-29 13:00:13,192 [INFO] DbExamples:333 - Set plugin images path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/plugins/mcufinder/images/
+2021-04-29 13:00:13,192 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,192 [INFO] DbMcusAds:85 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:13,192 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,192 [INFO] DbMcusDocs:110 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:13,193 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,193 [INFO] DbMcusJson:65 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:13,193 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,193 [INFO] DbBoardsDocs:110 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:13,193 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,194 [INFO] DbBoardsJson:58 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:13,194 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,194 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,194 [INFO] CrossReferenceDbSqlite:196 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/cs/
+2021-04-29 13:00:13,194 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,194 [INFO] DbExamplesSqlite:690 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:13,375 [INFO] MainPanel:204 - HeapMemory: 389021696
+2021-04-29 13:00:13,576 [INFO] DbMcusXml:74 - Set database path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/mcu/
+2021-04-29 13:00:13,576 [INFO] DbBoardsPdsc:56 - Set plugin database path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/plugins/boardmanager/
+2021-04-29 13:00:13,577 [INFO] DbMcus:258 - Set plugin images path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/plugins/mcufinder/images/
+2021-04-29 13:00:13,577 [INFO] DbBoards:264 - Set plugin images path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/plugins/mcufinder/images/
+2021-04-29 13:00:13,577 [INFO] DbExamples:333 - Set plugin images path to: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/plugins/mcufinder/images/
+2021-04-29 13:00:13,582 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,582 [INFO] DbMcusAds:85 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:13,583 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,583 [INFO] DbMcusDocs:110 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:13,583 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,583 [INFO] DbMcusJson:65 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:13,583 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,583 [INFO] DbBoardsDocs:110 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:13,583 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,583 [INFO] DbBoardsJson:58 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:13,583 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,583 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,584 [INFO] CrossReferenceDbSqlite:196 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/cs/
+2021-04-29 13:00:13,584 [WARN] DbFile:35 - Overriding database path with different value: C:\Users\super\.stmcufinder\plugins\mcufinder/ => C:\Users\super\.stmcufinder\plugins\mcufinder
+2021-04-29 13:00:13,584 [INFO] DbExamplesSqlite:690 - Set database path to: C:\Users\super\.stmcufinder\plugins\mcufinder//mcu/
+2021-04-29 13:00:13,643 [INFO] ApplicationProperties:181 - Using Application install path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236
+2021-04-29 13:00:13,645 [INFO] PluginManage:178 - Search for loadable plugins [exclusion list=, ]
+2021-04-29 13:00:13,647 [INFO] PluginManage:292 - Check plugin analytics
+2021-04-29 13:00:18,671 [INFO] AnalyticsPlugin:233 - Accepted Software Licenses: 
+2021-04-29 13:00:18,672 [INFO] AnalyticsPlugin:235 - Accepted CMSIS Pack Licenses: STMicroelectronics.X-CUBE-GNSS1.5.2.0
+2021-04-29 13:00:18,673 [INFO] AnalyticsPlugin:237 - Accepted Firmware Licenses: 
+2021-04-29 13:00:18,673 [INFO] PluginManage:342 - Loaded plugin analytics (category:tool,tabindex:-1)
+2021-04-29 13:00:18,674 [INFO] PluginManage:292 - Check plugin clock
+2021-04-29 13:00:18,728 [INFO] PluginManage:342 - Loaded plugin clock (category:base,tabindex:2)
+2021-04-29 13:00:18,729 [INFO] PluginManage:292 - Check plugin ddr
+2021-04-29 13:00:18,765 [INFO] PluginManage:342 - Loaded plugin ddr (category:tool,tabindex:6)
+2021-04-29 13:00:18,765 [INFO] PluginManage:292 - Check plugin filemanager
+2021-04-29 13:00:19,239 [INFO] PluginManage:342 - Loaded plugin filemanager (category:base,tabindex:10)
+2021-04-29 13:00:19,240 [INFO] PluginManage:292 - Check plugin ipmanager
+2021-04-29 13:00:19,289 [INFO] PluginManage:342 - Loaded plugin ipmanager (category:base,tabindex:5)
+2021-04-29 13:00:19,290 [INFO] PluginManage:292 - Check plugin pinoutandconfiguration
+2021-04-29 13:00:19,329 [INFO] PluginManage:342 - Loaded plugin pinoutandconfiguration (category:base,tabindex:1)
+2021-04-29 13:00:19,329 [INFO] PluginManage:292 - Check plugin pinoutconfig
+2021-04-29 13:00:19,414 [INFO] PluginManage:342 - Loaded plugin pinoutconfig (category:base,tabindex:0)
+2021-04-29 13:00:19,415 [INFO] PluginManage:292 - Check plugin power
+2021-04-29 13:00:19,497 [INFO] PluginManage:342 - Loaded plugin power (category:power,tabindex:4)
+2021-04-29 13:00:19,498 [INFO] PluginManage:292 - Check plugin projectmanager
+2021-04-29 13:00:19,544 [INFO] PluginManage:342 - Loaded plugin projectmanager (category:projectmanager,tabindex:3)
+2021-04-29 13:00:19,545 [INFO] PluginManage:292 - Check plugin thirdparty
+2021-04-29 13:00:20,049 [INFO] PluginManage:342 - Loaded plugin thirdparty (category:base,tabindex:-1)
+2021-04-29 13:00:20,050 [INFO] PluginManage:292 - Check plugin tools
+2021-04-29 13:00:20,050 [WARN] IntegrityCheckThread:59 - waiting for thirdparty lock release [integrity check]
+2021-04-29 13:00:20,051 [INFO] IntegrityCheckThread:61 - entering critical section [integrity check]
+2021-04-29 13:00:20,051 [INFO] ThirdPartyUpdaterWithRetryManager:56 - Updater plugin not ready yet. [1/15]
+2021-04-29 13:00:20,236 [INFO] PluginManage:342 - Loaded plugin tools (category:base,tabindex:7)
+2021-04-29 13:00:20,236 [INFO] PluginManage:292 - Check plugin tutovideos
+2021-04-29 13:00:20,696 [INFO] PluginManage:342 - Loaded plugin tutovideos (category:base,tabindex:-1)
+2021-04-29 13:00:20,696 [INFO] PluginManage:292 - Check plugin updater
+2021-04-29 13:00:20,733 [INFO] PluginManage:342 - Loaded plugin updater (category:base,tabindex:12)
+2021-04-29 13:00:20,733 [INFO] PluginManage:265 - PluginManage : Loaded plugins [13]
+2021-04-29 13:00:21,195 [INFO] PinOutPanel:1435 - setPackage(No Configuration,No Configuration)
+2021-04-29 13:00:21,476 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:21,476 [INFO] PluginManager:203 - loadIPPluginJar : add adc
+2021-04-29 13:00:21,535 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:21,535 [INFO] PluginManager:203 - loadIPPluginJar : add aes
+2021-04-29 13:00:21,589 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:21,589 [INFO] PluginManager:203 - loadIPPluginJar : add can
+2021-04-29 13:00:21,641 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:21,641 [INFO] PluginManager:203 - loadIPPluginJar : add comp
+2021-04-29 13:00:21,687 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:21,687 [INFO] PluginManager:203 - loadIPPluginJar : add cryp
+2021-04-29 13:00:21,733 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:21,733 [INFO] PluginManager:203 - loadIPPluginJar : add dfsdm
+2021-04-29 13:00:21,751 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:21,753 [INFO] PluginManager:203 - loadIPPluginJar : add dma
+2021-04-29 13:00:21,785 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:21,785 [INFO] PluginManager:203 - loadIPPluginJar : add fatfs
+2021-04-29 13:00:21,846 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:21,846 [INFO] PluginManager:203 - loadIPPluginJar : add fmc
+2021-04-29 13:00:21,863 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:21,863 [INFO] PluginManager:203 - loadIPPluginJar : add freertos
+2021-04-29 13:00:21,898 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:21,899 [INFO] PluginManager:203 - loadIPPluginJar : add genericplugin
+2021-04-29 13:00:22,081 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,081 [INFO] PluginManager:203 - loadIPPluginJar : add gfxmmu
+2021-04-29 13:00:22,249 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,249 [INFO] PluginManager:203 - loadIPPluginJar : add gic
+2021-04-29 13:00:22,267 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,267 [INFO] PluginManager:203 - loadIPPluginJar : add gpio
+2021-04-29 13:00:22,357 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,357 [INFO] PluginManager:203 - loadIPPluginJar : add gtzc
+2021-04-29 13:00:22,407 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,407 [INFO] PluginManager:203 - loadIPPluginJar : add hash
+2021-04-29 13:00:22,480 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,480 [INFO] PluginManager:203 - loadIPPluginJar : add i2c
+2021-04-29 13:00:22,536 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,536 [INFO] PluginManager:203 - loadIPPluginJar : add i2s
+2021-04-29 13:00:22,594 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,594 [INFO] PluginManager:203 - loadIPPluginJar : add ipddr
+2021-04-29 13:00:22,645 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,646 [INFO] PluginManager:203 - loadIPPluginJar : add lorawan
+2021-04-29 13:00:22,697 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,698 [INFO] PluginManager:203 - loadIPPluginJar : add ltdc
+2021-04-29 13:00:22,725 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,725 [INFO] PluginManager:203 - loadIPPluginJar : add mdma
+2021-04-29 13:00:22,741 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,741 [INFO] PluginManager:203 - loadIPPluginJar : add nvic
+2021-04-29 13:00:22,789 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,789 [INFO] PluginManager:203 - loadIPPluginJar : add opamp
+2021-04-29 13:00:22,867 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,868 [INFO] PluginManager:203 - loadIPPluginJar : add openamp
+2021-04-29 13:00:22,923 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:22,924 [INFO] PluginManager:203 - loadIPPluginJar : add pdm2pcm
+2021-04-29 13:00:22,944 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,003 [INFO] PluginManager:203 - loadIPPluginJar : add plateformsettings
+2021-04-29 13:00:23,052 [INFO] ThirdPartyUpdaterWithRetryManager:56 - Updater plugin not ready yet. [2/15]
+2021-04-29 13:00:23,075 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,075 [INFO] PluginManager:203 - loadIPPluginJar : add quadspi
+2021-04-29 13:00:23,091 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,092 [INFO] PluginManager:203 - loadIPPluginJar : add resmgrutility
+2021-04-29 13:00:23,161 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,161 [INFO] PluginManager:203 - loadIPPluginJar : add sai
+2021-04-29 13:00:23,214 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,215 [INFO] PluginManager:203 - loadIPPluginJar : add spi
+2021-04-29 13:00:23,315 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,316 [INFO] PluginManager:203 - loadIPPluginJar : add stm32_wpan
+2021-04-29 13:00:23,352 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,353 [INFO] PluginManager:203 - loadIPPluginJar : add tim
+2021-04-29 13:00:23,425 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,426 [INFO] PluginManager:203 - loadIPPluginJar : add touchsensing
+2021-04-29 13:00:23,462 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,462 [INFO] PluginManager:203 - loadIPPluginJar : add tracer_emb
+2021-04-29 13:00:23,499 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,499 [INFO] PluginManager:203 - loadIPPluginJar : add ts
+2021-04-29 13:00:23,537 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,537 [INFO] PluginManager:203 - loadIPPluginJar : add tsc
+2021-04-29 13:00:23,568 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,568 [INFO] PluginManager:203 - loadIPPluginJar : add ucpd
+2021-04-29 13:00:23,685 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:00:23,685 [INFO] PluginManager:203 - loadIPPluginJar : add usart
+2021-04-29 13:00:24,419 [FATAL] Updater:284 - Updater called before beeing initialized
+2021-04-29 13:00:24,593 [FATAL] Updater:284 - Updater called before beeing initialized
+2021-04-29 13:00:24,611 [INFO] DbMcusAds:132 - JSON generation date=Mon Mar 01 11:27:44 CET 2021 (1614594464771)
+2021-04-29 13:00:24,611 [FATAL] Updater:284 - Updater called before beeing initialized
+2021-04-29 13:00:24,818 [WARN] DetailPanel:315 - Failed to get advertising image, set to default
+2021-04-29 13:00:25,098 [FATAL] Updater:284 - Updater called before beeing initialized
+2021-04-29 13:00:25,143 [FATAL] Updater:284 - Updater called before beeing initialized
+2021-04-29 13:00:25,143 [FATAL] Updater:284 - Updater called before beeing initialized
+2021-04-29 13:00:25,143 [WARN] DetailPanel:315 - Failed to get advertising image, set to default
+2021-04-29 13:00:25,145 [FATAL] Updater:284 - Updater called before beeing initialized
+2021-04-29 13:00:25,240 [FATAL] Updater:284 - Updater called before beeing initialized
+2021-04-29 13:00:25,240 [WARN] ThirdParty:796 - waiting for thirdparty lock release [close project]
+2021-04-29 13:00:26,053 [INFO] ThirdPartyUpdaterWithRetryManager:56 - Updater plugin not ready yet. [3/15]
+2021-04-29 13:00:29,054 [FATAL] Updater:284 - Updater called before beeing initialized
+2021-04-29 13:00:29,054 [ERROR] AbstractThirdPartyUpdaterManager:153 - class java.lang.Integer cannot be cast to class java.util.List (java.lang.Integer and java.util.List are in module java.base of loader 'bootstrap')
+2021-04-29 13:00:29,054 [INFO] ThirdParty:900 - Integrity check success = false
+2021-04-29 13:00:29,054 [INFO] IntegrityCheckThread:75 - exiting critical section [integrity check]
+2021-04-29 13:00:29,055 [INFO] IntegrityCheckThread:78 - End integrity checks thread
+2021-04-29 13:00:29,055 [INFO] ThirdParty:798 - entering critical section [close project]
+2021-04-29 13:00:29,056 [INFO] ThirdParty:809 - exiting critical section [close project]
+2021-04-29 13:00:29,060 [INFO] PinOutPanel:1435 - setPackage(No Configuration,No Configuration)
+2021-04-29 13:00:29,060 [FATAL] Updater:284 - Updater called before beeing initialized
+2021-04-29 13:00:29,105 [ERROR] Updater:1065 - MainUpdater not yet initialized. External WinMGr cannot be set.
+2021-04-29 13:00:29,186 [INFO] Updater:1002 - Updater Version found : 6.2.1
+2021-04-29 13:00:29,220 [INFO] ApplicationProperties:181 - Using Application install path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236
+2021-04-29 13:00:29,538 [INFO] MainUpdater:2661 - connection check result : 10
+2021-04-29 13:00:29,538 [INFO] MainUpdater:3349 - Updater definition file requires update
+2021-04-29 13:00:29,539 [INFO] MainUpdater:255 - Updater Check For Update Now.
+2021-04-29 13:00:29,540 [INFO] MicroXplorer:472 - Change Database Version : DB.6.0.21
+2021-04-29 13:00:29,592 [INFO] ServerAccessManage:348 - Download File updaters.zip
+2021-04-29 13:00:29,686 [INFO] FileExtend:225 - Unzip File : updaters.zip
+2021-04-29 13:00:29,686 [INFO] FileExtend:240 - Standard Zip Deflate
+2021-04-29 13:00:30,369 [INFO] ServerAccessManage:348 - Download File PacksControlFlags.xml
+2021-04-29 13:00:30,445 [INFO] ServerAccessManage:348 - Download File cubemx.pidx
+2021-04-29 13:00:30,604 [INFO] LoadServerUpdatesThread:329 - End of LoadServerUpdate Thread
+2021-04-29 13:00:30,644 [INFO] CheckServerUpdateThread:102 - End of CheckServer Thread
+2021-04-29 13:00:30,646 [INFO] MainUpdater:2661 - connection check result : 10
+2021-04-29 13:00:30,894 [INFO] ServerAccessManage:348 - Download File ad.zip
+2021-04-29 13:00:31,110 [INFO] FileExtend:225 - Unzip File : ad.zip
+2021-04-29 13:00:31,111 [INFO] FileExtend:240 - Standard Zip Deflate
+2021-04-29 13:00:31,195 [INFO] LoadUrlFilesThread:135 - End of LoadUrlFiles Thread
+2021-04-29 13:00:31,429 [INFO] ServerAccessManage:348 - Download File mcusAds.json._tmp_
+2021-04-29 13:00:31,443 [INFO] LoadUrlFilesThread:135 - End of LoadUrlFiles Thread
+2021-04-29 13:00:31,593 [INFO] ServerAccessManage:348 - Download File mcusDocs.json._tmp_
+2021-04-29 13:00:31,668 [INFO] LoadUrlFilesThread:135 - End of LoadUrlFiles Thread
+2021-04-29 13:00:31,717 [INFO] ServerAccessManage:348 - Download File mcusFeaturesAndDescription.json._tmp_
+2021-04-29 13:00:34,694 [INFO] LoadUrlFilesThread:135 - End of LoadUrlFiles Thread
+2021-04-29 13:00:34,741 [INFO] ServerAccessManage:348 - Download File boardsDocs.json._tmp_
+2021-04-29 13:00:34,865 [INFO] LoadUrlFilesThread:135 - End of LoadUrlFiles Thread
+2021-04-29 13:00:34,912 [INFO] ServerAccessManage:348 - Download File boards.json._tmp_
+2021-04-29 13:00:35,073 [INFO] LoadUrlFilesThread:135 - End of LoadUrlFiles Thread
+2021-04-29 13:00:35,109 [INFO] ServerAccessManage:348 - Download File cube-finder-db.zip
+2021-04-29 13:00:39,162 [INFO] FileExtend:225 - Unzip File : cube-finder-db.zip
+2021-04-29 13:00:39,162 [INFO] FileExtend:240 - Standard Zip Deflate
+2021-04-29 13:00:39,523 [INFO] LoadUrlFilesThread:135 - End of LoadUrlFiles Thread
+2021-04-29 13:00:39,696 [INFO] ServerAccessManage:348 - Download File crdb.zip
+2021-04-29 13:00:39,903 [INFO] FileExtend:225 - Unzip File : crdb.zip
+2021-04-29 13:00:39,903 [INFO] FileExtend:240 - Standard Zip Deflate
+2021-04-29 13:00:39,942 [INFO] LoadUrlFilesThread:135 - End of LoadUrlFiles Thread
+2021-04-29 13:00:39,998 [INFO] ServerAccessManage:348 - Download File tutoVideoDB.zip
+2021-04-29 13:00:40,029 [INFO] FileExtend:225 - Unzip File : tutoVideoDB.zip
+2021-04-29 13:00:40,030 [INFO] FileExtend:240 - Standard Zip Deflate
+2021-04-29 13:00:40,063 [INFO] LoadUrlFilesThread:135 - End of LoadUrlFiles Thread
+2021-04-29 13:00:40,064 [INFO] DbMcusAds:132 - JSON generation date=Tue Apr 20 12:17:47 CEST 2021 (1618913867095)
+2021-04-29 13:00:40,078 [INFO] DbMcusDocs:143 - JSON generation date=Mon Feb 08 14:35:07 CET 2021 (1612791307)
+2021-04-29 13:00:40,091 [INFO] DbMcusXml:100 - Load MCU database from D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/mcu/families.xml
+2021-04-29 13:00:41,018 [INFO] DbMcusJson:94 - JSON generation date=Mon Feb 08 14:35:07 CET 2021 (1612791307)
+2021-04-29 13:00:41,798 [INFO] DbMcus:175 - Found 1906 MCUs (1866 are supported by CubeMX, 1866 are visible in CubeMX)
+2021-04-29 13:00:41,799 [INFO] ApiDb:251 - Load user favorites file C:\Users\super/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2021-04-29 13:00:41,799 [INFO] ApiDb:255 - User favorites MCUs=[]
+2021-04-29 13:00:41,800 [INFO] DbMcus:187 - Set 0 / 0 favorites MCUs
+2021-04-29 13:00:42,627 [INFO] DbMcusDocs:79 - Found 617 MCUs documents
+2021-04-29 13:00:42,629 [INFO] ApiDb:276 - Save user favorites file C:\Users\super/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2021-04-29 13:00:42,630 [INFO] ApiDb:280 - User favorites MCUs=[]
+2021-04-29 13:00:42,630 [INFO] DbMcusXml:100 - Load MCU database from D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\/mcu/families.xml
+2021-04-29 13:00:43,366 [INFO] DbMcusJson:94 - JSON generation date=Mon Feb 08 14:35:07 CET 2021 (1612791307)
+2021-04-29 13:00:44,013 [INFO] DbMcus:175 - Found 1906 MCUs (1866 are supported by CubeMX, 1866 are visible in CubeMX)
+2021-04-29 13:00:44,013 [INFO] ApiDb:251 - Load user favorites file C:\Users\super/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2021-04-29 13:00:44,014 [INFO] ApiDb:255 - User favorites MCUs=[]
+2021-04-29 13:00:44,014 [INFO] DbMcus:187 - Set 0 / 0 favorites MCUs
+2021-04-29 13:00:44,042 [INFO] DbBoardsDocs:143 - JSON generation date=Mon Feb 08 14:35:07 CET 2021 (1612791307)
+2021-04-29 13:00:44,114 [INFO] DbBoardsPdsc:90 - Found 24 items
+2021-04-29 13:00:44,132 [INFO] DbBoardsPdsc:90 - Found 9 items
+2021-04-29 13:00:44,163 [INFO] DbBoardsPdsc:90 - Found 33 items
+2021-04-29 13:00:44,187 [INFO] DbBoardsPdsc:90 - Found 1 items
+2021-04-29 13:00:44,216 [INFO] DbBoardsPdsc:90 - Found 46 items
+2021-04-29 13:00:44,245 [INFO] DbBoardsPdsc:90 - Found 41 items
+2021-04-29 13:00:44,262 [INFO] DbBoardsPdsc:90 - Found 2 items
+2021-04-29 13:00:44,274 [INFO] DbBoardsPdsc:90 - Found 5 items
+2021-04-29 13:00:44,278 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=Three user LEDs, n=1
+2021-04-29 13:00:44,279 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=One reset and three user push-buttons, n=1
+2021-04-29 13:00:44,279 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=Arduino Uno V3 expansion connector, n=1
+2021-04-29 13:00:44,279 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=ST morpho extension pin headers for full access to all STM32WB I/Os, n=1
+2021-04-29 13:00:44,279 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=Integrated PCB antenna and SMA connector footprint, n=1
+2021-04-29 13:00:44,279 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=Flexible power-supply options: ST-LINK, USB VBUS, or external sources, n=1
+2021-04-29 13:00:44,279 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=On-board footprint to mount a CR2032 battery socket, n=1
+2021-04-29 13:00:44,279 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=On-board ST-LINK/V2-1 debugger/programmer with USB re-enumeration capability: mass storage, Virtual COM port, and debug port, n=1
+2021-04-29 13:00:44,279 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=Comprehensive free software libraries and examples available with the STM32CubeWB MCU Package, n=1
+2021-04-29 13:00:44,279 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=Support of a wide choice of Integrated Development Environments (IDEs) including IAR Embedded Workbench, MDK-ARM, STM32CubeIDE, and Mbed Studio, n=1
+2021-04-29 13:00:44,282 [WARN] DbBoardsPdsc:254 - Board STM32H7B3I-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (CS42L51-CNZ), n=1
+2021-04-29 13:00:44,282 [WARN] DbBoardsPdsc:254 - Board STM32H735G-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (WM8994ECS/R), n=1
+2021-04-29 13:00:44,282 [WARN] DbBoardsPdsc:254 - Board STM32WB5MM-DK: unknown feature type=, name=, username=Time-of-Flight and gesture-detection sensor, n=1
+2021-04-29 13:00:44,282 [WARN] DbBoardsPdsc:254 - Board STM32WB5MM-DK: unknown feature type=, name=, username=3 push-buttons (2 users and 1 reset) and 1 touch key button, n=1
+2021-04-29 13:00:44,282 [WARN] DbBoardsPdsc:254 - Board STM32WB5MM-DK: unknown feature type=, name=, username=Flexible power-supply options: ST-LINK/V2-1 USB connector, 5 V delivered by ARDUINO® or external connector, USB charger, or USB power, n=1
+2021-04-29 13:00:44,282 [WARN] DbBoardsPdsc:254 - Board STM32WB5MM-DK: unknown feature type=, name=, username=On-board ST-LINK/V2-1 debugger/programmer with USB re-enumeration capability: Virtual COM port and debug port, n=1
+2021-04-29 13:00:44,282 [WARN] DbBoardsPdsc:254 - Board STM32WB5MM-DK: unknown feature type=, name=, username=Comprehensive free software libraries and examples available with the STM32CubeWB MCU Package, n=1
+2021-04-29 13:00:44,282 [WARN] DbBoardsPdsc:254 - Board STM32WB5MM-DK: unknown feature type=, name=, username=Support of a wide choice of Integrated Development Environments (IDEs) including IAR Embedded Workbench®, MDK-ARM, and STM32CubeIDE, n=1
+2021-04-29 13:00:44,284 [WARN] DbBoardsPdsc:254 - Board STM32H7B3I-EVAL: unknown feature type=Audio, name=, username=Multi-Channel Audio Codec (CS42L51-CNZ), n=1
+2021-04-29 13:00:44,284 [WARN] DbBoardsPdsc:254 - Board STM32H7B3I-EVAL: unknown feature type=Meter, name=, username=Power-metering and Temperature-monitoring with sigma-delta modulators, n=1
+2021-04-29 13:00:44,284 [WARN] DbBoardsPdsc:254 - Board STM32H7B3I-EVAL: unknown feature type=Motor, name=, username=Motor Control, n=1
+2021-04-29 13:00:44,298 [INFO] DbBoardsJson:87 - JSON generation date=Thu Feb 04 17:53:45 CET 2021 (1612457625)
+2021-04-29 13:00:44,306 [INFO] DbBoards:117 - Found 161 boards (158 are supported by CubeMX)
+2021-04-29 13:00:44,317 [INFO] DbBoardsDocs:143 - JSON generation date=Mon Feb 08 14:35:07 CET 2021 (1612791307)
+2021-04-29 13:00:44,335 [INFO] DbBoardsDocs:79 - Found 193 boards documents
+2021-04-29 13:00:44,337 [WARN] DbBoards:127 - board B-L462E-CELL1 has no document id list !
+2021-04-29 13:00:44,338 [WARN] DbBoards:127 - board B-L475E-IOT01A2 has no document id list !
+2021-04-29 13:00:44,339 [WARN] DbBoards:127 - board NUCLEO-G0B1RE has no document id list !
+2021-04-29 13:00:44,339 [WARN] DbBoards:127 - board NUCLEO-H743ZI2 has no document id list !
+2021-04-29 13:00:44,339 [WARN] DbBoards:127 - board NUCLEO-L4A6ZG has no document id list !
+2021-04-29 13:00:44,339 [WARN] DbBoards:127 - board NUCLEO-WB15CC has no document id list !
+2021-04-29 13:00:44,339 [WARN] DbBoards:127 - board NUCLEO-WB55RG has no document id list !
+2021-04-29 13:00:44,339 [WARN] DbBoards:127 - board NUCLEO-WL55JC2 has no document id list !
+2021-04-29 13:00:44,340 [WARN] DbBoards:127 - board P-NUCLEO-WB55-Nucleo has no document id list !
+2021-04-29 13:00:44,340 [WARN] DbBoards:127 - board P-NUCLEO-WB55-USBDongle has no document id list !
+2021-04-29 13:00:44,340 [WARN] DbBoards:127 - board STEVAL-BFA001V1B has no document id list !
+2021-04-29 13:00:44,340 [WARN] DbBoards:127 - board STEVAL-BFA001V2B has no document id list !
+2021-04-29 13:00:44,340 [WARN] DbBoards:127 - board STEVAL-IDP005V1 has no document id list !
+2021-04-29 13:00:44,340 [WARN] DbBoards:127 - board STEVAL-IDP005V2 has no document id list !
+2021-04-29 13:00:44,340 [WARN] DbBoards:127 - board STEVAL-MKSBOX1V1 has no document id list !
+2021-04-29 13:00:44,340 [WARN] DbBoards:127 - board STEVAL-STWINKT1 has no document id list !
+2021-04-29 13:00:44,340 [WARN] DbBoards:127 - board STEVAL-STWINKT1B has no document id list !
+2021-04-29 13:00:44,340 [WARN] DbBoards:127 - board STM32F401C-DISCO has no document id list !
+2021-04-29 13:00:44,341 [WARN] DbBoards:127 - board STM32F769I-DISC1 has no document id list !
+2021-04-29 13:00:44,341 [WARN] DbBoards:127 - board STM32G0C1E-EV has no document id list !
+2021-04-29 13:00:44,341 [WARN] DbBoards:127 - board STM32G474E-EVAL1 has no document id list !
+2021-04-29 13:00:44,341 [WARN] DbBoards:127 - board STM32H743I-EVAL2 has no document id list !
+2021-04-29 13:00:44,341 [WARN] DbBoards:127 - board STM32H747I-DISC1 has no document id list !
+2021-04-29 13:00:44,341 [WARN] DbBoards:127 - board STM32H753I-EVAL2 has no document id list !
+2021-04-29 13:00:44,342 [WARN] DbBoards:127 - board STM32L-DISCOVERY has no document id list !
+2021-04-29 13:00:44,342 [WARN] DbBoards:127 - board STM32MP157A-DK1 has no document id list !
+2021-04-29 13:00:44,342 [WARN] DbBoards:127 - board STM32MP157F-DK2 has no document id list !
+2021-04-29 13:00:44,342 [WARN] DbBoards:127 - board STM32MP157F-EV1 has no document id list !
+2021-04-29 13:00:44,342 [WARN] DbBoards:127 - board STM32WB5MM-DK has no document id list !
+2021-04-29 13:00:47,303 [INFO] ApiDb:251 - Load user favorites file C:\Users\super/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2021-04-29 13:00:47,303 [INFO] ApiDb:255 - User favorites Boards=[]
+2021-04-29 13:00:47,303 [INFO] DbBoards:206 - Set 0 / 0 favorites Boards
+2021-04-29 13:00:47,323 [INFO] DbBoardsDocs:79 - Found 386 boards documents
+2021-04-29 13:00:47,323 [INFO] ApiDb:276 - Save user favorites file C:\Users\super/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2021-04-29 13:00:47,323 [INFO] ApiDb:280 - User favorites Boards=[]
+2021-04-29 13:00:47,327 [INFO] DbBoardsPdsc:90 - Found 24 items
+2021-04-29 13:00:47,330 [INFO] DbBoardsPdsc:90 - Found 9 items
+2021-04-29 13:00:47,334 [INFO] DbBoardsPdsc:90 - Found 33 items
+2021-04-29 13:00:47,335 [INFO] DbBoardsPdsc:90 - Found 1 items
+2021-04-29 13:00:47,340 [INFO] DbBoardsPdsc:90 - Found 46 items
+2021-04-29 13:00:47,346 [INFO] DbBoardsPdsc:90 - Found 41 items
+2021-04-29 13:00:47,348 [INFO] DbBoardsPdsc:90 - Found 2 items
+2021-04-29 13:00:47,350 [INFO] DbBoardsPdsc:90 - Found 5 items
+2021-04-29 13:00:47,351 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=Three user LEDs, n=1
+2021-04-29 13:00:47,351 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=One reset and three user push-buttons, n=1
+2021-04-29 13:00:47,351 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=Arduino Uno V3 expansion connector, n=1
+2021-04-29 13:00:47,351 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=ST morpho extension pin headers for full access to all STM32WB I/Os, n=1
+2021-04-29 13:00:47,351 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=Integrated PCB antenna and SMA connector footprint, n=1
+2021-04-29 13:00:47,352 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=Flexible power-supply options: ST-LINK, USB VBUS, or external sources, n=1
+2021-04-29 13:00:47,352 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=On-board footprint to mount a CR2032 battery socket, n=1
+2021-04-29 13:00:47,352 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=On-board ST-LINK/V2-1 debugger/programmer with USB re-enumeration capability: mass storage, Virtual COM port, and debug port, n=1
+2021-04-29 13:00:47,352 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=Comprehensive free software libraries and examples available with the STM32CubeWB MCU Package, n=1
+2021-04-29 13:00:47,352 [WARN] DbBoardsPdsc:254 - Board NUCLEO-WB15CC: unknown feature type=, name=, username=Support of a wide choice of Integrated Development Environments (IDEs) including IAR Embedded Workbench, MDK-ARM, STM32CubeIDE, and Mbed Studio, n=1
+2021-04-29 13:00:47,353 [WARN] DbBoardsPdsc:254 - Board STM32H7B3I-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (CS42L51-CNZ), n=1
+2021-04-29 13:00:47,353 [WARN] DbBoardsPdsc:254 - Board STM32H735G-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (WM8994ECS/R), n=1
+2021-04-29 13:00:47,353 [WARN] DbBoardsPdsc:254 - Board STM32WB5MM-DK: unknown feature type=, name=, username=Time-of-Flight and gesture-detection sensor, n=1
+2021-04-29 13:00:47,353 [WARN] DbBoardsPdsc:254 - Board STM32WB5MM-DK: unknown feature type=, name=, username=3 push-buttons (2 users and 1 reset) and 1 touch key button, n=1
+2021-04-29 13:00:47,353 [WARN] DbBoardsPdsc:254 - Board STM32WB5MM-DK: unknown feature type=, name=, username=Flexible power-supply options: ST-LINK/V2-1 USB connector, 5 V delivered by ARDUINO® or external connector, USB charger, or USB power, n=1
+2021-04-29 13:00:47,353 [WARN] DbBoardsPdsc:254 - Board STM32WB5MM-DK: unknown feature type=, name=, username=On-board ST-LINK/V2-1 debugger/programmer with USB re-enumeration capability: Virtual COM port and debug port, n=1
+2021-04-29 13:00:47,353 [WARN] DbBoardsPdsc:254 - Board STM32WB5MM-DK: unknown feature type=, name=, username=Comprehensive free software libraries and examples available with the STM32CubeWB MCU Package, n=1
+2021-04-29 13:00:47,353 [WARN] DbBoardsPdsc:254 - Board STM32WB5MM-DK: unknown feature type=, name=, username=Support of a wide choice of Integrated Development Environments (IDEs) including IAR Embedded Workbench®, MDK-ARM, and STM32CubeIDE, n=1
+2021-04-29 13:00:47,354 [WARN] DbBoardsPdsc:254 - Board STM32H7B3I-EVAL: unknown feature type=Audio, name=, username=Multi-Channel Audio Codec (CS42L51-CNZ), n=1
+2021-04-29 13:00:47,355 [WARN] DbBoardsPdsc:254 - Board STM32H7B3I-EVAL: unknown feature type=Meter, name=, username=Power-metering and Temperature-monitoring with sigma-delta modulators, n=1
+2021-04-29 13:00:47,355 [WARN] DbBoardsPdsc:254 - Board STM32H7B3I-EVAL: unknown feature type=Motor, name=, username=Motor Control, n=1
+2021-04-29 13:00:47,371 [INFO] DbBoardsJson:87 - JSON generation date=Thu Feb 04 17:53:45 CET 2021 (1612457625)
+2021-04-29 13:00:47,376 [INFO] DbBoards:117 - Found 161 boards (158 are supported by CubeMX)
+2021-04-29 13:00:47,377 [WARN] DbBoards:127 - board B-L462E-CELL1 has no document id list !
+2021-04-29 13:00:47,377 [WARN] DbBoards:127 - board B-L475E-IOT01A2 has no document id list !
+2021-04-29 13:00:47,377 [WARN] DbBoards:127 - board NUCLEO-G0B1RE has no document id list !
+2021-04-29 13:00:47,377 [WARN] DbBoards:127 - board NUCLEO-H743ZI2 has no document id list !
+2021-04-29 13:00:47,377 [WARN] DbBoards:127 - board NUCLEO-L4A6ZG has no document id list !
+2021-04-29 13:00:47,377 [WARN] DbBoards:127 - board NUCLEO-WB15CC has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board NUCLEO-WB55RG has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board NUCLEO-WL55JC2 has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board P-NUCLEO-WB55-Nucleo has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board P-NUCLEO-WB55-USBDongle has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board STEVAL-BFA001V1B has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board STEVAL-BFA001V2B has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board STEVAL-IDP005V1 has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board STEVAL-IDP005V2 has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board STEVAL-MKSBOX1V1 has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board STEVAL-STWINKT1 has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board STEVAL-STWINKT1B has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board STM32F401C-DISCO has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board STM32F769I-DISC1 has no document id list !
+2021-04-29 13:00:47,378 [WARN] DbBoards:127 - board STM32G0C1E-EV has no document id list !
+2021-04-29 13:00:47,379 [WARN] DbBoards:127 - board STM32G474E-EVAL1 has no document id list !
+2021-04-29 13:00:47,379 [WARN] DbBoards:127 - board STM32H743I-EVAL2 has no document id list !
+2021-04-29 13:00:47,379 [WARN] DbBoards:127 - board STM32H747I-DISC1 has no document id list !
+2021-04-29 13:00:47,379 [WARN] DbBoards:127 - board STM32H753I-EVAL2 has no document id list !
+2021-04-29 13:00:47,379 [WARN] DbBoards:127 - board STM32L-DISCOVERY has no document id list !
+2021-04-29 13:00:47,379 [WARN] DbBoards:127 - board STM32MP157A-DK1 has no document id list !
+2021-04-29 13:00:47,379 [WARN] DbBoards:127 - board STM32MP157F-DK2 has no document id list !
+2021-04-29 13:00:47,379 [WARN] DbBoards:127 - board STM32MP157F-EV1 has no document id list !
+2021-04-29 13:00:47,379 [WARN] DbBoards:127 - board STM32WB5MM-DK has no document id list !
+2021-04-29 13:00:48,544 [INFO] ApiDb:251 - Load user favorites file C:\Users\super/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2021-04-29 13:00:48,545 [INFO] ApiDb:255 - User favorites Boards=[]
+2021-04-29 13:00:48,545 [INFO] DbBoards:206 - Set 0 / 0 favorites Boards
+2021-04-29 13:00:48,789 [INFO] ApiDb:479 - Connected to CubeFinder SQLite database (C:\Users\super\.stmcufinder\plugins\mcufinder\mcu\cube-finder-db.db)
+2021-04-29 13:00:49,413 [INFO] DbExamplesSqlite:401 - Ignored 35 examples not supported by CubeIDE
+2021-04-29 13:00:49,413 [INFO] DbExamplesSqlite:402 - Found 4965 examples active
+2021-04-29 13:00:49,414 [INFO] DbExamplesSqlite:403 - Found 130 examples obsolete
+2021-04-29 13:00:49,414 [INFO] DbExamplesSqlite:404 - Found 0 examples under development
+2021-04-29 13:00:49,414 [INFO] DbExamplesSqlite:405 - Found 76 examples not building
+2021-04-29 13:00:49,435 [INFO] DbExamplesSqlite:104 - CubeFinder database Data Model version=2.1
+2021-04-29 13:00:49,435 [INFO] DbExamplesSqlite:105 - CubeFinder database Configuration version=2.16
+2021-04-29 13:00:49,435 [INFO] DbExamplesSqlite:106 - CubeFinder database generation date=2021-02-26 (1614349247)
+2021-04-29 13:00:49,435 [INFO] DbExamplesSqlite:107 - CubeFinder database FW Pack versions=[STM32Cube_FW_F4_V1.26.0, STM32Cube_FW_F7_V1.16.0, STM32Cube_FW_G0_V1.4.0, STM32Cube_FW_G4_V1.4.0, STM32Cube_FW_H7_V1.9.0, STM32Cube_FW_L5_V1.4.0, STM32Cube_FW_WB_V1.11.0, STM32Cube_FW_WL_V1.0.0, X-CUBE-AZRTOS-H7_V1.0.0, X-CUBE-BLE2_V3.2.0, X-CUBE-GNSS1_V5.2.0]
+2021-04-29 13:00:49,436 [INFO] DbExamples:130 - Found 5006 examples
+2021-04-29 13:00:50,097 [ERROR] DbExamples:206 - Found 300 examples with invalid data (board or MCU)
+2021-04-29 13:00:50,098 [INFO] DbExamples:222 - Found 63 boards with related examples
+2021-04-29 13:00:50,114 [INFO] DbExamples:235 - Found 51 MCUs with related examples
+2021-04-29 13:00:50,135 [INFO] ApiDb:251 - Load user favorites file C:\Users\super/.stm32cubeide/favorites.examples.txt: 0 item(s)
+2021-04-29 13:00:50,135 [INFO] ApiDb:255 - User favorites Examples=[]
+2021-04-29 13:00:50,135 [INFO] DbExamples:256 - Set 0 / 0 favorites Examples
+2021-04-29 13:00:50,857 [INFO] CrossSelectorPresenter:1330 - Cross Selector saved comparison directory: C:\Users\super\.stmcufinder\plugins\mcufinder\mcu\cs_comparisons_mx
+2021-04-29 13:00:50,863 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2021-04-29 13:00:50,868 [INFO] FinderPluginLoader:87 - Searching for filters in installed packs
+2021-04-29 13:00:51,500 [WARN] DetailPanel:315 - Failed to get advertising image, set to default
+2021-04-29 13:00:51,803 [INFO] MultiScanPanel:731 - adjusting invalid saved split location: -0.24
+2021-04-29 13:00:52,039 [INFO] MultiScanPanel:731 - adjusting invalid saved split location: -0.24
+2021-04-29 13:00:52,161 [INFO] MultiScanPanel:731 - adjusting invalid saved split location: -0.24
+2021-04-29 13:01:23,911 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2021-04-29 13:01:23,976 [WARN] DetailPanel:315 - Failed to get advertising image, set to default
+2021-04-29 13:01:23,989 [INFO] MultiScanPanel:731 - adjusting invalid saved split location: -0.24
+2021-04-29 13:01:24,023 [INFO] MultiScanPanel:731 - adjusting invalid saved split location: -0.24
+2021-04-29 13:01:24,053 [INFO] MultiScanPanel:731 - adjusting invalid saved split location: -0.24
+2021-04-29 13:02:35,037 [INFO] MainUpdater:2661 - connection check result : 10
+2021-04-29 13:02:35,038 [INFO] MainUpdater:2661 - connection check result : 10
+2021-04-29 13:02:35,136 [INFO] MicroXplorer:442 - Change Database Path : 
+2021-04-29 13:02:35,137 [INFO] MicroXplorer:472 - Change Database Version : DB.6.0.21
+2021-04-29 13:02:35,141 [WARN] ThirdParty:796 - waiting for thirdparty lock release [close project]
+2021-04-29 13:02:35,141 [INFO] ThirdParty:798 - entering critical section [close project]
+2021-04-29 13:02:35,141 [INFO] ThirdParty:809 - exiting critical section [close project]
+2021-04-29 13:02:35,143 [INFO] PinOutPanel:1435 - setPackage(No Configuration,No Configuration)
+2021-04-29 13:02:35,143 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 337811440 Bytes (529530880)
+2021-04-29 13:02:35,145 [INFO] OpenFileManager:303 - Change cursor
+2021-04-29 13:02:35,155 [WARN] IntegrityCheckThread:59 - waiting for thirdparty lock release [integrity check]
+2021-04-29 13:02:35,155 [INFO] IntegrityCheckThread:61 - entering critical section [integrity check]
+2021-04-29 13:02:35,309 [WARN] PackLoader:226 - Cannot read IP mode file for RoweBots.I-CUBE-UNISONRTOS.5.5.0-4
+2021-04-29 13:02:35,343 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SFXS2LP1.3.0.0
+2021-04-29 13:02:35,367 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-EEPRMA1.3.0.0
+2021-04-29 13:02:35,384 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC4.2.0.2
+2021-04-29 13:02:35,398 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE2.3.2.0
+2021-04-29 13:02:35,422 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SUBG2.4.0.0
+2021-04-29 13:02:35,445 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOF1.1.0.0
+2021-04-29 13:02:35,491 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-H7.1.0.0
+2021-04-29 13:02:35,567 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-MEMS1.8.3.0
+2021-04-29 13:02:35,752 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-DISPLAY.1.0.0
+2021-04-29 13:02:35,764 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AI.6.0.0
+2021-04-29 13:02:35,789 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-ALGOBUILD.1.2.0
+2021-04-29 13:02:36,120 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE1.6.1.0
+2021-04-29 13:02:36,130 [WARN] PackLoader:226 - Cannot read IP mode file for wolfSSL.I-CUBE-wolfSSL.4.7.0
+2021-04-29 13:02:36,140 [WARN] PackLoader:226 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOUCHGFX.4.16.1
+2021-04-29 13:02:36,140 [INFO] ThirdParty:900 - Integrity check success = true
+2021-04-29 13:02:36,140 [INFO] IntegrityCheckThread:75 - exiting critical section [integrity check]
+2021-04-29 13:02:36,140 [INFO] IntegrityCheckThread:78 - End integrity checks thread
+2021-04-29 13:02:40,110 [INFO] Context:587 - Trying to add GPIOservice into a context  which must be forbidden
+2021-04-29 13:02:41,037 [INFO] Rule:214 - rule Rename Enabled to IBEACON is applicable
+2021-04-29 13:02:41,038 [INFO] Rule:214 - rule GTZC_S instance for project manager is applicable
+2021-04-29 13:02:41,038 [INFO] Rule:214 - rule GTZC_S instance for context M0+ is applicable
+2021-04-29 13:02:41,038 [INFO] Rule:214 - rule GTZC_NS instance for context M4 is applicable
+2021-04-29 13:02:41,038 [INFO] Rule:214 - rule GTZC_S instance value for IP GTZC is applicable
+2021-04-29 13:02:41,038 [INFO] Rule:214 - rule GTZC_S instance for mcu.IP is applicable
+2021-04-29 13:02:41,038 [INFO] Rule:214 - rule GTZC_S instance for mcu.Pin is applicable
+2021-04-29 13:02:41,038 [INFO] Rule:214 - rule GTZC_S instance for VP is applicable
+2021-04-29 13:02:41,038 [INFO] Rule:214 - rule GTZC_S instance for signal is applicable
+2021-04-29 13:02:41,038 [INFO] Rule:214 - rule GTZC_S instance for mcu is applicable
+2021-04-29 13:02:41,039 [INFO] Rule:214 - rule GTZC_S instance for mcu.Pin is applicable
+2021-04-29 13:02:41,039 [INFO] Rule:214 - rule GTZC_S instance value for IP GTZC is applicable
+2021-04-29 13:02:41,039 [INFO] Rule:214 - rule GTZC_S instance for project manager is applicable
+2021-04-29 13:02:41,039 [INFO] Rule:214 - rule GTZC_S instance for context M33S is applicable
+2021-04-29 13:02:41,039 [INFO] Rule:214 - rule GTZC_S instance for VP is applicable
+2021-04-29 13:02:41,039 [INFO] Rule:214 - rule GTZC_S instance for signal is applicable
+2021-04-29 13:02:41,039 [INFO] Rule:214 - rule Rename Tracer Mode is applicable
+2021-04-29 13:02:41,039 [INFO] Rule:214 - rule ADC Scan  fix with FW F7 is applicable
+2021-04-29 13:02:41,039 [INFO] Rule:214 - rule ADC Scan  fix with FW F7 is applicable
+2021-04-29 13:02:41,040 [INFO] Rule:214 - rule UART/USART IPParameter rename Prescaler parameter to ClockPrescaler is applicable
+2021-04-29 13:02:41,040 [INFO] Rule:214 - rule UART/USART Prescaler rename Prescaler parameter to ClockPrescaler is applicable
+2021-04-29 13:02:41,040 [INFO] Rule:214 - rule TIM1CLockSelection is applicable
+2021-04-29 13:02:41,040 [INFO] Rule:214 - rule TIM15CLockSelection is applicable
+2021-04-29 13:02:41,040 [INFO] Rule:214 - rule align RCC SDMMC3CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,040 [INFO] Rule:214 - rule align RCC SDMMC12CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,040 [INFO] Rule:214 - rule align RCC QSPICLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,041 [INFO] Rule:214 - rule align RCC QSPICLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,041 [INFO] Rule:214 - rule align RCC SPI6CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,041 [INFO] Rule:214 - rule align RCC LPTIM23CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,041 [INFO] Rule:214 - rule align RCC LPTIM1CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,041 [INFO] Rule:214 - rule align RCC USART1CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,041 [INFO] Rule:214 - rule align RCC USART24CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,041 [INFO] Rule:214 - rule align RCC USART6CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,041 [INFO] Rule:214 - rule align RCC UART78CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,041 [INFO] Rule:214 - rule align RCC USART35CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,041 [INFO] Rule:214 - rule align RCC SPI45CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,041 [INFO] Rule:214 - rule align RCC I2C46CLockSelection BCLK value on MP1 is applicable
+2021-04-29 13:02:41,042 [INFO] Rule:214 - rule align RCC SPI45CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,042 [INFO] Rule:214 - rule align RCC I2C12CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,042 [INFO] Rule:214 - rule align RCC I2C35CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,042 [INFO] Rule:214 - rule align RCC LPTIM45CLockSelection default value on MP1 is applicable
+2021-04-29 13:02:41,042 [INFO] Rule:214 - rule Rename DCMI PIXCK signal is applicable
+2021-04-29 13:02:41,042 [INFO] Rule:214 - rule Change Default Value for I2C46CLockSelection MP1 family is applicable
+2021-04-29 13:02:41,042 [INFO] Rule:214 - rule Change Default Value for UART for G4, G0 and WB families is applicable
+2021-04-29 13:02:41,042 [INFO] Rule:214 - rule Change Default Value for USART for G4, G0 and WB families is applicable
+2021-04-29 13:02:41,042 [INFO] Rule:214 - rule Change Default Value for USART for G4 family is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change USART1CLockSelection refparam name for MP1 is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change USART2CLockSelection refparam name for MP1 is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change USART3CLockSelection refparam name for MP1 is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change UART4CLockSelection refparam name for MP1 is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change UART5CLockSelection refparam name for MP1 is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change LPUART1CLockSelection refparam name for MP1 is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change LPTIM1CLockSelection refparam name for MP1 is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change LPTIM2CLockSelection refparam name for MP1 is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change RCC_MCO1Source refparam name for MP1 is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change LSCOSource1 refparam name for MP1 is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change SMPSCLockSelection refparam name for MP1 is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change LPTIM3CLockSelection refparam name for MP1 is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change MPCBB* Default Template Mode to Parameters is applicable
+2021-04-29 13:02:41,043 [INFO] Rule:214 - rule Change MPCWM* or MPCBB* Secure Mode to Parameters is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Change MPCWM* or MPCBB* No Secure Mode to Parameters is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Change TZSC IP Secure Mode to Parameters is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Change TZSC IP No Secure Mode to Parameters is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Change TZSC IP Privilege Mode to Parameters is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Change TZSC IP No Privilege Mode to Parameters is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Change TZIC IT Secure Mode to Parameters is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Change TZIC IT No Secure Mode to Parameters is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Add MPCBB1_NonSecureArea_Start_Address value with referenced to MPCBB1_NonSecureArea_Start value is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Add MPCBB2_NonSecureArea_Start_Address value with referenced to MPCBB2_NonSecureArea_Start value is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Add MPCWM1_NonSecureArea*_Start_Address value with referenced to MPCWM1_NonSecureArea*_Start value is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Add MPCWM2_NonSecureArea*_Start_Address value with referenced to MPCWM2_NonSecureArea*_Start value is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Add MPCWM3_NonSecureArea_Start_Address value with referenced to MPCWM3_NonSecureArea_Start value is applicable
+2021-04-29 13:02:41,044 [INFO] Rule:214 - rule Change Default Value for PLL1UserDefinedConfig is applicable
+2021-04-29 13:02:41,045 [INFO] Rule:214 - rule Change GPIO_PuPd Default Value for USART in async mode is applicable
+2021-04-29 13:02:41,045 [INFO] Rule:214 - rule Change SMPSDivider Default Value is applicable
+2021-04-29 13:02:41,045 [INFO] Rule:214 - rule OPAMP is applicable
+2021-04-29 13:02:41,045 [INFO] Rule:214 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32H7 is applicable
+2021-04-29 13:02:41,045 [INFO] Rule:214 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32H7 is applicable
+2021-04-29 13:02:41,045 [INFO] Rule:214 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32WB is applicable
+2021-04-29 13:02:41,045 [INFO] Rule:214 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32WB is applicable
+2021-04-29 13:02:41,045 [INFO] Rule:214 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32G4 is applicable
+2021-04-29 13:02:41,045 [INFO] Rule:214 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32G4 is applicable
+2021-04-29 13:02:41,046 [INFO] Rule:214 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32L5 is applicable
+2021-04-29 13:02:41,046 [INFO] Rule:214 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32G4 is applicable
+2021-04-29 13:02:41,046 [INFO] Rule:214 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32G4 is applicable
+2021-04-29 13:02:41,046 [INFO] Rule:214 - rule USB device lib V2.5.3 for L0 rename USBD_SUPPORT_USER_STRING parameter to USBD_SUPPORT_USER_STRING_DESC4 is applicable
+2021-04-29 13:02:41,046 [INFO] Rule:214 - rule I2SCLockSelection clock entry align is applicable
+2021-04-29 13:02:41,046 [INFO] Rule:214 - rule Assign TIMx context if used as SYS timebase is applicable
+2021-04-29 13:02:41,049 [INFO] DbConfProperties:294 - Apply Compatibility (1/88 Rules)
+2021-04-29 13:02:41,219 [WARN] ApiManager:294 - Cannot register API 'Board Extension:S2868A1' from pack STMicroelectronics.X-CUBE-SFXS2LP1.3.0.0: no header file found
+2021-04-29 13:02:41,220 [WARN] ApiManager:294 - Cannot register API 'Board Extension:S2868A2' from pack STMicroelectronics.X-CUBE-SFXS2LP1.3.0.0: no header file found
+2021-04-29 13:02:41,220 [WARN] ApiManager:294 - Cannot register API 'Board Extension:S2915A1' from pack STMicroelectronics.X-CUBE-SFXS2LP1.3.0.0: no header file found
+2021-04-29 13:02:41,225 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,225 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,225 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,225 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,226 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,226 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,226 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,226 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,226 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,226 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,226 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,226 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,227 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,227 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,227 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,227 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,227 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,227 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,227 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,227 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,227 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,227 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,228 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,228 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,228 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,228 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,228 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2021-04-29 13:02:41,235 [WARN] ApiManager:294 - Cannot register API 'Board Extension:S2868A1' from pack STMicroelectronics.X-CUBE-SUBG2.4.0.0: no header file found
+2021-04-29 13:02:41,235 [WARN] ApiManager:294 - Cannot register API 'Board Extension:S2868A2' from pack STMicroelectronics.X-CUBE-SUBG2.4.0.0: no header file found
+2021-04-29 13:02:41,235 [WARN] ApiManager:294 - Cannot register API 'Board Extension:S2915A1' from pack STMicroelectronics.X-CUBE-SUBG2.4.0.0: no header file found
+2021-04-29 13:02:41,241 [WARN] ApiManager:294 - Cannot register API 'Board Extension:EEPRMA1' from pack STMicroelectronics.X-CUBE-EEPRMA1.3.0.0: no header file found
+2021-04-29 13:02:41,241 [WARN] ApiManager:294 - Cannot register API 'Board Extension:EEPRMA2' from pack STMicroelectronics.X-CUBE-EEPRMA1.3.0.0: no header file found
+2021-04-29 13:02:41,453 [WARN] ApiManager:294 - Cannot register API 'Board Extension:IKS01A3' from pack STMicroelectronics.X-CUBE-MEMS1.8.3.0: no header file found
+2021-04-29 13:02:41,454 [WARN] ApiManager:294 - Cannot register API 'Board Extension:IKS01A2' from pack STMicroelectronics.X-CUBE-MEMS1.8.3.0: no header file found
+2021-04-29 13:02:41,454 [WARN] ApiManager:294 - Cannot register API 'Board Extension:IKS02A1' from pack STMicroelectronics.X-CUBE-MEMS1.8.3.0: no header file found
+2021-04-29 13:02:41,463 [INFO] RtosManager:470 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2021-04-29 13:02:41,463 [INFO] RtosManager:470 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2021-04-29 13:02:41,463 [INFO] RtosManager:470 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2021-04-29 13:02:41,463 [INFO] RtosManager:470 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2021-04-29 13:02:41,463 [WARN] ModelIntegratedComponent:182 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2021-04-29 13:02:41,464 [WARN] ApiManager:294 - Cannot register API 'Board Extension:GNSS1A1' from pack STMicroelectronics.X-CUBE-GNSS1.5.2.0: no header file found
+2021-04-29 13:02:41,464 [WARN] ApiManager:294 - Cannot register API 'Board Support:Custom' from pack STMicroelectronics.X-CUBE-GNSS1.5.2.0: no header file found
+2021-04-29 13:02:41,464 [WARN] ApiManager:294 - Cannot register API 'Data Exchange:lib_gnss' from pack STMicroelectronics.X-CUBE-GNSS1.5.2.0: no header file found
+2021-04-29 13:02:41,465 [WARN] ApiManager:294 - Cannot register API 'Wireless:BlueNRG-MS' from pack STMicroelectronics.X-CUBE-BLE1.6.1.0: no header file found
+2021-04-29 13:02:41,466 [WARN] ApiManager:294 - Cannot register API 'Board Extension:NFC04A1' from pack STMicroelectronics.X-CUBE-NFC4.2.0.2: no header file found
+2021-04-29 13:02:41,467 [WARN] ApiManager:294 - Cannot register API 'Wireless:BlueNRG-2' from pack STMicroelectronics.X-CUBE-BLE2.3.2.0: no header file found
+2021-04-29 13:02:41,935 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Invalid parameter (FamilyName)
+2021-04-29 13:02:42,296 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 412709896 Bytes (529530880)
+2021-04-29 13:02:42,350 [WARN] ThirdParty:762 - waiting for thirdparty lock release [change project]
+2021-04-29 13:02:42,350 [INFO] ThirdParty:764 - entering critical section [change project]
+2021-04-29 13:02:42,350 [INFO] ThirdParty:952 - CMSIS Pack Vendor :RoweBots I-CUBE-UNISONRTOS 5.5.0-4
+2021-04-29 13:02:42,350 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SFXS2LP1 3.0.0
+2021-04-29 13:02:42,350 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2021-04-29 13:02:42,350 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2021-04-29 13:02:42,350 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2021-04-29 13:02:42,350 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 4.0.0
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 1.0.0
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 1.0.0
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 3.0.0
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 8.3.0
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 1.0.0
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 6.0.0
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.2.0
+2021-04-29 13:02:42,351 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 5.2.0
+2021-04-29 13:02:42,352 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.1.0
+2021-04-29 13:02:42,352 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2021-04-29 13:02:42,352 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2021-04-29 13:02:42,352 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2021-04-29 13:02:42,352 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 2.0.2
+2021-04-29 13:02:42,352 [INFO] ThirdParty:952 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfSSL 4.7.0
+2021-04-29 13:02:42,352 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.16.1
+2021-04-29 13:02:42,352 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2021-04-29 13:02:42,352 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2021-04-29 13:02:42,352 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2021-04-29 13:02:42,352 [INFO] ThirdParty:952 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.2.0
+2021-04-29 13:02:42,353 [INFO] ThirdParty:770 - exiting critical section [change project]
+2021-04-29 13:02:42,982 [INFO] PinOutPanel:1435 - setPackage(No Configuration,No Configuration)
+2021-04-29 13:02:42,983 [INFO] PinOutPanel:1435 - setPackage(STM32L475VGTx,LQFP100)
+2021-04-29 13:02:46,724 [INFO] UtilMem:74 - Before build in PCC Used Memory: 435401520 Bytes (529530880)
+2021-04-29 13:02:47,572 [INFO] SharedServices:72 - Folder for power plug-in: C:/Users/super/.stm32cubemx/plugins/power
+2021-04-29 13:02:47,627 [INFO] SharedServices:72 - Folder for power plug-in: C:/Users/super/.stm32cubemx/plugins/power
+2021-04-29 13:02:47,732 [INFO] SharedServices:72 - Folder for power plug-in: C:/Users/super/.stm32cubemx/plugins/power
+2021-04-29 13:02:47,742 [INFO] SharedServices:72 - Folder for power plug-in: C:/Users/super/.stm32cubemx/plugins/power
+2021-04-29 13:02:48,096 [INFO] UtilMem:74 - After build in PCC Used Memory: 409543352 Bytes (529530880)
+2021-04-29 13:02:48,150 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,150 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,150 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,150 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,151 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,151 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,151 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,151 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,151 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,152 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,152 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,152 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,152 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,152 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,152 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,152 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,152 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,153 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,153 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,153 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,154 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,154 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,154 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,154 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,155 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,155 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,156 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,156 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,156 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,157 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,157 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,157 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,158 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,158 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,158 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,159 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,159 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,160 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,160 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,160 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,161 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,161 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,162 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,162 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,163 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,164 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,165 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,166 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,167 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,168 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,168 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,169 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,169 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,170 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,170 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,172 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,173 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,174 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,175 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2021-04-29 13:02:48,294 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] toolchainItems.length=====1
+2021-04-29 13:02:48,477 [INFO] OpenFileManager:323 - Restore cursor
+2021-04-29 13:02:49,495 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 396128768 Bytes (529530880)
+2021-04-29 13:02:49,673 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 419719680 Bytes (529530880)
+2021-04-29 13:02:50,234 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2021-04-29 13:02:50,235 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DFSDM
+2021-04-29 13:02:50,235 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2021-04-29 13:02:50,236 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2021-04-29 13:02:50,236 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: I2C
+2021-04-29 13:02:50,236 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USB_OTG_FS
+2021-04-29 13:02:50,236 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2021-04-29 13:02:50,236 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-04-29 13:02:50,236 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-04-29 13:02:50,248 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2021-04-29 13:02:50,249 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: QUADSPI
+2021-04-29 13:02:50,262 [INFO] CodeGenerator:641 - code generatio: config db path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\
+2021-04-29 13:02:52,751 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp_save
+2021-04-29 13:02:53,261 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp
+2021-04-29 13:02:54,438 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp_save
+2021-04-29 13:02:54,551 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp
+2021-04-29 13:02:55,339 [ERROR] IPConfigManager:1461 - ERROR: the RefConfig I2CEnableFastModePlus is not available in your config.xml file
+2021-04-29 13:02:58,855 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 13:02:58,857 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 13:02:58,858 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 13:02:58,859 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 13:02:58,860 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 13:02:58,861 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 13:02:58,903 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c_save
+2021-04-29 13:02:59,076 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c
+2021-04-29 13:02:59,103 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h_save
+2021-04-29 13:02:59,175 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h
+2021-04-29 13:02:59,204 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c_save
+2021-04-29 13:02:59,393 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c
+2021-04-29 13:02:59,411 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp_save
+2021-04-29 13:02:59,488 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp
+2021-04-29 13:02:59,504 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h_save
+2021-04-29 13:02:59,605 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h
+2021-04-29 13:02:59,664 [WARN] IPConfigManager:2976 - IP not found : USB_OTG
+2021-04-29 13:02:59,665 [WARN] CodeGenerator:3191 - IP not found : null
+2021-04-29 13:02:59,697 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\main.h_save
+2021-04-29 13:02:59,785 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\main.h
+2021-04-29 13:02:59,801 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\main.c_save
+2021-04-29 13:02:59,959 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\main.c
+2021-04-29 13:03:02,195 [INFO] ProjectBuilder:2460 - Time for Copy HAL[1] : 1403mS.
+2021-04-29 13:03:02,202 [INFO] ProjectBuilder:3418 - Project Generator version: 3.13.0-B3
+2021-04-29 13:03:02,708 [INFO] ConfigFileManager:1242 - The Die is : DIE415
+2021-04-29 13:03:02,761 [INFO] ApiDbMcu:458 - Load IP Config File for FATFS
+2021-04-29 13:03:02,805 [INFO] ApiDbMcu:458 - Load IP Config File for FREERTOS
+2021-04-29 13:03:03,001 [INFO] ApiDbMcu:458 - Load IP Config File for TOUCHSENSING
+2021-04-29 13:03:03,071 [INFO] ApiDbMcu:458 - Load IP Config File for USB_DEVICE
+2021-04-29 13:03:03,096 [INFO] ApiDbMcu:458 - Load IP Config File for USB_HOST
+2021-04-29 13:03:13,660 [INFO] ProjectBuilder:3584 - Time for Generating toolchain IDE Files: 11458mS.
+2021-04-29 13:03:13,661 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 1mS.
+2021-04-29 13:03:13,662 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 13:03:15,132 [INFO] ApiDb:276 - Save user favorites file C:\Users\super/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2021-04-29 13:03:15,132 [INFO] ApiDb:280 - User favorites MCUs=[]
+2021-04-29 13:03:15,133 [INFO] ApiDb:276 - Save user favorites file C:\Users\super/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2021-04-29 13:03:15,134 [INFO] ApiDb:280 - User favorites Boards=[]
+2021-04-29 13:03:46,394 [INFO] Gpio:248 - dependency for GPIO [DFSDM1, I2C2, QUADSPI, RCC, SPI3, SYS, USART1, USART3, USB_OTG_FS]
+2021-04-29 13:03:49,411 [INFO] Gpio:248 - dependency for GPIO [DFSDM1, I2C2, QUADSPI, RCC, SPI3, SYS, USART1, USART3, USB_OTG_FS]
+2021-04-29 13:04:36,638 [INFO] I2cTimingTraitement:320 - 0x10909CEC
+2021-04-29 13:04:36,773 [INFO] I2cTimingTraitement:320 - 0x10909CEC
+2021-04-29 13:06:06,847 [INFO] RtosManager:784 - Current active RTOS is FREERTOS [Cortex-M4NS]
+2021-04-29 13:06:07,095 [ERROR] RtosPanel:542 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2021-04-29 13:06:07,179 [ERROR] RtosPanel:542 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2021-04-29 13:06:10,998 [ERROR] RtosPanel:542 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2021-04-29 13:06:48,331 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 13:06:48,331 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 13:06:48,331 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 13:07:50,430 [INFO] I2cTimingTraitement:320 - 0x10909CEC
+2021-04-29 13:08:11,413 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 398153784 Bytes (701497344)
+2021-04-29 13:08:12,752 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 429121248 Bytes (701497344)
+2021-04-29 13:08:14,640 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 429745728 Bytes (701497344)
+2021-04-29 13:08:33,908 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 446979208 Bytes (701497344)
+2021-04-29 13:08:34,731 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 475046320 Bytes (701497344)
+2021-04-29 13:08:35,629 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 543726000 Bytes (701497344)
+2021-04-29 13:08:36,054 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2021-04-29 13:08:36,054 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FREERTOS
+2021-04-29 13:08:36,054 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DFSDM
+2021-04-29 13:08:36,054 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2021-04-29 13:08:36,054 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2021-04-29 13:08:36,054 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USB_OTG_FS
+2021-04-29 13:08:36,054 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2021-04-29 13:08:36,054 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-04-29 13:08:36,055 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2021-04-29 13:08:36,055 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: QUADSPI
+2021-04-29 13:08:36,056 [INFO] CodeGenerator:641 - code generatio: config db path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\
+2021-04-29 13:08:37,192 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp_save
+2021-04-29 13:08:37,307 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp
+2021-04-29 13:08:37,810 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp_save
+2021-04-29 13:08:37,910 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp
+2021-04-29 13:08:40,866 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 13:08:40,893 [INFO] Middleware:1263 - No code input for Bsp Dependency
+2021-04-29 13:08:40,912 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp_save
+2021-04-29 13:08:40,976 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp
+2021-04-29 13:08:40,992 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp_save
+2021-04-29 13:08:41,064 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp
+2021-04-29 13:08:41,077 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp_save
+2021-04-29 13:08:41,138 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp
+2021-04-29 13:08:41,163 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp_save
+2021-04-29 13:08:41,228 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp
+2021-04-29 13:08:41,239 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp_save
+2021-04-29 13:08:41,304 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp
+2021-04-29 13:08:41,333 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp_save
+2021-04-29 13:08:41,390 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp
+2021-04-29 13:08:41,401 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp_save
+2021-04-29 13:08:41,453 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp
+2021-04-29 13:08:41,481 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h_save
+2021-04-29 13:08:41,581 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h
+2021-04-29 13:08:41,590 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\freertos.c_save
+2021-04-29 13:08:41,664 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\freertos.c
+2021-04-29 13:08:41,666 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 13:08:41,669 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 13:08:41,671 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 13:08:41,672 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 13:08:41,675 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 13:08:41,705 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c_save
+2021-04-29 13:08:41,823 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c
+2021-04-29 13:08:41,834 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h_save
+2021-04-29 13:08:41,942 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h
+2021-04-29 13:08:41,963 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c_save
+2021-04-29 13:08:42,139 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c
+2021-04-29 13:08:42,144 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp_save
+2021-04-29 13:08:42,216 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp
+2021-04-29 13:08:42,241 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c_save
+2021-04-29 13:08:42,320 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c
+2021-04-29 13:08:42,334 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h_save
+2021-04-29 13:08:42,440 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h
+2021-04-29 13:08:42,506 [WARN] IPConfigManager:2976 - IP not found : USB_OTG
+2021-04-29 13:08:42,507 [WARN] CodeGenerator:3191 - IP not found : null
+2021-04-29 13:08:42,519 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\main.h_save
+2021-04-29 13:08:42,624 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\main.h
+2021-04-29 13:08:42,637 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\main.c_save
+2021-04-29 13:08:42,899 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\main.c
+2021-04-29 13:08:44,452 [INFO] ProjectBuilder:2460 - Time for Copy HAL[1] : 861mS.
+2021-04-29 13:08:44,458 [INFO] ProjectBuilder:3418 - Project Generator version: 3.13.0-B3
+2021-04-29 13:08:44,925 [INFO] ConfigFileManager:1242 - The Die is : DIE415
+2021-04-29 13:08:47,458 [INFO] ProjectBuilder:3584 - Time for Generating toolchain IDE Files: 3000mS.
+2021-04-29 13:08:47,459 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 13:08:47,465 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 13:24:13,683 [INFO] MainUpdater:2661 - connection check result : 10
+2021-04-29 13:24:13,779 [INFO] CrossSelectorPresenter:1330 - Cross Selector saved comparison directory: C:\Users\super\.stmcufinder\plugins\mcufinder\mcu\cs_comparisons_mx
+2021-04-29 13:24:13,780 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2021-04-29 13:24:13,780 [INFO] FinderPluginLoader:87 - Searching for filters in installed packs
+2021-04-29 13:24:14,091 [WARN] DetailPanel:315 - Failed to get advertising image, set to default
+2021-04-29 13:24:14,639 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2021-04-29 13:24:14,667 [WARN] DetailPanel:315 - Failed to get advertising image, set to default
+2021-04-29 13:24:14,782 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2021-04-29 13:24:14,783 [INFO] ApiDb:479 - Connected to CubeFinder SQLite database (C:\Users\super\.stmcufinder\plugins\mcufinder\mcu\cube-finder-db.db)
+2021-04-29 13:24:15,243 [INFO] DbExamplesSqlite:401 - Ignored 35 examples not supported by CubeIDE
+2021-04-29 13:24:15,243 [INFO] DbExamplesSqlite:402 - Found 4965 examples active
+2021-04-29 13:24:15,244 [INFO] DbExamplesSqlite:403 - Found 130 examples obsolete
+2021-04-29 13:24:15,244 [INFO] DbExamplesSqlite:404 - Found 0 examples under development
+2021-04-29 13:24:15,244 [INFO] DbExamplesSqlite:405 - Found 76 examples not building
+2021-04-29 13:24:15,257 [INFO] DbExamplesSqlite:104 - CubeFinder database Data Model version=2.1
+2021-04-29 13:24:15,257 [INFO] DbExamplesSqlite:105 - CubeFinder database Configuration version=2.16
+2021-04-29 13:24:15,257 [INFO] DbExamplesSqlite:106 - CubeFinder database generation date=2021-02-26 (1614349247)
+2021-04-29 13:24:15,258 [INFO] DbExamplesSqlite:107 - CubeFinder database FW Pack versions=[STM32Cube_FW_F4_V1.26.0, STM32Cube_FW_F7_V1.16.0, STM32Cube_FW_G0_V1.4.0, STM32Cube_FW_G4_V1.4.0, STM32Cube_FW_H7_V1.9.0, STM32Cube_FW_L5_V1.4.0, STM32Cube_FW_WB_V1.11.0, STM32Cube_FW_WL_V1.0.0, X-CUBE-AZRTOS-H7_V1.0.0, X-CUBE-BLE2_V3.2.0, X-CUBE-GNSS1_V5.2.0]
+2021-04-29 13:24:15,258 [INFO] DbExamples:130 - Found 5006 examples
+2021-04-29 13:24:15,864 [ERROR] DbExamples:206 - Found 300 examples with invalid data (board or MCU)
+2021-04-29 13:24:15,864 [INFO] DbExamples:222 - Found 63 boards with related examples
+2021-04-29 13:24:15,872 [INFO] DbExamples:235 - Found 51 MCUs with related examples
+2021-04-29 13:24:15,886 [INFO] ApiDb:251 - Load user favorites file C:\Users\super/.stm32cubeide/favorites.examples.txt: 0 item(s)
+2021-04-29 13:24:15,886 [INFO] ApiDb:255 - User favorites Examples=[]
+2021-04-29 13:24:15,887 [INFO] DbExamples:256 - Set 0 / 0 favorites Examples
+2021-04-29 13:24:16,110 [INFO] SoftwarePacks:125 - Found SW pack 'STM32Cube_FW_F4_V1.26.0' up-to-date on disk.
+2021-04-29 13:24:16,113 [INFO] SoftwarePacks:121 - Download is needed for SW pack 'STM32Cube_FW_F7_V1.16.0'
+2021-04-29 13:24:16,116 [INFO] SoftwarePacks:121 - Download is needed for SW pack 'STM32Cube_FW_G0_V1.4.0'
+2021-04-29 13:24:16,119 [INFO] SoftwarePacks:121 - Download is needed for SW pack 'STM32Cube_FW_G4_V1.4.0'
+2021-04-29 13:24:16,121 [INFO] SoftwarePacks:121 - Download is needed for SW pack 'STM32Cube_FW_H7_V1.9.0'
+2021-04-29 13:24:16,124 [INFO] SoftwarePacks:121 - Download is needed for SW pack 'STM32Cube_FW_L5_V1.4.0'
+2021-04-29 13:24:16,126 [INFO] SoftwarePacks:121 - Download is needed for SW pack 'STM32Cube_FW_WB_V1.11.0'
+2021-04-29 13:24:16,129 [INFO] SoftwarePacks:121 - Download is needed for SW pack 'STM32Cube_FW_WL_V1.0.0'
+2021-04-29 13:24:16,131 [INFO] SoftwarePacks:121 - Download is needed for SW pack 'X-CUBE-AZRTOS-H7_V1.0.0'
+2021-04-29 13:24:16,132 [INFO] SoftwarePacks:121 - Download is needed for SW pack 'X-CUBE-BLE2_V3.2.0'
+2021-04-29 13:24:16,134 [INFO] SoftwarePacks:125 - Found SW pack 'X-CUBE-GNSS1_V5.2.0' up-to-date on disk.
+2021-04-29 13:24:17,338 [WARN] DetailPanel:315 - Failed to get advertising image, set to default
+2021-04-29 13:24:32,125 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,126 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,157 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,157 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,158 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,159 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,160 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,160 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,161 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,161 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,161 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,161 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,163 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,163 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,164 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:32,164 [INFO] DbExamples:1217 - Board RPN is unknown for CPN: B-L475E-IOT01A2, try search with CPN
+2021-04-29 13:24:43,432 [INFO] ApiDb:276 - Save user favorites file C:\Users\super/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2021-04-29 13:24:43,433 [INFO] ApiDb:280 - User favorites MCUs=[]
+2021-04-29 13:24:43,435 [INFO] ApiDb:276 - Save user favorites file C:\Users\super/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2021-04-29 13:24:43,435 [INFO] ApiDb:280 - User favorites Boards=[]
+2021-04-29 13:24:43,436 [INFO] ApiDb:276 - Save user favorites file C:\Users\super/.stm32cubeide/favorites.examples.txt: 0 item(s)
+2021-04-29 13:24:43,436 [INFO] ApiDb:280 - User favorites Examples=[]
+2021-04-29 16:21:22,426 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 477450896 Bytes (951058432)
+2021-04-29 16:21:30,477 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 506811024 Bytes (951058432)
+2021-04-29 16:21:31,492 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 413685240 Bytes (951058432)
+2021-04-29 16:21:32,022 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FREERTOS
+2021-04-29 16:21:32,022 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DFSDM
+2021-04-29 16:21:32,022 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2021-04-29 16:21:32,022 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2021-04-29 16:21:32,022 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USB_OTG_FS
+2021-04-29 16:21:32,023 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2021-04-29 16:21:32,023 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-04-29 16:21:32,024 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2021-04-29 16:21:32,024 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: QUADSPI
+2021-04-29 16:21:32,024 [INFO] CodeGenerator:641 - code generatio: config db path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\
+2021-04-29 16:21:33,278 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp_save
+2021-04-29 16:21:33,479 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp
+2021-04-29 16:21:34,003 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp_save
+2021-04-29 16:21:34,103 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp
+2021-04-29 16:21:36,932 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 16:21:36,943 [INFO] Middleware:1263 - No code input for Bsp Dependency
+2021-04-29 16:21:36,951 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp_save
+2021-04-29 16:21:37,040 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp
+2021-04-29 16:21:37,044 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp_save
+2021-04-29 16:21:37,107 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp
+2021-04-29 16:21:37,111 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp_save
+2021-04-29 16:21:37,183 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp
+2021-04-29 16:21:37,187 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp_save
+2021-04-29 16:21:37,262 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp
+2021-04-29 16:21:37,266 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp_save
+2021-04-29 16:21:37,333 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp
+2021-04-29 16:21:37,337 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp_save
+2021-04-29 16:21:37,409 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp
+2021-04-29 16:21:37,414 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp_save
+2021-04-29 16:21:37,485 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp
+2021-04-29 16:21:37,504 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h_save
+2021-04-29 16:21:37,632 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h
+2021-04-29 16:21:37,646 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\freertos.c_save
+2021-04-29 16:21:37,776 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\freertos.c
+2021-04-29 16:21:37,779 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 16:21:37,780 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 16:21:37,781 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 16:21:37,783 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 16:21:37,814 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c_save
+2021-04-29 16:21:37,950 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c
+2021-04-29 16:21:37,961 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h_save
+2021-04-29 16:21:38,054 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h
+2021-04-29 16:21:38,072 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c_save
+2021-04-29 16:21:38,246 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c
+2021-04-29 16:21:38,252 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp_save
+2021-04-29 16:21:38,382 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp
+2021-04-29 16:21:38,388 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c_save
+2021-04-29 16:21:38,464 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c
+2021-04-29 16:21:38,480 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h_save
+2021-04-29 16:21:38,584 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h
+2021-04-29 16:21:38,641 [WARN] IPConfigManager:2976 - IP not found : USB_OTG
+2021-04-29 16:21:38,642 [WARN] CodeGenerator:3191 - IP not found : null
+2021-04-29 16:21:38,662 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\main.h_save
+2021-04-29 16:21:38,771 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\main.h
+2021-04-29 16:21:38,784 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\main.c_save
+2021-04-29 16:21:39,006 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\main.c
+2021-04-29 16:21:40,146 [INFO] ProjectBuilder:2460 - Time for Copy HAL[1] : 416mS.
+2021-04-29 16:21:40,151 [INFO] ProjectBuilder:3418 - Project Generator version: 3.13.0-B3
+2021-04-29 16:21:40,539 [INFO] ConfigFileManager:1242 - The Die is : DIE415
+2021-04-29 16:21:42,971 [INFO] ProjectBuilder:3584 - Time for Generating toolchain IDE Files: 2820mS.
+2021-04-29 16:21:42,971 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 16:21:42,983 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 17:21:33,816 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 479092976 Bytes (1040187392)
+2021-04-29 17:21:44,051 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 510550256 Bytes (1040187392)
+2021-04-29 17:21:44,917 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 566647024 Bytes (1040187392)
+2021-04-29 17:21:45,255 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FREERTOS
+2021-04-29 17:21:45,255 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DFSDM
+2021-04-29 17:21:45,255 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2021-04-29 17:21:45,255 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2021-04-29 17:21:45,255 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USB_OTG_FS
+2021-04-29 17:21:45,255 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2021-04-29 17:21:45,255 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-04-29 17:21:45,255 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-04-29 17:21:45,257 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2021-04-29 17:21:45,257 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: QUADSPI
+2021-04-29 17:21:45,258 [INFO] CodeGenerator:641 - code generatio: config db path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\
+2021-04-29 17:21:46,440 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp_save
+2021-04-29 17:21:46,565 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp
+2021-04-29 17:21:47,037 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp_save
+2021-04-29 17:21:47,118 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp
+2021-04-29 17:21:50,023 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 17:21:50,032 [INFO] Middleware:1263 - No code input for Bsp Dependency
+2021-04-29 17:21:50,040 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp_save
+2021-04-29 17:21:50,101 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp
+2021-04-29 17:21:50,104 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp_save
+2021-04-29 17:21:50,166 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp
+2021-04-29 17:21:50,170 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp_save
+2021-04-29 17:21:50,233 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp
+2021-04-29 17:21:50,236 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp_save
+2021-04-29 17:21:50,290 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp
+2021-04-29 17:21:50,294 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp_save
+2021-04-29 17:21:50,351 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp
+2021-04-29 17:21:50,354 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp_save
+2021-04-29 17:21:50,413 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp
+2021-04-29 17:21:50,417 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp_save
+2021-04-29 17:21:50,470 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp
+2021-04-29 17:21:50,481 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h_save
+2021-04-29 17:21:50,591 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h
+2021-04-29 17:21:50,602 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\freertos.c_save
+2021-04-29 17:21:50,671 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\freertos.c
+2021-04-29 17:21:50,673 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 17:21:50,675 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 17:21:50,676 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 17:21:50,680 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 17:21:50,702 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c_save
+2021-04-29 17:21:50,802 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c
+2021-04-29 17:21:50,808 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h_save
+2021-04-29 17:21:50,875 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h
+2021-04-29 17:21:50,892 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c_save
+2021-04-29 17:21:51,036 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c
+2021-04-29 17:21:51,040 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp_save
+2021-04-29 17:21:51,098 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp
+2021-04-29 17:21:51,103 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c_save
+2021-04-29 17:21:51,178 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c
+2021-04-29 17:21:51,195 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h_save
+2021-04-29 17:21:51,277 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h
+2021-04-29 17:21:51,324 [WARN] IPConfigManager:2976 - IP not found : USB_OTG
+2021-04-29 17:21:51,325 [WARN] CodeGenerator:3191 - IP not found : null
+2021-04-29 17:21:51,337 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\main.h_save
+2021-04-29 17:21:51,450 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\main.h
+2021-04-29 17:21:51,460 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\main.c_save
+2021-04-29 17:21:51,653 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\main.c
+2021-04-29 17:21:52,441 [INFO] ProjectBuilder:2460 - Time for Copy HAL[1] : 168mS.
+2021-04-29 17:21:52,450 [INFO] ProjectBuilder:3418 - Project Generator version: 3.13.0-B3
+2021-04-29 17:21:52,799 [INFO] ConfigFileManager:1242 - The Die is : DIE415
+2021-04-29 17:21:54,721 [INFO] ProjectBuilder:3584 - Time for Generating toolchain IDE Files: 2271mS.
+2021-04-29 17:21:54,722 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 17:21:54,729 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 18:31:29,304 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 910042264 Bytes (1073741824)
+2021-04-29 18:31:31,940 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 940450968 Bytes (1073741824)
+2021-04-29 18:31:33,117 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 581840568 Bytes (1073741824)
+2021-04-29 18:31:33,440 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2021-04-29 18:31:33,440 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FREERTOS
+2021-04-29 18:31:33,440 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DFSDM
+2021-04-29 18:31:33,440 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2021-04-29 18:31:33,440 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2021-04-29 18:31:33,440 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USB_OTG_FS
+2021-04-29 18:31:33,440 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2021-04-29 18:31:33,440 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-04-29 18:31:33,440 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: UART
+2021-04-29 18:31:33,440 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2021-04-29 18:31:33,440 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: QUADSPI
+2021-04-29 18:31:33,440 [INFO] CodeGenerator:641 - code generatio: config db path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\
+2021-04-29 18:31:34,617 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp_save
+2021-04-29 18:31:34,757 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp
+2021-04-29 18:31:35,200 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp_save
+2021-04-29 18:31:35,299 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp
+2021-04-29 18:31:38,654 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 18:31:38,723 [INFO] Middleware:1263 - No code input for Bsp Dependency
+2021-04-29 18:31:38,730 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp_save
+2021-04-29 18:31:38,780 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp
+2021-04-29 18:31:38,783 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp_save
+2021-04-29 18:31:38,870 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp
+2021-04-29 18:31:38,873 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp_save
+2021-04-29 18:31:38,941 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp
+2021-04-29 18:31:38,945 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp_save
+2021-04-29 18:31:39,012 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp
+2021-04-29 18:31:39,016 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp_save
+2021-04-29 18:31:39,078 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp
+2021-04-29 18:31:39,081 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp_save
+2021-04-29 18:31:39,163 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp
+2021-04-29 18:31:39,167 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp_save
+2021-04-29 18:31:39,217 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp
+2021-04-29 18:31:39,227 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h_save
+2021-04-29 18:31:39,331 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h
+2021-04-29 18:31:39,342 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\freertos.c_save
+2021-04-29 18:31:39,424 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\freertos.c
+2021-04-29 18:31:39,427 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 18:31:39,430 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 18:31:39,431 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 18:31:39,433 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 18:31:39,434 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 18:31:39,529 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c_save
+2021-04-29 18:31:39,636 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c
+2021-04-29 18:31:39,647 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h_save
+2021-04-29 18:31:39,721 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h
+2021-04-29 18:31:39,741 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c_save
+2021-04-29 18:31:39,894 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c
+2021-04-29 18:31:39,899 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp_save
+2021-04-29 18:31:39,965 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp
+2021-04-29 18:31:39,971 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c_save
+2021-04-29 18:31:40,040 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c
+2021-04-29 18:31:40,057 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h_save
+2021-04-29 18:31:40,160 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h
+2021-04-29 18:31:40,216 [WARN] IPConfigManager:2976 - IP not found : USB_OTG
+2021-04-29 18:31:40,218 [WARN] CodeGenerator:3191 - IP not found : null
+2021-04-29 18:31:40,234 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\main.h_save
+2021-04-29 18:31:40,314 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\main.h
+2021-04-29 18:31:40,327 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\main.c_save
+2021-04-29 18:31:40,512 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\main.c
+2021-04-29 18:31:41,325 [INFO] ProjectBuilder:2460 - Time for Copy HAL[1] : 182mS.
+2021-04-29 18:31:41,332 [INFO] ProjectBuilder:3418 - Project Generator version: 3.13.0-B3
+2021-04-29 18:31:41,656 [INFO] ConfigFileManager:1242 - The Die is : DIE415
+2021-04-29 18:31:43,784 [INFO] ProjectBuilder:3584 - Time for Generating toolchain IDE Files: 2452mS.
+2021-04-29 18:31:43,785 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 18:31:43,791 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 18:34:15,224 [ERROR] RtosPanel:542 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2021-04-29 18:34:17,197 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:34:17,198 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:34:17,198 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:34:21,854 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2021-04-29 18:34:21,855 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2021-04-29 18:34:30,977 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:34:30,977 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:34:30,977 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:34:33,385 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2021-04-29 18:34:33,385 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2021-04-29 18:34:49,696 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:34:49,697 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:34:49,697 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:34:49,697 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:34:49,697 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:34:49,697 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:34:50,694 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2021-04-29 18:34:50,694 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2021-04-29 18:35:08,667 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:35:08,667 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:35:08,667 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:35:08,667 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:35:08,668 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:35:08,668 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:35:08,668 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:35:08,668 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:35:08,668 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:35:09,271 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2021-04-29 18:35:09,271 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2021-04-29 18:35:27,298 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:35:27,298 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:35:27,298 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:35:27,298 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:35:27,298 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:35:27,298 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:35:27,299 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:35:27,299 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:35:27,299 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:35:27,299 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:35:27,299 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:35:27,299 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:35:28,040 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2021-04-29 18:35:28,040 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2021-04-29 18:35:44,933 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:35:44,933 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:35:44,933 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:35:44,933 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:35:44,933 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:35:44,933 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:35:44,934 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:35:44,934 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:35:44,934 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:35:44,934 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:35:44,934 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:35:44,934 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:35:44,934 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:35:44,934 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:35:44,934 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:35:55,702 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2021-04-29 18:35:55,702 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2021-04-29 18:36:32,455 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:32,455 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:32,455 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:36:32,455 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:32,455 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:32,456 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:36:32,456 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:32,456 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:32,456 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:36:32,456 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:32,456 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:32,456 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:36:32,456 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:32,456 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:32,456 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:36:32,456 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:32,456 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:32,456 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:36:33,373 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2021-04-29 18:36:33,373 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2021-04-29 18:36:58,135 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:58,135 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:58,136 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:36:58,136 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:58,136 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:58,136 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:36:58,136 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:58,136 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:58,136 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:36:58,136 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:58,136 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:58,136 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:36:58,137 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:58,137 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:58,137 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:36:58,137 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:58,137 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:58,137 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:36:58,137 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-04-29 18:36:58,137 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-04-29 18:36:58,137 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-04-29 18:37:02,838 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 840289560 Bytes (1073741824)
+2021-04-29 18:37:04,948 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 497861912 Bytes (1073741824)
+2021-04-29 18:37:05,224 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 589610264 Bytes (1073741824)
+2021-04-29 18:37:05,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2021-04-29 18:37:05,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FREERTOS
+2021-04-29 18:37:05,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DFSDM
+2021-04-29 18:37:05,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2021-04-29 18:37:05,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2021-04-29 18:37:05,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USB_OTG_FS
+2021-04-29 18:37:05,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2021-04-29 18:37:05,539 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-04-29 18:37:05,539 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: UART
+2021-04-29 18:37:05,539 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2021-04-29 18:37:05,540 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: QUADSPI
+2021-04-29 18:37:05,540 [INFO] CodeGenerator:641 - code generatio: config db path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\
+2021-04-29 18:37:06,660 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp_save
+2021-04-29 18:37:06,753 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp
+2021-04-29 18:37:07,236 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp_save
+2021-04-29 18:37:07,335 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp
+2021-04-29 18:37:10,668 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 18:37:10,679 [INFO] Middleware:1263 - No code input for Bsp Dependency
+2021-04-29 18:37:10,684 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp_save
+2021-04-29 18:37:10,731 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp
+2021-04-29 18:37:10,734 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp_save
+2021-04-29 18:37:10,801 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp
+2021-04-29 18:37:10,804 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp_save
+2021-04-29 18:37:10,869 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp
+2021-04-29 18:37:10,873 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp_save
+2021-04-29 18:37:10,941 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp
+2021-04-29 18:37:10,944 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp_save
+2021-04-29 18:37:11,011 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp
+2021-04-29 18:37:11,015 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp_save
+2021-04-29 18:37:11,077 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp
+2021-04-29 18:37:11,081 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp_save
+2021-04-29 18:37:11,157 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp
+2021-04-29 18:37:11,170 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h_save
+2021-04-29 18:37:11,286 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h
+2021-04-29 18:37:11,299 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\freertos.c_save
+2021-04-29 18:37:11,394 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\freertos.c
+2021-04-29 18:37:11,396 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 18:37:11,399 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 18:37:11,400 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 18:37:11,403 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 18:37:11,404 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 18:37:11,426 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c_save
+2021-04-29 18:37:11,532 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c
+2021-04-29 18:37:11,537 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h_save
+2021-04-29 18:37:11,602 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h
+2021-04-29 18:37:11,625 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c_save
+2021-04-29 18:37:11,802 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c
+2021-04-29 18:37:11,807 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp_save
+2021-04-29 18:37:11,865 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp
+2021-04-29 18:37:11,870 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c_save
+2021-04-29 18:37:11,946 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c
+2021-04-29 18:37:11,961 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h_save
+2021-04-29 18:37:12,082 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h
+2021-04-29 18:37:12,154 [WARN] IPConfigManager:2976 - IP not found : USB_OTG
+2021-04-29 18:37:12,155 [WARN] CodeGenerator:3191 - IP not found : null
+2021-04-29 18:37:12,175 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\main.h_save
+2021-04-29 18:37:12,287 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\main.h
+2021-04-29 18:37:12,302 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\main.c_save
+2021-04-29 18:37:12,663 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\main.c
+2021-04-29 18:37:13,474 [INFO] ProjectBuilder:2460 - Time for Copy HAL[1] : 179mS.
+2021-04-29 18:37:13,482 [INFO] ProjectBuilder:3418 - Project Generator version: 3.13.0-B3
+2021-04-29 18:37:14,021 [INFO] ConfigFileManager:1242 - The Die is : DIE415
+2021-04-29 18:37:16,093 [INFO] ProjectBuilder:3584 - Time for Generating toolchain IDE Files: 2611mS.
+2021-04-29 18:37:16,094 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 1mS.
+2021-04-29 18:37:16,101 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 1mS.
+2021-04-29 19:10:11,276 [INFO] NvicIntPanel:90 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,685x480,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2021-04-29 19:10:27,738 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 782569160 Bytes (1073741824)
+2021-04-29 19:10:28,669 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 810635408 Bytes (1073741824)
+2021-04-29 19:10:29,559 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 579039912 Bytes (1073741824)
+2021-04-29 19:10:29,980 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2021-04-29 19:10:29,980 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FREERTOS
+2021-04-29 19:10:29,980 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DFSDM
+2021-04-29 19:10:29,980 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2021-04-29 19:10:29,980 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2021-04-29 19:10:29,981 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USB_OTG_FS
+2021-04-29 19:10:29,981 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2021-04-29 19:10:29,981 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-04-29 19:10:29,981 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: UART
+2021-04-29 19:10:29,982 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2021-04-29 19:10:29,982 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: QUADSPI
+2021-04-29 19:10:29,983 [INFO] CodeGenerator:641 - code generatio: config db path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\
+2021-04-29 19:10:31,190 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp_save
+2021-04-29 19:10:31,324 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp
+2021-04-29 19:10:31,861 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp_save
+2021-04-29 19:10:31,957 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp
+2021-04-29 19:10:35,317 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:10:35,329 [INFO] Middleware:1263 - No code input for Bsp Dependency
+2021-04-29 19:10:35,335 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp_save
+2021-04-29 19:10:35,383 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp
+2021-04-29 19:10:35,387 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp_save
+2021-04-29 19:10:35,448 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp
+2021-04-29 19:10:35,451 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp_save
+2021-04-29 19:10:35,508 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp
+2021-04-29 19:10:35,512 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp_save
+2021-04-29 19:10:35,596 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp
+2021-04-29 19:10:35,600 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp_save
+2021-04-29 19:10:35,660 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp
+2021-04-29 19:10:35,663 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp_save
+2021-04-29 19:10:35,721 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp
+2021-04-29 19:10:35,725 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp_save
+2021-04-29 19:10:35,779 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp
+2021-04-29 19:10:35,789 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h_save
+2021-04-29 19:10:35,893 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h
+2021-04-29 19:10:35,905 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\freertos.c_save
+2021-04-29 19:10:35,981 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\freertos.c
+2021-04-29 19:10:35,983 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:10:35,985 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:10:35,986 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:10:35,988 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:10:35,989 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:10:36,023 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c_save
+2021-04-29 19:10:36,185 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c
+2021-04-29 19:10:36,196 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h_save
+2021-04-29 19:10:36,320 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h
+2021-04-29 19:10:36,342 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c_save
+2021-04-29 19:10:36,526 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c
+2021-04-29 19:10:36,530 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp_save
+2021-04-29 19:10:36,596 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp
+2021-04-29 19:10:36,603 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c_save
+2021-04-29 19:10:36,703 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c
+2021-04-29 19:10:36,719 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h_save
+2021-04-29 19:10:36,806 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h
+2021-04-29 19:10:36,870 [WARN] IPConfigManager:2976 - IP not found : USB_OTG
+2021-04-29 19:10:36,872 [WARN] CodeGenerator:3191 - IP not found : null
+2021-04-29 19:10:36,886 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\main.h_save
+2021-04-29 19:10:36,971 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\main.h
+2021-04-29 19:10:36,980 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\main.c_save
+2021-04-29 19:10:37,204 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\main.c
+2021-04-29 19:10:38,170 [INFO] ProjectBuilder:2460 - Time for Copy HAL[1] : 273mS.
+2021-04-29 19:10:38,179 [INFO] ProjectBuilder:3418 - Project Generator version: 3.13.0-B3
+2021-04-29 19:10:38,546 [INFO] ConfigFileManager:1242 - The Die is : DIE415
+2021-04-29 19:10:40,452 [INFO] ProjectBuilder:3584 - Time for Generating toolchain IDE Files: 2272mS.
+2021-04-29 19:10:40,452 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 19:10:40,458 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 19:12:39,049 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 683397736 Bytes (1073741824)
+2021-04-29 19:12:39,867 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 710254624 Bytes (1073741824)
+2021-04-29 19:12:40,718 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 492835712 Bytes (1073741824)
+2021-04-29 19:12:41,067 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2021-04-29 19:12:41,067 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FREERTOS
+2021-04-29 19:12:41,067 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DFSDM
+2021-04-29 19:12:41,067 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2021-04-29 19:12:41,067 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2021-04-29 19:12:41,067 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USB_OTG_FS
+2021-04-29 19:12:41,067 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2021-04-29 19:12:41,067 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-04-29 19:12:41,067 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: UART
+2021-04-29 19:12:41,069 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2021-04-29 19:12:41,069 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: QUADSPI
+2021-04-29 19:12:41,069 [INFO] CodeGenerator:641 - code generatio: config db path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\
+2021-04-29 19:12:42,312 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp_save
+2021-04-29 19:12:42,364 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp
+2021-04-29 19:12:42,869 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp_save
+2021-04-29 19:12:42,925 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp
+2021-04-29 19:12:46,312 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:12:46,325 [INFO] Middleware:1263 - No code input for Bsp Dependency
+2021-04-29 19:12:46,334 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp_save
+2021-04-29 19:12:46,399 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp
+2021-04-29 19:12:46,403 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp_save
+2021-04-29 19:12:46,490 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp
+2021-04-29 19:12:46,494 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp_save
+2021-04-29 19:12:46,564 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp
+2021-04-29 19:12:46,569 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp_save
+2021-04-29 19:12:46,631 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp
+2021-04-29 19:12:46,635 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp_save
+2021-04-29 19:12:46,696 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp
+2021-04-29 19:12:46,699 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp_save
+2021-04-29 19:12:46,746 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp
+2021-04-29 19:12:46,750 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp_save
+2021-04-29 19:12:46,815 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp
+2021-04-29 19:12:46,823 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h_save
+2021-04-29 19:12:46,942 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h
+2021-04-29 19:12:46,955 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\freertos.c_save
+2021-04-29 19:12:47,049 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\freertos.c
+2021-04-29 19:12:47,051 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:12:47,053 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:12:47,054 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:12:47,056 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:12:47,058 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:12:47,089 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c_save
+2021-04-29 19:12:47,203 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c
+2021-04-29 19:12:47,210 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h_save
+2021-04-29 19:12:47,275 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h
+2021-04-29 19:12:47,292 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c_save
+2021-04-29 19:12:47,458 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c
+2021-04-29 19:12:47,462 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp_save
+2021-04-29 19:12:47,511 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp
+2021-04-29 19:12:47,515 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c_save
+2021-04-29 19:12:47,593 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c
+2021-04-29 19:12:47,609 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h_save
+2021-04-29 19:12:47,707 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h
+2021-04-29 19:12:47,760 [WARN] IPConfigManager:2976 - IP not found : USB_OTG
+2021-04-29 19:12:47,761 [WARN] CodeGenerator:3191 - IP not found : null
+2021-04-29 19:12:47,779 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\main.h_save
+2021-04-29 19:12:47,860 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\main.h
+2021-04-29 19:12:47,873 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\main.c_save
+2021-04-29 19:12:48,106 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\main.c
+2021-04-29 19:12:48,939 [INFO] ProjectBuilder:2460 - Time for Copy HAL[1] : 175mS.
+2021-04-29 19:12:48,948 [INFO] ProjectBuilder:3418 - Project Generator version: 3.13.0-B3
+2021-04-29 19:12:49,422 [INFO] ConfigFileManager:1242 - The Die is : DIE415
+2021-04-29 19:12:51,197 [INFO] ProjectBuilder:3584 - Time for Generating toolchain IDE Files: 2249mS.
+2021-04-29 19:12:51,198 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 1mS.
+2021-04-29 19:12:51,203 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 19:16:14,071 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 661782328 Bytes (1073741824)
+2021-04-29 19:16:14,959 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 688523064 Bytes (1073741824)
+2021-04-29 19:16:15,842 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 533028280 Bytes (1073741824)
+2021-04-29 19:16:16,209 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2021-04-29 19:16:16,209 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FREERTOS
+2021-04-29 19:16:16,209 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DFSDM
+2021-04-29 19:16:16,210 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2021-04-29 19:16:16,210 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2021-04-29 19:16:16,210 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USB_OTG_FS
+2021-04-29 19:16:16,210 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2021-04-29 19:16:16,210 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-04-29 19:16:16,210 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: UART
+2021-04-29 19:16:16,211 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2021-04-29 19:16:16,212 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: QUADSPI
+2021-04-29 19:16:16,212 [INFO] CodeGenerator:641 - code generatio: config db path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\
+2021-04-29 19:16:17,432 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp_save
+2021-04-29 19:16:17,514 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp
+2021-04-29 19:16:17,959 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp_save
+2021-04-29 19:16:18,031 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp
+2021-04-29 19:16:21,417 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:16:21,427 [INFO] Middleware:1263 - No code input for Bsp Dependency
+2021-04-29 19:16:21,433 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp_save
+2021-04-29 19:16:21,479 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp
+2021-04-29 19:16:21,482 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp_save
+2021-04-29 19:16:21,546 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp
+2021-04-29 19:16:21,550 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp_save
+2021-04-29 19:16:21,609 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp
+2021-04-29 19:16:21,613 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp_save
+2021-04-29 19:16:21,685 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp
+2021-04-29 19:16:21,689 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp_save
+2021-04-29 19:16:21,744 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp
+2021-04-29 19:16:21,748 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp_save
+2021-04-29 19:16:21,805 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp
+2021-04-29 19:16:21,808 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp_save
+2021-04-29 19:16:21,868 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp
+2021-04-29 19:16:21,881 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h_save
+2021-04-29 19:16:22,034 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h
+2021-04-29 19:16:22,043 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\freertos.c_save
+2021-04-29 19:16:22,118 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\freertos.c
+2021-04-29 19:16:22,120 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:16:22,121 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:16:22,123 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:16:22,125 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:16:22,127 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:16:22,149 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c_save
+2021-04-29 19:16:22,252 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c
+2021-04-29 19:16:22,258 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h_save
+2021-04-29 19:16:22,331 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h
+2021-04-29 19:16:22,347 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c_save
+2021-04-29 19:16:22,486 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c
+2021-04-29 19:16:22,490 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp_save
+2021-04-29 19:16:22,548 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp
+2021-04-29 19:16:22,552 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c_save
+2021-04-29 19:16:22,625 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c
+2021-04-29 19:16:22,643 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h_save
+2021-04-29 19:16:22,736 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h
+2021-04-29 19:16:22,800 [WARN] IPConfigManager:2976 - IP not found : USB_OTG
+2021-04-29 19:16:22,801 [WARN] CodeGenerator:3191 - IP not found : null
+2021-04-29 19:16:22,816 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\main.h_save
+2021-04-29 19:16:22,908 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\main.h
+2021-04-29 19:16:22,917 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\main.c_save
+2021-04-29 19:16:23,146 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\main.c
+2021-04-29 19:16:23,981 [INFO] ProjectBuilder:2460 - Time for Copy HAL[1] : 182mS.
+2021-04-29 19:16:23,990 [INFO] ProjectBuilder:3418 - Project Generator version: 3.13.0-B3
+2021-04-29 19:16:24,351 [INFO] ConfigFileManager:1242 - The Die is : DIE415
+2021-04-29 19:16:26,242 [INFO] ProjectBuilder:3584 - Time for Generating toolchain IDE Files: 2252mS.
+2021-04-29 19:16:26,243 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 19:16:26,249 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 19:21:42,390 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 668517784 Bytes (1073741824)
+2021-04-29 19:21:43,764 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 695258520 Bytes (1073741824)
+2021-04-29 19:21:44,598 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 812172696 Bytes (1073741824)
+2021-04-29 19:21:44,969 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2021-04-29 19:21:44,969 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FREERTOS
+2021-04-29 19:21:44,969 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DFSDM
+2021-04-29 19:21:44,969 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2021-04-29 19:21:44,969 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2021-04-29 19:21:44,969 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USB_OTG_FS
+2021-04-29 19:21:44,969 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2021-04-29 19:21:44,969 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-04-29 19:21:44,981 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: UART
+2021-04-29 19:21:44,982 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2021-04-29 19:21:44,983 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: QUADSPI
+2021-04-29 19:21:44,983 [INFO] CodeGenerator:641 - code generatio: config db path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\
+2021-04-29 19:21:46,195 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp_save
+2021-04-29 19:21:46,301 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp
+2021-04-29 19:21:46,734 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp_save
+2021-04-29 19:21:46,802 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp
+2021-04-29 19:21:50,230 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:21:50,240 [INFO] Middleware:1263 - No code input for Bsp Dependency
+2021-04-29 19:21:50,246 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp_save
+2021-04-29 19:21:50,296 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp
+2021-04-29 19:21:50,300 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp_save
+2021-04-29 19:21:50,350 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp
+2021-04-29 19:21:50,353 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp_save
+2021-04-29 19:21:50,407 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp
+2021-04-29 19:21:50,411 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp_save
+2021-04-29 19:21:50,470 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp
+2021-04-29 19:21:50,473 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp_save
+2021-04-29 19:21:50,529 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp
+2021-04-29 19:21:50,533 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp_save
+2021-04-29 19:21:50,589 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp
+2021-04-29 19:21:50,593 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp_save
+2021-04-29 19:21:50,654 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp
+2021-04-29 19:21:50,665 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h_save
+2021-04-29 19:21:50,764 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h
+2021-04-29 19:21:50,775 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\freertos.c_save
+2021-04-29 19:21:50,853 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\freertos.c
+2021-04-29 19:21:50,856 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:21:50,858 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:21:50,859 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:21:50,860 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:21:50,862 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-04-29 19:21:50,884 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c_save
+2021-04-29 19:21:51,000 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c
+2021-04-29 19:21:51,005 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h_save
+2021-04-29 19:21:51,081 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h
+2021-04-29 19:21:51,099 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c_save
+2021-04-29 19:21:51,252 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c
+2021-04-29 19:21:51,257 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp_save
+2021-04-29 19:21:51,312 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp
+2021-04-29 19:21:51,316 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c_save
+2021-04-29 19:21:51,402 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c
+2021-04-29 19:21:51,416 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h_save
+2021-04-29 19:21:51,512 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h
+2021-04-29 19:21:51,570 [WARN] IPConfigManager:2976 - IP not found : USB_OTG
+2021-04-29 19:21:51,571 [WARN] CodeGenerator:3191 - IP not found : null
+2021-04-29 19:21:51,585 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\main.h_save
+2021-04-29 19:21:51,664 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\main.h
+2021-04-29 19:21:51,676 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\main.c_save
+2021-04-29 19:21:51,932 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\main.c
+2021-04-29 19:21:52,709 [INFO] ProjectBuilder:2460 - Time for Copy HAL[1] : 184mS.
+2021-04-29 19:21:52,719 [INFO] ProjectBuilder:3418 - Project Generator version: 3.13.0-B3
+2021-04-29 19:21:53,083 [INFO] ConfigFileManager:1242 - The Die is : DIE415
+2021-04-29 19:21:54,942 [INFO] ProjectBuilder:3584 - Time for Generating toolchain IDE Files: 2223mS.
+2021-04-29 19:21:54,943 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-04-29 19:21:54,950 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 1mS.
+2021-05-01 16:15:15,814 [INFO] Gpio:248 - dependency for GPIO [DFSDM1, QUADSPI, RCC, SPI1, SYS, UART4, USART1, USB_OTG_FS]
+2021-05-01 16:24:00,441 [ERROR] RtosPanel:542 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2021-05-01 16:24:01,820 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:01,820 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:01,820 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:01,820 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:01,820 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:01,820 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:01,820 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:01,821 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:01,821 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:01,821 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:01,821 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:01,821 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:01,821 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:01,821 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:01,821 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:01,821 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:01,821 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:01,821 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:01,821 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:01,821 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:01,822 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:07,007 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2021-05-01 16:24:07,007 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2021-05-01 16:24:09,990 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:09,991 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:09,991 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:09,991 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:09,991 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:09,991 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:09,991 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:09,991 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:09,992 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:09,992 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:09,992 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:09,992 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:09,992 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:09,992 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:09,992 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:09,992 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:09,992 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:09,992 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:09,992 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:09,992 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:09,992 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:12,330 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2021-05-01 16:24:12,331 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2021-05-01 16:24:18,974 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:18,974 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:18,974 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:18,975 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:18,975 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:18,975 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:18,975 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:18,975 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:18,975 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:18,975 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:18,975 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:18,975 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:18,975 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:18,975 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:18,975 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:18,975 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:18,976 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:18,976 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:18,976 [INFO] TasksAndQueuesTab:742 - Dynamic
+2021-05-01 16:24:18,976 [WARN] TasksAndQueuesTab:748 - 128 128
+2021-05-01 16:24:18,976 [WARN] TasksAndQueuesTab:760 - max value is: 1250.0
+2021-05-01 16:24:28,078 [INFO] EditThreadDialog:688 - RAM SIZE (in KB): 128
+2021-05-01 16:24:28,079 [INFO] EditThreadDialog:690 - RAM SIZE (in words): 32768
+2021-05-01 16:25:51,324 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 788191592 Bytes (1073741824)
+2021-05-01 16:25:52,440 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 811782504 Bytes (1073741824)
+2021-05-01 16:25:53,314 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 537228240 Bytes (1073741824)
+2021-05-01 16:25:53,825 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2021-05-01 16:25:53,825 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FREERTOS
+2021-05-01 16:25:53,825 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DFSDM
+2021-05-01 16:25:53,825 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2021-05-01 16:25:53,825 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2021-05-01 16:25:53,825 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USB_OTG_FS
+2021-05-01 16:25:53,825 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2021-05-01 16:25:53,825 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2021-05-01 16:25:53,825 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: UART
+2021-05-01 16:25:53,826 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2021-05-01 16:25:53,827 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: QUADSPI
+2021-05-01 16:25:53,884 [INFO] CodeGenerator:641 - code generatio: config db path: D:\ST\STM32CubeIDE_1.6.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.2.1.202103241236\\db\
+2021-05-01 16:25:55,565 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp_save
+2021-05-01 16:25:55,738 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\license.tmp
+2021-05-01 16:25:56,478 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp_save
+2021-05-01 16:25:56,574 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\gpio.tmp
+2021-05-01 16:26:00,502 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-05-01 16:26:00,516 [INFO] Middleware:1263 - No code input for Bsp Dependency
+2021-05-01 16:26:00,559 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp_save
+2021-05-01 16:26:00,646 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_inc.tmp
+2021-05-01 16:26:00,670 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp_save
+2021-05-01 16:26:00,764 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_vars.tmp
+2021-05-01 16:26:00,804 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp_save
+2021-05-01 16:26:00,877 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_pfp.tmp
+2021-05-01 16:26:00,887 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp_save
+2021-05-01 16:26:00,989 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_obj_creat.tmp
+2021-05-01 16:26:01,000 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp_save
+2021-05-01 16:26:01,084 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_kernelStart.tmp
+2021-05-01 16:26:01,096 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp_save
+2021-05-01 16:26:01,166 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_default_thread.tmp
+2021-05-01 16:26:01,175 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp_save
+2021-05-01 16:26:01,263 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\rtos_threads.tmp
+2021-05-01 16:26:01,319 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h_save
+2021-05-01 16:26:01,456 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\FreeRTOSConfig.h
+2021-05-01 16:26:01,474 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\freertos.c_save
+2021-05-01 16:26:01,552 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\freertos.c
+2021-05-01 16:26:01,554 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-05-01 16:26:01,556 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-05-01 16:26:01,557 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-05-01 16:26:01,558 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-05-01 16:26:01,562 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2021-05-01 16:26:01,609 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c_save
+2021-05-01 16:26:01,750 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_it.c
+2021-05-01 16:26:01,762 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h_save
+2021-05-01 16:26:01,856 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_it.h
+2021-05-01 16:26:01,930 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c_save
+2021-05-01 16:26:02,085 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_msp.c
+2021-05-01 16:26:02,097 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp_save
+2021-05-01 16:26:02,138 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\MXTmpFiles\system.tmp
+2021-05-01 16:26:02,147 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c_save
+2021-05-01 16:26:02,398 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\stm32l4xx_hal_timebase_tim.c
+2021-05-01 16:26:02,632 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h_save
+2021-05-01 16:26:02,761 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\stm32l4xx_hal_conf.h
+2021-05-01 16:26:02,856 [WARN] IPConfigManager:2976 - IP not found : USB_OTG
+2021-05-01 16:26:02,857 [WARN] CodeGenerator:3191 - IP not found : null
+2021-05-01 16:26:02,909 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Inc\main.h_save
+2021-05-01 16:26:03,022 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Inc\main.h
+2021-05-01 16:26:03,069 [INFO] CodeEngine:229 - oldGeneratedFile, D:\ST\workspace\WeatherStation2\Core\Src\main.c_save
+2021-05-01 16:26:03,381 [INFO] CodeEngine:247 - Generated code: D:\ST\workspace\WeatherStation2\Core\Src\main.c
+2021-05-01 16:26:06,162 [INFO] ProjectBuilder:2460 - Time for Copy HAL[1] : 1925mS.
+2021-05-01 16:26:06,169 [INFO] ProjectBuilder:3418 - Project Generator version: 3.13.0-B3
+2021-05-01 16:26:06,669 [INFO] ConfigFileManager:1242 - The Die is : DIE415
+2021-05-01 16:26:09,727 [INFO] ProjectBuilder:3584 - Time for Generating toolchain IDE Files: 3558mS.
+2021-05-01 16:26:09,728 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 1mS.
+2021-05-01 16:26:09,734 [INFO] ProjectBuilder:2339 - Time for Copy CMSIS : 0mS.
+2021-05-04 15:57:23,375 [INFO] Activator:170 - 
+
+
+2021-05-04 15:57:23,401 [INFO] Activator:171 - !SESSION log4j initialized
+2021-05-04 15:57:32,583 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.prefix.2122135264 uses a null category that is invalid in its context. The option was ignored.
+2021-05-04 15:57:32,587 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.mcu.1769491298 uses a null category that is invalid in its context. The option was ignored.
+2021-05-04 15:57:32,592 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.board.1838371139 uses a null category that is invalid in its context. The option was ignored.
+2021-05-04 15:57:32,596 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.instructionSet.879704905 uses a null category that is invalid in its context. The option was ignored.
+2021-05-04 15:57:32,600 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.fpu.2067778931 uses a null category that is invalid in its context. The option was ignored.
+2021-05-04 15:57:32,604 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.floatabi.370052024 uses a null category that is invalid in its context. The option was ignored.
+2021-05-07 12:00:15,290 [INFO] Activator:170 - 
+
+
+2021-05-07 12:00:15,303 [INFO] Activator:171 - !SESSION log4j initialized
+2021-05-07 12:00:25,783 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.prefix.2122135264 uses a null category that is invalid in its context. The option was ignored.
+2021-05-07 12:00:25,787 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.mcu.1769491298 uses a null category that is invalid in its context. The option was ignored.
+2021-05-07 12:00:25,791 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.board.1838371139 uses a null category that is invalid in its context. The option was ignored.
+2021-05-07 12:00:25,800 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.instructionSet.879704905 uses a null category that is invalid in its context. The option was ignored.
+2021-05-07 12:00:25,804 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.fpu.2067778931 uses a null category that is invalid in its context. The option was ignored.
+2021-05-07 12:00:25,809 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.floatabi.370052024 uses a null category that is invalid in its context. The option was ignored.

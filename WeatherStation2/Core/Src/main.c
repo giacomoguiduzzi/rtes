@@ -155,13 +155,13 @@ void _UART_send_sensor_data(){
 	printf("SendData: Pressure = %.02f hPa\r", sensor_data.pressure);
 	printf("SendData: North direction = %.02f°\r\r", sensor_data.north_direction);
 
-	for(uint8_t i=0; i<sizeof(sensor_data_t); i++){
+	/* for(uint8_t i=0; i<sizeof(sensor_data_t); i++){
 		status = HAL_TIMEOUT;
 		while(status != HAL_OK){
 			status = HAL_UART_Transmit(&huart4, sensor_data_bytes + i, sizeof(uint8_t), delay*2);
 			printf(".");
 		}
-	}
+	}*/
 
 	printf("\rSendData: Sensor data sent.\r");
 
@@ -283,11 +283,11 @@ int main(void)
   readMagnetoHandle = osThreadCreate(osThread(readMagneto), NULL);
 
   /* definition and creation of sendData */
-  osThreadDef(sendData, StartSendData, osPriorityAboveNormal, 0, 128);
+  osThreadDef(sendData, StartSendData, osPriorityNormal, 0, 128);
   sendDataHandle = osThreadCreate(osThread(sendData), NULL);
 
   /* definition and creation of receiveDelay */
-  osThreadDef(receiveDelay, StartReceiveDelay, osPriorityAboveNormal, 0, 128);
+  osThreadDef(receiveDelay, StartReceiveDelay, osPriorityNormal, 0, 128);
   receiveDelayHandle = osThreadCreate(osThread(receiveDelay), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -818,7 +818,7 @@ void StartDefaultTask(void const * argument)
 /* USER CODE END Header_StartReadTemp */
 void StartReadTemp(void const * argument)
 {
-	/* USER CODE BEGIN StartReadTemp */
+  /* USER CODE BEGIN StartReadTemp */
 	float temp_value = 0;
 	// char *str_tmp = "Temperatura = %d.%02d°C\r";
 	// char output_str[sizeof(str_tmp)];
@@ -861,7 +861,7 @@ void StartReadTemp(void const * argument)
 
 		osDelay(delay);
 	}
-	/* USER CODE END StartReadTemp */
+  /* USER CODE END StartReadTemp */
 }
 
 /* USER CODE BEGIN Header_StartReadHum */
@@ -873,7 +873,7 @@ void StartReadTemp(void const * argument)
 /* USER CODE END Header_StartReadHum */
 void StartReadHum(void const * argument)
 {
-	/* USER CODE BEGIN StartReadHum */
+  /* USER CODE BEGIN StartReadHum */
 	/* Infinite loop */
 	float hum_value = 0;
 	// char *str_hum = "Umidita' = %d.%02d\r";
@@ -929,7 +929,7 @@ void StartReadHum(void const * argument)
 /* USER CODE END Header_StartReadPressure */
 void StartReadPressure(void const * argument)
 {
-	/* USER CODE BEGIN StartReadPressure */
+  /* USER CODE BEGIN StartReadPressure */
 	float pres_value = 0;
 	// char *str_pres = "Pressione = %d.%02d hPa\r";
 	// char output_str[sizeof(str_pres)];
@@ -972,7 +972,7 @@ void StartReadPressure(void const * argument)
 
 		osDelay(delay);
 	}
-	/* USER CODE END StartReadPressure */
+  /* USER CODE END StartReadPressure */
 }
 
 /* USER CODE BEGIN Header_StartReadMagnetometer */
@@ -984,7 +984,7 @@ void StartReadPressure(void const * argument)
 /* USER CODE END Header_StartReadMagnetometer */
 void StartReadMagnetometer(void const * argument)
 {
-	/* USER CODE BEGIN StartReadMagnetometer */
+  /* USER CODE BEGIN StartReadMagnetometer */
 	int16_t xyz[3];
 	int16_t x, y;
 	// char *str_tmp = "Direzione del nord = %d.%02d°\r";
@@ -1046,7 +1046,7 @@ void StartReadMagnetometer(void const * argument)
 
 		osDelay(delay);
 	}
-	/* USER CODE END StartReadMagnetometer */
+  /* USER CODE END StartReadMagnetometer */
 }
 
 /* USER CODE BEGIN Header_StartSendData */
