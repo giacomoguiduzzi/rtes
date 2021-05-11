@@ -1,6 +1,7 @@
 var currentDelay = 500;
 var chartT, chartH, chartP;
-var temp_interval, hum_interval, press_interval, north_interval;
+var temp_interval, hum_interval, press_interval, altitude_interval,
+brightness_interval;
 
 function getTemperature(){
     var xhttp = new XMLHttpRequest();
@@ -68,16 +69,29 @@ function getPressure(){
     xhttp.send();
 }
 
-function getNorth(){
+function getAltitude(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange=function(){
         if(xhttp.readyState == 4 && this.status == 200){
-            document.getElementById("north-direction").innerHTML =
-            ("North direction: " + xhttp.responseText + "°");
+            document.getElementById("altitude").innerHTML =
+            ("Altitude: " + xhttp.responseText + "m");
         }
     }
 
-    xhttp.open("GET", "/north", true);
+    xhttp.open("GET", "/altitude", true);
+    xhttp.send();
+}
+
+function getBrightness(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange=function(){
+        if(xhttp.readyState == 4 && this.status == 200){
+            document.getElementById("brightness").innerHTML =
+            ("Brightness: " + xhttp.responseText + " lux");
+        }
+    }
+
+    xhttp.open("GET", "/brightness", true);
     xhttp.send();
 }
 
@@ -154,7 +168,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     temp_interval = setInterval(getTemperature, currentDelay);
     hum_interval = setInterval(getHumidity, currentDelay);
     press_interval = setInterval(getPressure, currentDelay);
-    north_interval = setInterval(getNorth, currentDelay);
+    altitude_interval = setInterval(getAltitude, currentDelay);
+    brightness_interval = setInterval(getBrightness, currentDelay);
 });
 
 function sendDelay(){
@@ -223,11 +238,15 @@ function sendDelay(){
                 clearInterval(press_interval);
                 press_interval = setInterval(getPressure, currentDelay);
 
-                clearInterval(north_interval);
-                north_interval = setInterval(getNorth, currentDelay);
+                clearInterval(altitude_interval);
+                north_interval = setInterval(getAltitude, currentDelay);
+
+                clearInterval(brightness_interval);
+                north_interval = setInterval(getBrightness, currentDelay);
             }
 
             else {
+                console.log("error!");
                 document.getElementById("delay-confirm").innerHTML = "There \
                 was an error during the delay set-up.";
             }

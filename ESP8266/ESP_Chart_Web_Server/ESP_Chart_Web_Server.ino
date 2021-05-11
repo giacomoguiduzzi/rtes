@@ -17,16 +17,18 @@
 #include <ESPAsyncWebServer.h>
 #include <FS.h>
 #include <ESP8266mDNS.h>
+#include <SoftwareSerial.h>
 // #include <SPI.h>
 
 // const uint8_t SSPIN = 15;
+#define DELAY_FLAG 0x64 // "d" letter
 
 typedef struct {
   float temperature;
   float pressure;
   float humidity;
   float altitude;
-  float brigthness;
+  float brightness;
 } sensor_data_t;
 
 typedef enum
@@ -45,25 +47,30 @@ uint16_t sensors_delay = FAST;
 
 sensor_data_t *sensor_data;
 uint8_t *sent_data;
-bool updating_struct = false;
+bool updating_struct, sending_delay;
 
 // SPISettings spisettings;
-HardwareSerial uart_data = HardwareSerial();
+SoftwareSerial uart_data;
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
 
+unsigned long start_time, end_time, loop_delay;
+
 void setup() {
   // Serial port for debugging purposes (USB Cable)
   Serial.begin(115200);
-  uart_data.begin(115200, SERIAL_8E1);
+  uart_data.begin(38400, SWSERIAL_8N1, 13, 15, false); // RXPin, TXPin. For some reason the function for ESP8266 is different and needs to be initialized like this
   // Serial.begin(115200, SERIAL_8E1);
+
+  updating_struct = sending_delay = false;
 
   sensor_data = (sensor_data_t *)malloc(sizeof(sensor_data));
   sensor_data->temperature = 0.0;
   sensor_data->humidity = 0.0;
   sensor_data->pressure = 0.0;
-  sensor_data->north_direction = 0.0;
+  sensor_data->altitude = 0.0;
+  sensor_data->brightness = 0.0;
 
   sent_data = (uint8_t *)sensor_data;
 
@@ -98,13 +105,22 @@ void setup() {
   else
     Serial.println("There was a problem with the DNS initialization but you can still connect via the IP address.");
 
+  start_time = end_time = loop_delay = 0;
+
   server_setup();
 }
 
 void loop() {
-  readSensorData();
+  start_time = millis();
+  if(!sending_delay)
+    readSensorData();
   MDNS.update();
-  delay(sensors_delay);
+  end_time = millis();
+
+  loop_delay = sensors_delay - (end_time - start_time);
+
+  if(loop_delay > 0)
+    delay(loop_delay);
 }
 
 void server_setup(){
@@ -131,10 +147,16 @@ void server_setup(){
     free(pres);
   });
 
-  server.on("/north", HTTP_GET, [](AsyncWebServerRequest * request) {
-    char *n_dir = getNorth();
-    request->send_P(200, "text/plain", n_dir);
-    free(n_dir);
+  server.on("/altitude", HTTP_GET, [](AsyncWebServerRequest * request) {
+    char *alt = getAltitude();
+    request->send_P(200, "text/plain", alt);
+    free(alt);
+  });
+
+  server.on("/brightness", HTTP_GET, [](AsyncWebServerRequest * request) {
+    char *brightness = getBrightness();
+    request->send_P(200, "text/plain", brightness);
+    free(brightness);
   });
 
   server.on("/delay", HTTP_GET, [](AsyncWebServerRequest * request) {
@@ -185,54 +207,36 @@ char *getPressure() {
   return pres;
 }
 
-char *getNorth() {
-  char *n_dir = (char *)malloc(sizeof(char) * 5);
+char *getAltitude() {
+  char *alt = (char *)malloc(sizeof(char) * 5);
   // active wait, can't use delay() here
   // while(!digitalRead(SSPIN));
   while(updating_struct);
-  sprintf(n_dir, "%.02f", sensor_data->north_direction);
+  sprintf(alt, "%.02f", sensor_data->altitude);
   // Serial.print("Sending north direction value to client: ");
   // Serial.println(String(n_dir));
-  return n_dir;
+  return alt;
+}
+
+char *getBrightness() {
+  char *brightn = (char *)malloc(sizeof(char) * 5);
+  // active wait, can't use delay() here
+  // while(!digitalRead(SSPIN));
+  while(updating_struct);
+  sprintf(brightn, "%.02f", sensor_data->brightness);
+  // Serial.print("Sending north direction value to client: ");
+  // Serial.println(String(n_dir));
+  return brightn;
 }
 
 char *setDelay(String delay_) {
   char *result = (char *)malloc(sizeof(char) * 3); 
   uint16_t new_delay = strtol(delay_.c_str(), NULL, DEC);
 
-  switch(new_delay){
-    case 500:
-      sensors_delay = FAST;
-      break;
-
-    case 1000:
-      sensors_delay = MEDIUM;
-      break;
-
-    case 2500:
-      sensors_delay = SLOW;
-      break;
-
-    case 5000:
-      sensors_delay = VERY_SLOW;
-      break;
-
-    case 10000:
-      sensors_delay = TAKE_A_BREAK;
-      break;
-
-    default:
-      Serial.print("Received delay is not an accepted value: ");
-      Serial.println(new_delay);
-      sprintf(result, "no");
-      return result;
-    break;
-  }
-
   Serial.print("New delay in setDelay(): ");
   Serial.println(new_delay);
 
-  sendNewDelay(new_delay);
+  bool answer = sendNewDelay(new_delay);
 
   // check if the SPI channel is not being used
   // (if digitalRead returns 0 the pin is LOW so it's being used
@@ -240,8 +244,11 @@ char *setDelay(String delay_) {
   // while(!digitalRead(SSPIN));
   // call function to update delay
   // readSensorData();
-  
-  sprintf(result, "ok");
+  if(answer){
+    sprintf(result, "ok");
+  }
+  else
+    sprintf(result, "no");
 
   Serial.print("Sending back response \"");
   Serial.print(result);
@@ -250,11 +257,36 @@ char *setDelay(String delay_) {
   return result;
 }
 
-void sendNewDelay(uint16_t new_delay){
+bool sendNewDelay(uint16_t new_delay){
   uint8_t *uint8_new_delay = (uint8_t *)&new_delay;
+  uint8_t flag;
+  bool received_answer = false, result = false;
 
-  
+  // Waiting for resource to free up
+  while(updating_struct)
+    delay(100);
 
+  sending_delay = true;
+  uart_data.write(uint8_new_delay[0]);
+  uart_data.write(uint8_new_delay[1]);
+
+  while(!received_answer){
+    if(uart_data.available()){
+        flag = uart_data.read();
+
+        if(flag == DELAY_FLAG){
+          received_answer = true;
+          uint8_new_delay[0] = uart_data.read();
+          uint8_new_delay[1] = uart_data.read();
+
+          result = set_new_delay(new_delay);
+        }
+    }
+  }
+
+  sending_delay = false;
+
+  return result;
   // SPI.beginTransaction(spisettings);
   // Enable Slave comunication
   // digitalWrite(SSPIN, LOW);
@@ -267,11 +299,40 @@ void sendNewDelay(uint16_t new_delay){
   // SPI.endTransaction();
 }
 
+bool set_new_delay(const uint16_t new_delay) {
+  bool ok = true;
+
+  switch (new_delay) {
+    case 500:
+      sensors_delay = FAST;
+      break;
+    case 1000:
+      sensors_delay = MEDIUM;
+      break;
+    case 2500:
+      sensors_delay = SLOW;
+      break;
+    case 5000:
+      sensors_delay = VERY_SLOW;
+      break;
+    case 10000:
+      sensors_delay = TAKE_A_BREAK;
+      break;
+    default:
+      Serial.print("There was an error while setting new delay: ");
+      Serial.println(new_delay);
+      ok = false;
+      break;
+  }
+
+  return ok;
+}
+
 void readSensorData() {
   // char message[100];
   // uint8_t *uint8_new_delay = (uint8_t *)&new_delay;
   // uint8_t new_delay_counter = 0;
-
+  
   if(uart_data.available()){
     updating_struct = true;
     for(uint8_t i=0; i < sizeof(sensor_data); i++)
@@ -291,16 +352,20 @@ void readSensorData() {
     Serial.println(")");
 
     Serial.print("Pressure: ");
-    Serial.print(sensor_data->humidity);
+    Serial.print(sensor_data->pressure);
     Serial.println(" hPa");
 
     Serial.print("Humidity: ");
     Serial.print(sensor_data->humidity);
     Serial.println("%");
 
-    Serial.print("North direction: ");
-    Serial.print(sensor_data->north_direction);
-    Serial.println("°");
+    Serial.print("Altitude: ");
+    Serial.print(sensor_data->altitude);
+    Serial.println("m");
+
+    Serial.print("Brightness: ");
+    Serial.print(sensor_data->brightness);
+    Serial.println(" lux");
     Serial.println("");
   }
   // Serial.println("Reading data structure: ");
