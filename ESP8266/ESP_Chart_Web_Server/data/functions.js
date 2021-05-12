@@ -1,13 +1,15 @@
 var currentDelay = 500;
 var chartT, chartH, chartP;
-var temp_interval, hum_interval, press_interval, altitude_interval,
+var temp_interval, hum_interval, press_interval, north_interval, altitude_interval,
 brightness_interval;
+
+var light_theme;
 
 function getTemperature(){
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
             var x = (new Date()).getTime(),
             y = parseFloat(this.responseText);
             console.log("New temperature value: " + y);
@@ -29,7 +31,7 @@ function getHumidity(){
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
             console.log("Getting new humidity value in getHumidity() and plotting");
             var x = (new Date()).getTime(),
             y = parseFloat(this.responseText);
@@ -46,13 +48,13 @@ function getHumidity(){
     xhttp.open("GET", "/humidity", true);
     xhttp.send();
     console.log("Sent new humidity value request");
-};
+}
 
 function getPressure(){
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
             var x = (new Date()).getTime(),
             y = parseFloat(this.responseText);
             console.log("New pressure value: " + y);
@@ -72,7 +74,7 @@ function getPressure(){
 function getAltitude(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange=function(){
-        if(xhttp.readyState == 4 && this.status == 200){
+        if(xhttp.readyState === 4 && this.status === 200){
             document.getElementById("altitude").innerHTML =
             ("Altitude: " + xhttp.responseText + "m");
         }
@@ -85,9 +87,18 @@ function getAltitude(){
 function getBrightness(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange=function(){
-        if(xhttp.readyState == 4 && this.status == 200){
+        if (xhttp.readyState === 4 && this.status === 200) {
+            // Light intensity measurement range: 0.045lux-188000lux
+            // Prendiamo la metà per riferimento
+            if (xhttp.responseText < 94000) {
+                light_theme = 1;
+            } else {
+                light_theme = 0;
+            }
+
+            //document.body.style.backgroundImage = "url('/images/sfondo.jpg')";
             document.getElementById("brightness").innerHTML =
-            ("Brightness: " + xhttp.responseText + " lux");
+                ("Brightness: " + xhttp.responseText + " lux");
         }
     }
 
@@ -97,72 +108,91 @@ function getBrightness(){
 
 document.addEventListener("DOMContentLoaded", function(event) {
     chartT = new Highcharts.Chart({
-      chart:{ renderTo : 'chart-temperature' },
-      title: { text: 'Temperature' },
-      series: [{
-        showInLegend: false,
-        data: []
-      }],
-      plotOptions: {
-          // Try this out with true!!!
-        line: { animation: false,
-          dataLabels: { enabled: true }
+        chart:{
+            renderTo : 'chart-temperature',
+            backgroundColor: 'rgba(0, 50, 173, 0.1)'
         },
-        series: { color: '#059e8a' }
-      },
-      xAxis: { type: 'datetime',
-        dateTimeLabelFormats: { second: '%H:%M:%S' }
-      },
-      yAxis: {
-        title: { text: 'Temperature (°C)' }
-        //title: { text: 'Temperature (Fahrenheit)' }
-      },
-      credits: { enabled: false }
+        title: {
+            text: 'Temperature',
+
+        },
+        series: [{
+            showInLegend: false,
+            data: [0, 1, 4, 3, 2]
+            }],
+        plotOptions: {
+          // Try this out with true!!!
+            line: {
+                animation: true,
+                dataLabels: { enabled: true }
+            },
+            series: { color: '#AC1C1C' }
+        },
+        xAxis: {
+            type: 'datetime',
+            dateTimeLabelFormats: { second: '%H:%M:%S' }
+        },
+        yAxis: {
+            title: { text: 'Temperature (°C)' }
+            //title: { text: 'Temperature (Fahrenheit)' }
+        },
+        credits: { enabled: false }
     });
 
     chartH = new Highcharts.Chart({
-      chart:{ renderTo:'chart-humidity' },
-      title: { text: 'Humidity' },
-      series: [{
-        showInLegend: false,
-        data: []
-      }],
-      plotOptions: {
-        line: { animation: false,
-          dataLabels: { enabled: true }
-        }
-      },
-      xAxis: {
-        type: 'datetime',
-        dateTimeLabelFormats: { second: '%H:%M:%S' }
-      },
-      yAxis: {
-        title: { text: 'Humidity (%)' }
-      },
-      credits: { enabled: false }
+        chart:{
+            renderTo:'chart-humidity',
+            backgroundColor: 'rgba(0, 50, 173, 0.1)'
+        },
+        title: { text: 'Humidity' },
+        series: [{
+            showInLegend: false,
+            data: [9, 18, 3, 1, 22, 12, 22]
+        }],
+        plotOptions: {
+            line: {
+                animation: true,
+                dataLabels: { enabled: true }
+            },
+            series: { color: '#485E5D' }
+        },
+        xAxis: {
+            type: 'datetime',
+            dateTimeLabelFormats: { second: '%H:%M:%S' }
+        },
+        yAxis: {
+            title: { text: 'Humidity (%)' }
+        },
+        credits: { enabled: false }
     });
 
     chartP = new Highcharts.Chart({
-      chart:{ renderTo:'chart-pressure' },
-      title: { text: 'Pressure' },
-      series: [{
-        showInLegend: false,
-        data: []
-      }],
-      plotOptions: {
-        line: { animation: false,
-          dataLabels: { enabled: true }
+        chart:{
+            renderTo:'chart-pressure',
+            backgroundColor: 'rgba(0, 50, 173, 0.1)'
         },
-        series: { color: '#18009c' }
-      },
-      xAxis: {
-        type: 'datetime',
-        dateTimeLabelFormats: { second: '%H:%M:%S' }
-      },
-      yAxis: {
-        title: { text: 'Pressure (hPa)' }
-      },
-      credits: { enabled: false }
+        title: { text: 'Pressure' },
+        series: [{
+            showInLegend: false,
+            data: [23, 17, 0.99, 6, 15]
+        }],
+        plotOptions: {
+            line: {
+                animation: true,
+                dataLabels: { enabled: true }
+            },
+            series: { color: '#18009c' }
+        },
+        xAxis: {
+            type: 'datetime',
+            dateTimeLabelFormats: { second: '%H:%M:%S' }
+        },
+        yAxis: {
+            title: {
+                text: 'Pressure (hPa)'
+            },
+        },
+        credits: { enabled: false }
     });
 
     temp_interval = setInterval(getTemperature, currentDelay);
@@ -212,7 +242,7 @@ function sendDelay(){
             break;
     }
 
-    if(delay_int == 0)
+    if(delay_int === 0)
         return;
 
     else
@@ -222,7 +252,7 @@ function sendDelay(){
     console.log("request URL: " + url);
 
     xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
             console.log("--- SETDELAY received response: " + this.responseText);
             if(this.responseText == "ok"){
                 console.log("Received ok response for delay");
@@ -304,3 +334,5 @@ function notifyresult(result){
 
 
 }
+
+

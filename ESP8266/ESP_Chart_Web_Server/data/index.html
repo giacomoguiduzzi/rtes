@@ -1,11 +1,5 @@
 <!DOCTYPE HTML>
 <html>
-<!-- Rui Santos - Complete project details at https://RandomNerdTutorials.com
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files.
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software. -->
     <head>
         <meta charset="utf8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,9 +7,40 @@ copies or substantial portions of the Software. -->
         <script language="JavaScript" type="text/JavaScript" src="functions.js"></script>
 
         <style>
-            h2 {
-                font-size: 2.5rem;
+
+            body, html {
+                height: 100%;
+                margin: 0;
+                font-family: "DejaVu Sans Light",monospace;
+            }
+
+            .bg-image {
+                background-image: url(/images/sky.jpg);
+                background-size: cover;
+                height: 230%;
+
+                filter: blur(8px);
+                -webkit-filter: blur(8px);
+            }
+
+            .bg-text {
+                color: #D8DBE2;
+                position: absolute;
+                top: 12.5%;
+                left: 50%;
+                padding-bottom: 10px;
+                transform: translate(-50%, -50%);
+
+                font-size: 1.2rem;
                 text-align: center;
+            }
+
+            .charts {
+                font-weight: bold;
+                position: absolute;
+                top: 24%;
+                left: 1%;
+                width: 97.5%;
             }
 
             #delay-confirm{
@@ -23,7 +48,6 @@ copies or substantial portions of the Software. -->
                 transition: .5s all ease;
                 display: inline-block;
                 border-radius:5px;
-                display: inline-block;
                 padding-top: 5px;
                 padding-bottom: 5px;
                 border: none;
@@ -45,11 +69,27 @@ copies or substantial portions of the Software. -->
 
             fieldset{
                 border-radius: 5px;
-                border: solid;
-                border-color: black;
+                border: solid black;
             }
 
-            fieldset span, #delay-confirm{
+            .button {
+                background-color: #4F95A1; /* Green */
+                border: none;
+                border-radius: 5px;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            .hover:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+
+            .fieldset span, #delay-confirm{
                 display: block;
                 margin-top: 5px;
                 margin-bottom: 5px;
@@ -57,34 +97,52 @@ copies or substantial portions of the Software. -->
 
         </style>
     </head>
+
     <body>
-      <h2>STM32L475VG + ESP8266 Weather Station</h2>
-      <div id="chart-temperature" class="container"></div>
-      <div id="chart-humidity" class="container"></div>
-      <div id="chart-pressure" class="container"></div>
-      <div id="altitude" class="container">0m</div>
-      <div id="brightness" class="container">0 lux</div>
+        <div class="bg-image"></div>
 
-      <fieldset>
-          <legend>Sensors refresh rate</legend>
-          <span>
-              <input type="radio" name="delay" value="Fast" checked="checked" />Fast
-          </span>
-          <span>
-              <input type="radio" name="delay" value="Medium" />Medium
-          </span>
-          <span>
-              <input type="radio" name="delay" value="Slow" />Slow
-          </span>
-          <span>
-              <input type="radio" name="delay" value="Very slow" />Very slow
-          </span>
-          <span>
-              <input type="radio" name="delay" value="Take a break" />Take a break
-          </span>
+        <div class="bg-text">
+            <h1>Weather Station</h1>
+            <h2>STM32L475VG + ESP8266</h2>
+        </div>
 
-          <button onclick="sendDelay()"> Set refresh rate</button>
-          <button id="delay-confirm">Delay correctly set!</button>
-      </fieldset>
+        <div class="charts">
+            <div id="chart-temperature" class="container"></div>
+            <div id="chart-humidity" class="container"></div>
+            <div id="chart-pressure" class="container"></div>
+
+            <br>
+
+            <div id="altitude" class="container">0m</div>
+            <div id="brightness" class="container">0 lux</div>
+
+            <br>
+            <fieldset>
+                <legend>Sensors refresh rate</legend>
+                    <br>
+                    <span>
+                        <input type="radio" name="delay" value="Fast" checked="checked" />Fast
+                    </span>
+                    <br>
+                    <span>
+                        <input type="radio" name="delay" value="Medium" />Medium
+                    </span>
+                    <br>
+                    <span>
+                        <input type="radio" name="delay" value="Slow" />Slow
+                    </span>
+                    <br>
+                    <span>
+                        <input type="radio" name="delay" value="Very slow" />Very slow
+                    </span>
+                    <br>
+                    <span>
+                        <input type="radio" name="delay" value="Take a break" />Take a break
+                    </span>
+                    <br><br>
+                    <button class="button hover" onclick="sendDelay()"> Set refresh rate</button>
+                    <button id="delay-confirm">Delay correctly set!</button>
+            </fieldset>
+        </div>
     </body>
 </html>
