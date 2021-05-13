@@ -1,8 +1,8 @@
+#include <Arduino_FreeRTOS.h>
+#include <semphr.h>
 #include <Wire.h>
 #include <MAX44009.h>
 #include <Adafruit_BME280.h>
-#include <Arduino_FreeRTOS.h>
-#include <semphr.h>
 // #include <SoftwareSerial.h>
 
 // #ifdef configUSE_TIME_SLICING
@@ -44,31 +44,27 @@ uint8_t *written_data;
 sensors_data_t *sensors_data;
 uint8_t *sent_data;
 
-// HardwareSerial GY39_UART1 = HardwareSerial(); 
-// SoftwareSerial GY39_UART1 = SoftwareSerial(10, 11); // To read from sensor chip
-// SoftwareSerial ESP8266_UART2 = SoftwareSerial(12, 13); // (RXPin, TXPin)
-
 /* void TaskGetTemp(void *pvParameters);
 void TaskGetHum(void *pvParameters);
 void TaskGetPress(void *pvParameters);
 void TaskGetAlt(void *pvParameters);
-void TaskGetBright(void *pvParameters);
+void TaskGetBright(void *pvParameters); */
 void TaskSendData(void *pvParameters);
-void TaskGetDelay(void *pvParameters); */
+void TaskGetDelay(void *pvParameters);
 
 // SemaphoreHandle_t uart1_mutex, uart2_mutex, sem_send_data;
-SemaphoreHandle_t GY39_mutex, sem_send_data; // only 1 mutex for UART since only 1 SoftwareSerial UART can be used at a time
+SemaphoreHandle_t I2C_bus_mutex, sem_send_data;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
   // debug purposes, can't use the hardware serial since it is connected to the USB too and this would print garbage
-  Serial.begin(115200);
+  Serial.begin(9600);
+  // wait for Serial to connect
+  while(!Serial);
 
-  delay(1000);
-
-  Serial.println("Setting up stuff.");
+  Serial.println("Setting up data structures.");
   // Init sensors_data struct
-  sensors_data = (sensors_data_t *)malloc(sizeof(sensors_data));
+  sensors_data = (sensors_data_t *)malloc(sizeof(sensors_data_t));
   sensors_data->temperature = 0.0;
   sensors_data->humidity = 0.0;
   sensors_data->pressure = 0.0;
@@ -79,7 +75,7 @@ void setup() {
 
   written_data = (uint8_t *)malloc(sizeof(uint8_t) * 5);
 
-  Serial.println("Set up data structures.");
+  Wire.begin();
 
   bool status;
   do{
@@ -89,9 +85,6 @@ void setup() {
       delay(500);
     }
   }while(!status);
-
-  //ESP8266_UART2.begin(38400, SERIAL_8E1);
-  // ESP8266_UART2.begin(38400); // SERIAL_8E1 not supported
 
   Serial.println("Set up Serial lines for communication.");
 
@@ -110,11 +103,11 @@ void setup() {
   } while (uart2_mutex == NULL);*/
 
   do {
-    GY39_mutex = xSemaphoreCreateMutex();
+    I2C_bus_mutex = xSemaphoreCreateMutex();
 
-    if (GY39_mutex == NULL)
+    if (I2C_bus_mutex == NULL)
       Serial.println("Error while creating uart1_mutex.");
-  } while (GY39_mutex == NULL);
+  } while (I2C_bus_mutex == NULL);
 
   do {
     sem_send_data = xSemaphoreCreateMutex();
@@ -137,18 +130,22 @@ void setup() {
   // xTaskCreate(TaskGetBright, (const portCHAR *)"getBrightness", 128, NULL, 2, NULL);
   // xTaskCreate(TaskSendData, (const portCHAR *)"sendData", 128, NULL, 3, NULL);
   // xTaskCreate(TaskGetDelay, (const portCHAR *)"getNewDelay", 128, NULL, 3, NULL);
+  // xTaskCreate(TaskSendData, "sendData", 128, NULL, 3, NULL);
+  // Serial.println("Created sendData task.");
+  // xTaskCreate(TaskGetDelay, "getNewDelay", 128, NULL, 3, NULL);
+
   BaseType_t xReturned;
 
   //             func name | human readable name | stack size | priority
-  /* xReturned = xTaskCreate(TaskGetTemp, "getTemperature", 128, NULL, 2, NULL);
+  xReturned = xTaskCreate(TaskGetTemp, "getTemperature", 64, NULL, 2, NULL);
   if(xReturned != pdPASS)
     Serial.println("Error during creation of TaskGetTemp.");
     
-  xReturned = xTaskCreate(TaskGetHum, "getHumidity", 128, NULL, 2, NULL);
+  xReturned = xTaskCreate(TaskGetHum, "getHumidity", 64, NULL, 2, NULL);
   if(xReturned != pdPASS)
     Serial.println("Error during creation of TaskGetHum.");
   
-  xReturned = xTaskCreate(TaskGetPress, "getPressure", 128, NULL, 2, NULL);
+  /* xReturned = xTaskCreate(TaskGetPress, "getPressure", 128, NULL, 2, NULL);
   if(xReturned != pdPASS)
     Serial.println("Error during creation of TaskGetPress.");
     
@@ -160,20 +157,23 @@ void setup() {
   if(xReturned != pdPASS)
     Serial.println("Error during creation of TaskGetBright."); */
   
-  xReturned = xTaskCreate(TaskGetDelay, "getNewDelay", 128, NULL, 3, NULL);
+  /* xReturned = xTaskCreate(TaskGetDelay, "getNewDelay", 384, NULL, 3, NULL);
   if(xReturned != pdPASS)
     Serial.println("Error during creation of TaskGetDelay.");
 
-  /* xReturned = xTaskCreate(TaskSendData, "sendData", 128, NULL, 3, NULL);
+  xReturned = xTaskCreate(TaskSendData, "sendData", 384, NULL, 3, NULL);
   if(xReturned != pdPASS)
-    Serial.println("Error during creation of TaskSendData");*/ 
+    Serial.println("Error during creation of TaskSendData"); */
 
   Serial.println("Set up FreeRTOS tasks. Scheduler starting.");
-
+  
   // Now the task scheduler, which takes over control of scheduling individual tasks, is automatically started.
 }
 
-void loop() {} // Empty. Things are done in Tasks.
+void loop() {
+  Serial.println("looping");
+  delay(500);  
+} // Empty. Things are done in Tasks.
 
 /*--------------------------------------------------*/
 /*---------------------- Tasks ---------------------*/
@@ -192,10 +192,10 @@ void TaskGetTemp(void *pvParameters)  // This is a task. pvParameters is necessa
   {
     start_tick = xTaskGetTickCount();
     // xSemaphoreTake(uart1_mutex, portMAX_DELAY);
-    xSemaphoreTake(GY39_mutex, portMAX_DELAY);
+    xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
     // read sensor
     sensors_data->temperature = bme280.readTemperature();
-    xSemaphoreGive(GY39_mutex);
+    xSemaphoreGive(I2C_bus_mutex);
 
     Serial.print("Read new temperature: ");
     Serial.print(sensors_data->temperature);
@@ -226,10 +226,10 @@ void TaskGetHum(void *pvParameters)
   {
     start_tick = xTaskGetTickCount();
     // xSemaphoreTake(uart1_mutex, portMAX_DELAY);
-    xSemaphoreTake(GY39_mutex, portMAX_DELAY);
+    xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
     // read sensor
     sensors_data->humidity = bme280.readHumidity();
-    xSemaphoreGive(GY39_mutex);
+    xSemaphoreGive(I2C_bus_mutex);
 
     Serial.print("Read new humidity: ");
     Serial.print(sensors_data->humidity);
@@ -260,10 +260,10 @@ void TaskGetPress(void *pvParameters)
   {
     start_tick = xTaskGetTickCount();
     // xSemaphoreTake(uart1_mutex, portMAX_DELAY);
-    xSemaphoreTake(GY39_mutex, portMAX_DELAY);
+    xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
     // read sensor
     sensors_data->pressure = bme280.readPressure();
-    xSemaphoreGive(GY39_mutex);
+    xSemaphoreGive(I2C_bus_mutex);
 
     Serial.print("Read new pressure: ");
     Serial.print(sensors_data->pressure);
@@ -294,10 +294,10 @@ void TaskGetAlt(void *pvParameters)
   {
     start_tick = xTaskGetTickCount();
     // xSemaphoreTake(uart1_mutex, portMAX_DELAY);
-    xSemaphoreTake(GY39_mutex, portMAX_DELAY);
+    xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
     // read sensor
     sensors_data->altitude = bme280.readAltitude(SEALEVELPRESSURE_HPA);
-    xSemaphoreGive(GY39_mutex);
+    xSemaphoreGive(I2C_bus_mutex);
 
     Serial.print("Read new altitude: ");
     Serial.print(sensors_data->altitude);
@@ -328,10 +328,10 @@ void TaskGetBright(void *pvParameters)
   {
     start_tick = xTaskGetTickCount();
     // xSemaphoreTake(uart1_mutex, portMAX_DELAY);
-    xSemaphoreTake(GY39_mutex, portMAX_DELAY);
+    xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
     // read sensor
     sensors_data->brightness = light_sensor.get_lux();
-    xSemaphoreGive(GY39_mutex);
+    xSemaphoreGive(I2C_bus_mutex);
 
     Serial.print("Read new brightness: ");
     Serial.print(sensors_data->brightness);
@@ -354,37 +354,34 @@ void TaskGetBright(void *pvParameters)
 void TaskSendData(void *pvParameters) // No delay for this task as it always waits on the semaphore (it's kind of an aperiodic task)
 {
   (void) pvParameters; // Avoids the warning on unused parameter
+
+  Serial.println("TaskSendData: task initialized.");
   
   for (;;)
   {
     // Block here always, waiting for the sensor-reading-tasks to unblock me
     xSemaphoreTake(sem_send_data, portMAX_DELAY);
 
-    // start_tick = xTaskGetTickCount();
+    if(sum(written_data) >= 5){
 
-    // Block communication
-    xSemaphoreTake(GY39_mutex, portMAX_DELAY);
-    // Avoid other tasks to write on the data structure
-    // xSemaphoreTake(uart1_mutex, portMAX_DELAY);
-    // Avoid TaskGetDelay to send on the same channel while transmitting data
-    // xSemaphoreTake(uart2_mutex, portMAX_DELAY);
-    // Reset writing values for the other tasks
-    reset_written_data();
+      // Block communication
+      xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
+      // Reset writing values for the other tasks
+      reset_written_data();
+    
+      // Send data to ESP8266
+      /* for (uint8_t i = 0; i < sizeof(sensors_data_t); i++)
+        ESP8266_UART2.write(sent_data[i]); */
+      Wire.beginTransmission(ESP8266_ADDR);
 
-    // Send data to ESP8266
-    /* for (uint8_t i = 0; i < sizeof(sensors_data_t); i++)
-      ESP8266_UART2.write(sent_data[i]); */ 
+      for(uint8_t i = 0; i < sizeof(sensors_data_t); i++)
+        Wire.write(sent_data[i]);
 
-    // Release mutex on UART communication
-    xSemaphoreGive(GY39_mutex);
-    // Release mutex on data struct
-    // xSemaphoreGive(uart1_mutex);
-    // Release mutex on UART2 to send back delay response (eventually)
-    // xSemaphoreGive(uart2_mutex);
+      Wire.endTransmission();
+      // Release mutex on I2C communication
+      xSemaphoreGive(I2C_bus_mutex);
+    }
     // Never xSemaphoreGive on the sem_send_data so that the task will block on the next for loop iteration
-    // TODO: Set this delay to the sum of the WCETS of the sensors read tasks
-    // end_tick = xTaskGetTickCount();
-    // vTaskDelay(SENSORS_DELAY - (end_tick - start_tick));
   }
 }
 
@@ -402,56 +399,62 @@ void TaskGetDelay(void *pvParameters)
   TickType_t start_tick, end_tick;
   uint32_t delay_;
 
-  Serial.println("TaskGetDelay initialized");
+  Serial.println("TaskGetDelay: task initialized.");
 
   for (;;) // A Task shall never return or exit.
   {
     start_tick = xTaskGetTickCount();
-    if (ESP8266_UART2.available()) {
-      Serial.println("TaskGetDelay: New delay available");
-      xSemaphoreTake(GY39_mutex, portMAX_DELAY); // Maybe not necessary?
-      // Init array
-      new_delay.uint8[0] = new_delay.uint8[1] = 0;
-      // Read uint16_t value
-      new_delay.uint8[0] = ESP8266_UART2.read();
-      new_delay.uint8[1] = ESP8266_UART2.read();
+    xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
+    Wire.requestFrom(ESP8266_ADDR, 16);
+    Serial.println("TaskGetDelay: Reading new delay");
+    // Waiting for data availability
+    while(!Wire.available());
+    // Init array
+    new_delay.uint8[0] = new_delay.uint8[1] = 0;
+    // Read uint16_t value
+    new_delay.uint8[0] = Wire.read();
+    new_delay.uint8[1] = Wire.read();
 
+    if(new_delay.uint16 != 0){
       Serial.print("TaskGetDelay: New delay read is ");
       Serial.print(new_delay.uint16);
       Serial.print(" (");
       Serial.print(new_delay.uint8[0], HEX);
       Serial.print(new_delay.uint8[1], HEX);
       Serial.println(")");
-
+  
       bool ok = set_new_delay(new_delay.uint16);
-
+  
       // Take UART2 mutex to send set_delay result
       // xSemaphoreTake(uart2_mutex, portMAX_DELAY);
-
+  
       answer = (char *)malloc(sizeof(char) * 3);
-
+  
       if (ok){
         sprintf(answer, "ok");
         Serial.println("TaskGetDelay: new delay set successfully");
       }
-
       else
         sprintf(answer, "no");
-
+  
       Serial.print("TaskGetDelay: sending response ");
       Serial.print(answer);
       Serial.println(" to client.");
-
+  
       // write flag, this is the answer to the new delay value
-      ESP8266_UART2.write(DELAY_FLAG);
+      Wire.beginTransmission(ESP8266_ADDR);
+      Wire.write(DELAY_FLAG);
       for (uint8_t i = 0; i < 3; i++)
-        ESP8266_UART2.write(answer[i]);
-
-      // xSemaphoreGive(uart2_mutex);
-      xSemaphoreGive(GY39_mutex);
-
+        Wire.write(answer[i]);
+  
+      Wire.endTransmission();
+  
       free(answer);
     }
+    else
+      Serial.println("TaskGetDelay: no new delay to set.");
+
+    xSemaphoreGive(I2C_bus_mutex);
 
     end_tick = xTaskGetTickCount();
 
