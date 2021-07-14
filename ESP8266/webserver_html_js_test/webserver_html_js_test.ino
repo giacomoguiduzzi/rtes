@@ -1,25 +1,38 @@
-/*********
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com
+/*------------------------------------------------------------------------------
+  07/01/2018
+  Author: Makerbro
+  Platforms: ESP8266
+  Language: C++/Arduino
+  File: webserver_html_js.ino
+  ------------------------------------------------------------------------------
+  Description: 
+  Code for YouTube video demonstrating how to use JavaScript in HTML weppages
+  that are served in a web server's response.
+  https://youtu.be/ZJoBy2c1dPk
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files.
+  Do you like my videos? You can support the channel:
+  https://patreon.com/acrobotic
+  https://paypal.me/acrobotic
+  ------------------------------------------------------------------------------
+  Please consider buying products from ACROBOTIC to help fund future
+  Open-Source projects like this! We'll always put our best effort in every
+  project, and release all our design files and code for you to use. 
 
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-*********/
-
-// Import required libraries
-// #include <Wire.h>
-#include <Arduino.h>
+  https://acrobotic.com/
+  https://amazon.com/acrobotic
+  ------------------------------------------------------------------------------
+  License:
+  Please see attached LICENSE.txt file for details.
+------------------------------------------------------------------------------*/
 #include <ESP8266WiFi.h>
-#include <Hash.h>
-#include <ESPAsyncTCP.h>
-#include <ESPAsyncWebServer.h>
-#include <FS.h>
-// #include <SPIFFS.h>
+#include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
+// #include "FS.h"
+// #include "LittleFS.h"
+#include <Wire.h>
+#include <Effortless_SPIFFS.h>
 
+inline bool checkFlashConfig();
 
 #define DELAY_FLAG 0x64 // "d" letter
 #define I2C_ADDR 0x33
@@ -41,6 +54,8 @@ typedef enum
   TAKE_A_BREAK = 10000
 } sensors_delay_t;
 
+ESP8266WebServer server(80);
+// const uint8_t pin_led = 2;
 const char* ssid = "Vodafone - Packets Are Coming";
 const char* password = "Arouteroficeandfire96!";
 
@@ -51,23 +66,22 @@ sensors_data_t *sensors_data;
 uint8_t *sent_data;
 bool updating_struct, using_delay;
 
-// SPISettings spisettings;
-
-// Create AsyncWebServer object on port 80
-AsyncWebServer server(80);
-
 unsigned long start_time, end_time, loop_delay;
 
-void setup() {
-  // Serial port for debugging purposes (USB Cable)
+eSPIFFS fileSystem;
+
+void setup()
+{
+  Wire.begin(I2C_ADDR);
+  Wire.onReceive(readSensorData);
+  Wire.onRequest(sendNewDelay);
+  
+  // pinMode(pin_led, OUTPUT);
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  
   Serial.begin(9600);
-  // Wire.begin(I2C_ADDR);
-  // Wire.onReceive(readSensorData);
-  // Wire.onRequest(sendNewDelay);
-
-  delay(1000);
-
-  Serial.println("Setting up data structure.");
+  while(!Serial);
 
   updating_struct = using_delay = false;
 
@@ -80,96 +94,99 @@ void setup() {
 
   sent_data = (uint8_t *)sensors_data;
 
-  // Initialization of SPI library, setting transmitting rate as 1/4 of chip clock (80 MHz / 4 = 20 MHz)
-  // SPI.begin();
-  // SPI.setClockDivider(SPI_CLOCK_DIV4);
-  // spisettings = SPISettings(20000000, MSBFIRST, SPI_MODE0);
-
-  // Setting SS Pin to HIGH to ignore comunication
-  // pinMode(SSPIN, OUTPUT);
-  // digitalWrite(SSPIN, HIGH);
-
-  Serial.println("Setting up SPIFFS.");
-
-  // Initialization of SPIFFS to read files from FLASH memory
-  if (!SPIFFS.begin()) {
-    Serial.println("An Error has occurred while mounting SPIFFS. Board stalling.");
-    while(1);
-  }
+  start_time = end_time = loop_delay = 0;
   
-  Serial.print("Connecting to WiFi..");
-  // Initialization of Wi-Fi library and connection to the network
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED){
-    delay(1000);
+  while(WiFi.status()!=WL_CONNECTED)
+  {
     Serial.print(".");
+    delay(500);
   }
-
-  Serial.print("\nIP Address: ");
+  Serial.println("");
+  Serial.print("IP Address: ");
   Serial.println(WiFi.localIP());
 
-  // Initialization of the DNS library and set-up of the host name
-  if (MDNS.begin("weatherstation"))
-    Serial.println("DNS okay. You can connect to the station via the address: http://weatherstation.local");
-  else
-    Serial.println("There was a problem with the DNS initialization but you can still connect via the IP address.");
+  if(MDNS.begin("weatherstation")){
+    Serial.println("DNS okay! You can connect to http://weatherstation.local");
+  }
 
-  start_time = end_time = loop_delay = 0;
+  // LittleFS.begin();
+  /*if(!LittleFS.begin())
+    Serial.println("An error has occured while mounting SPIFFS");*/
 
-  Serial.println("Setting up server pages.");
-  server_setup();
+  /*bool spiffsSetCorrectly = fileSystem.checkFlashConfig();
+  
+  if(!spiffsSetCorrectly){
+    Serial.println("There was an error during filesystem configuration.");
+    while(1);
+  }*/
 
-  Serial.println("Setup complete.");
-}
+  // server.on("/", sendHomePage);
+  // server.on("/ledstate",getLEDState);
 
-void loop() {
-  start_time = millis();
-  MDNS.update();
-  end_time = millis();
-
-  loop_delay = sensors_delay - (end_time - start_time);
-
-  if (loop_delay > 0)
-    delay(loop_delay);
-}
-
-void server_setup() {
-  // Route for root / web page
-  server.on("/", HTTP_GET, [](AsyncWebServerRequest * request) {
-    request->send(SPIFFS, "/index.html");
+  server.on("/", [](){
+    /*File index = LittleFS.open("/index.html", "r");
+    server.send_P(200, "text/html", index.readString().c_str());
+    index.close();*/
+    size_t fileSize = fileSystem.getFileSize("/index.html");
+    char *fileContents = (char *)malloc(sizeof(char) * (fileSize + 1));  // Dont forget about the null terminator for C Strings
+    fileSystem.openFile("/index.html", fileContents, fileSize);
+    server.send_P(200, "text/html", fileContents);
+    free(fileContents);
   });
-  server.on("/functions.js", HTTP_GET, [](AsyncWebServerRequest * request) {
-    request->send(SPIFFS, "/functions.js");
+  
+  server.on("/functions.js", [](){
+    /*File functions = LittleFS.open("/functions.js", "r");
+    server.send_P(200, "text/html", functions.readString().c_str());
+    functions.close();*/
+    size_t fileSize = fileSystem.getFileSize("/functions.js");
+    char *fileContents = (char *)malloc(sizeof(char) * (fileSize + 1));  // Dont forget about the null terminator for C Strings
+    fileSystem.openFile("/functions.js", fileContents, fileSize);
+    server.send_P(200, "text/javascript", fileContents);
+    free(fileContents);
   });
-  server.on("/temperature", HTTP_GET, [](AsyncWebServerRequest * request) {
+
+  /* File file = LittleFS.open("/index.html", "r");
+
+  if(!file)
+    Serial.println("Failed to open homepage.html file for reading");
+
+  Serial.println("File content: ");
+  while(file.available())
+    Serial.write(file.read());
+
+  file.close();*/
+  
+  // server.on("/", sendHomePage);
+  // server.on("/ledstate",getLEDState);
+  server.on("/temperature", [](){
     char *temp = getTemperature();
-    request->send_P(200, "text/plain", temp);
+    server.send_P(200, "text/plain", temp);
     free(temp);
   });
-  server.on("/humidity", HTTP_GET, [](AsyncWebServerRequest * request) {
+  server.on("/humidity", [](){
     char *hum = getHumidity();
-    request->send_P(200, "text/plain", hum);
+    server.send_P(200, "text/plain", hum);
     free(hum);
   });
-  server.on("/pressure", HTTP_GET, [](AsyncWebServerRequest * request) {
+  server.on("/pressure", []() {
     char *pres = getPressure();
-    request->send_P(200, "text/plain", pres);
+    server.send_P(200, "text/plain", pres);
     free(pres);
   });
 
-  server.on("/altitude", HTTP_GET, [](AsyncWebServerRequest * request) {
+  server.on("/altitude", [](){
     char *alt = getAltitude();
-    request->send_P(200, "text/plain", alt);
+    server.send_P(200, "text/plain", alt);
     free(alt);
   });
 
-  server.on("/brightness", HTTP_GET, [](AsyncWebServerRequest * request) {
+  server.on("/brightness", []() {
     char *brightness = getBrightness();
-    request->send_P(200, "text/plain", brightness);
+    server.send_P(200, "text/plain", brightness);
     free(brightness);
   });
 
-  server.on("/delay", HTTP_GET, [](AsyncWebServerRequest * request) {
+  /* server.on("/delay", [](AsyncWebServerRequest * request) {
     if (request->hasParam("delay")) {
       AsyncWebParameter *p = request->getParam("delay");
       Serial.print("Received new delay request with argument: ");
@@ -178,16 +195,21 @@ void server_setup() {
       request->send_P(200, "text/plain", ok);
       free(ok);
     }
-  });
+  });*/
 
-  server.on("/getdelay", HTTP_GET, [](AsyncWebServerRequest * request) {
+  server.on("/getdelay", []() {
     char *current_delay = getDelay();
-    request->send_P(200, "text/plain", current_delay);
+    server.send_P(200, "text/plain", current_delay);
     free(current_delay);
   });
-
-  // Start server
+  
   server.begin();
+}
+
+void loop()
+{
+  server.handleClient();
+  MDNS.update();
 }
 
 char *getTemperature() {
@@ -303,9 +325,27 @@ char *setDelay(String delay_) {
   return result;
 }
 
+/*void sendHomePage(){
+  
+  server.send_P(200,"text/html", "");
+}
+
+void toggleLED()
+{
+  digitalWrite(pin_led,!digitalRead(pin_led));
+}
+
+void getLEDState()
+{
+  toggleLED();
+  String led_state = digitalRead(pin_led) ? "OFF" : "ON";
+  server.send(200,"text/plain", led_state);
+}*/
+
 void sendNewDelay() {
+  Serial.println("Sending new delay to Arduino Due.");
   using_delay = true;
-  // Wire.write(sensors_delay);
+  Wire.write(sensors_delay);
   using_delay = false;
 }
 
@@ -339,9 +379,11 @@ bool set_new_delay(const uint16_t new_delay) {
 }
 
 void readSensorData(int bytes_to_read) {
+  Serial.println("Receiving data from Arduino Due.");
+  
   uint8_t struct_size = sizeof(sensors_data_t);
 
-  /* if(bytes_to_read == 4){
+  if(bytes_to_read == 4){
     using_delay = true;
     
     uint8_t delay_flag = Wire.read();
@@ -419,5 +461,4 @@ void readSensorData(int bytes_to_read) {
     Serial.println(" lux");
     Serial.println();
   }
-  */
 }

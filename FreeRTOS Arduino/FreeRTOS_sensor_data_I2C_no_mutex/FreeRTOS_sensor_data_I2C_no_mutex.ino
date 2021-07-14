@@ -1,5 +1,5 @@
 #include <FreeRTOS.h>
-#include <semphr.h>
+// #include <semphr.h>
 #include <task.h>
 #include <Wire.h>
 #include <MAX44009.h>
@@ -15,7 +15,7 @@
 #define SEALEVELPRESSURE_HPA (1013.25)//< Average sea level pressure is 1013.25 hPa
 #define ESP8266_ADDR 0x33
 #define SENSORS_DELAY pdMS_TO_TICKS(sensors_delay)
-#define CHECK_DATA_DELAY pdMS_TO_TICKS(250)
+#define CHECK_DATA_DELAY pdMS_TO_TICKS(500)
 #define DELAY_FLAG 0x64 // "d" letter
 
 Adafruit_BME280 bme280;
@@ -38,6 +38,11 @@ typedef enum
   TAKE_A_BREAK = 10000
 } sensors_delay_t;
 
+typedef enum{
+  LOCKED = true,
+  UNLOCKED = false
+} bool_mutex;
+
 uint16_t sensors_delay = FAST;
 
 uint8_t written_data[5];
@@ -55,15 +60,33 @@ void TaskGetDelay(void *pvParameters); */
 
 volatile TaskHandle_t xTaskSendDataHandle;
 
-SemaphoreHandle_t I2C_bus_mutex, sem_send_data, serial_mutex;
-// bool I2C_bus_mutex, sem_send_data, serial_mutex;
+// SemaphoreHandle_t I2C_bus_mutex, sem_send_data, serial_mutex;
+bool_mutex I2C_bus_mutex, serial_mutex;
+
+static inline void lock(bool_mutex *mutex){
+  /* while(__atomic_test_and_set((void *)mutex, __ATOMIC_SEQ_CST))
+    vTaskDelay(pdMS_TO_TICKS(1)); // enable preemption on this task waiting for the mutex */
+  Serial.println("Sono dentro lock()");
+  while(*mutex == LOCKED){
+    vTaskDelay(pdMS_TO_TICKS(100));
+  }
+    //vTaskDelay(pdMS_TO_TICKS(1));
+  
+  *mutex = LOCKED;
+  Serial.println("Sto uscendo da lock()");
+}
+
+static inline void unlock(bool_mutex *mutex){ *mutex = UNLOCKED; }
 
 // the setup function runs once when you press reset or power the board
 void setup() {
   // debug purposes, can't use the hardware serial since it is connected to the USB too and this would print garbage
-  Serial.begin(115200);
+  Serial.begin(9600);
   // wait for Serial to connect
   while(!Serial);
+
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, LOW);
 
   Serial.println("Setting up data structures.");
   // Init sensors_data struct
@@ -84,56 +107,23 @@ void setup() {
     status = bme280.begin(0x76);
     if(!status){
       Serial.println("Could not find a valid BME280 sensor, check wiring!");
-      vTaskDelay(pdMS_TO_TICKS(500));
+      status = bme280.begin(0x76);
+      delay(500);
     }
   }while(!status);
 
   Serial.println("Set up Serial lines for communication.");
 
-  //vTaskDelay(pdMS_TO_TICKS(3));
-  delay(3000);
-
-  /* do {
-    uart1_mutex = xSemaphoreCreateMutex();
-
-    if (uart1_mutex == NULL)
-      Serial.println("Error while creating uart1_mutex.");
-  } while (uart1_mutex == NULL);*/
-
-  /* do {
-    uart2_mutex = xSemaphoreCreateMutex();
-
-    if (uart2_mutex == NULL)
-      Serial.println("Error while creating uart2_mutex.");
-  } while (uart2_mutex == NULL);*/
-
-  /* do {
-    I2C_bus_mutex = xSemaphoreCreateMutex();
-
-    if (I2C_bus_mutex == NULL)
-      Serial.println("Error while creating uart1_mutex.");
-  } while (I2C_bus_mutex == NULL);
-
-  do {
-    sem_send_data = xSemaphoreCreateMutex();
-
-    if (sem_send_data == NULL)
-      Serial.println("Error while creating uart1_mutex.");
-  } while (sem_send_data == NULL); */
-
-  do {
-    serial_mutex = xSemaphoreCreateMutex();
-
-    if (serial_mutex == NULL)
-      Serial.println("Error while creating uart1_mutex.");
-  } while (serial_mutex == NULL);
+  delay(1000);
 
   // Set the semaphore to 0 so that the TaskSendData function blocks first thing
   // xSemaphoreTake(sem_send_data, portMAX_DELAY);
 
-  // I2C_bus_mutex = sem_send_data = serial_mutex = false;
+  I2C_bus_mutex = serial_mutex = UNLOCKED;
 
-  Serial.println("Set up FreeRTOS mutexes / semaphores.");
+  Serial.println("Set up mutexes.");
+
+  delay(1000);
 
   // Now set up tasks to run independently.
   
@@ -147,19 +137,15 @@ void setup() {
   // xTaskCreate(TaskSendData, "sendData", 128, NULL, 3, NULL);
   // Serial.println("Created sendData task.");
   // xTaskCreate(TaskGetDelay, "getNewDelay", 128, NULL, 3, NULL);
-
-  xSemaphoreTake(serial_mutex, portMAX_DELAY);
-  vTaskDelay(pdMS_TO_TICKS(3000));
   
   // BaseType_t xReturned;
 
   Serial.println("About to create tasks.");
 
-  vTaskDelay(pdMS_TO_TICKS(3000));
-
   //             func name | human readable name | stack size | priority
-  // xTaskCreate(TaskGetTemp, "getTemperature", 64, NULL, 2, NULL);
-  // xTaskCreate(TaskGetHum, "getHumidity", 64, NULL, 2, NULL);
+  // xTaskCreate(TaskGetTemp, (const portCHAR *)"getTemperature", 64, NULL, 2, NULL);
+  // xTaskCreate(TaskGetHum, (const portCHAR *)"getHumidity", 64, NULL, 2, NULL);
+  xTaskCreate(TaskLoop2, (const portCHAR *)"TaskLoop", 128, NULL, 2, NULL);
   /* xReturned = xTaskCreate(TaskGetTemp, "getTemperature", 64, NULL, 2, NULL);
   if(xReturned != pdPASS)
     Serial.println("Error during creation of TaskGetTemp.");
@@ -188,14 +174,14 @@ void setup() {
   if(xReturned != pdPASS)
     Serial.println("Error during creation of TaskSendData"); */
 
-  // xSemaphoreTake(serial_mutex, portMAX_DELAY);
-
   Serial.println("Set up FreeRTOS tasks. Scheduler starting.");
 
-  xSemaphoreGive(serial_mutex);
-  
+  delay(1000);
   // Now the task scheduler, which takes over control of scheduling individual tasks, is automatically started.
   vTaskStartScheduler();
+
+  Serial.println("Couldn't start FreeRTOS Scheduler.");
+  while(1);
 }
 
 /* int availableMemory() { 
@@ -207,17 +193,34 @@ void setup() {
 } */
 
 void loop() {
-  xSemaphoreTake(serial_mutex, portMAX_DELAY);
+  Serial.print("Mutex: ");
+  Serial.println(serial_mutex);
+  lock(&serial_mutex);
+  Serial.print("Mutex: ");
+  Serial.println(serial_mutex);
   Serial.println("looping");
   // Serial.println(freeMemory());
   // Serial.println(availableMemory());
-  xSemaphoreGive(serial_mutex);
-  delay(sensors_delay);
+  unlock(&serial_mutex);
+  // vTaskDelay(500);
+  delay(500);
 } // Empty. Things are done in Tasks.
 
 /*--------------------------------------------------*/
 /*---------------------- Tasks ---------------------*/
 /*--------------------------------------------------*/
+
+void TaskLoop2(void *pvParameters){
+
+  (void) pvParameters;
+
+  for(;;){
+    // lock(&serial_mutex);
+    Serial.println("TaskLoop2!");
+    // unlock(&serial_mutex);
+    vTaskDelay(sensors_delay);
+  }
+}
 
 void TaskGetTemp(void *pvParameters)  // This is a task. pvParameters is necessary, FreeRTOS gets angry otherwise
 {  
@@ -226,25 +229,27 @@ void TaskGetTemp(void *pvParameters)  // This is a task. pvParameters is necessa
   TickType_t start_tick, end_tick;
   int delay_;
 
-  xSemaphoreTake(serial_mutex, portMAX_DELAY);
+  Serial.println("TaskGetTemp about to lock the mutex.");
+  delay(1000);
+  lock(&serial_mutex);
   Serial.println("TaskGetTemp initialized.");
-  xSemaphoreGive(serial_mutex);
+  unlock(&serial_mutex);
 
   for (;;) // A Task shall never return or exit.
   {
     start_tick = xTaskGetTickCount();
     // xSemaphoreTake(uart1_mutex, portMAX_DELAY);
-    xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
+    lock(&I2C_bus_mutex);
     while(I2C_bus_mutex)
       vTaskDelay(portTICK_PERIOD_MS);
     // I2C_bus_mutex = true;
     // read sensor
     sensors_data.temperature = bme280.readTemperature();
-    xSemaphoreGive(I2C_bus_mutex);
-    xSemaphoreTake(serial_mutex, portMAX_DELAY);
+    unlock(&I2C_bus_mutex);
+    lock(&serial_mutex);
     Serial.print(sensors_data.temperature);
     Serial.println("°C");
-    xSemaphoreGive(serial_mutex);
+    unlock(&serial_mutex);
     // I2C_bus_mutex = false;
 
     written_data[idx] = 1;
@@ -269,28 +274,28 @@ void TaskGetHum(void *pvParameters)
   TickType_t start_tick, end_tick;
   int delay_;
 
-  xSemaphoreTake(serial_mutex, portMAX_DELAY);
+  lock(&serial_mutex);
   Serial.println("TaskGetHum initialized.");
-  xSemaphoreGive(serial_mutex);
+  unlock(&serial_mutex);
 
   for (;;) // A Task shall never return or exit.
   {
     start_tick = xTaskGetTickCount();
     // xSemaphoreTake(uart1_mutex, portMAX_DELAY);
-    xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
+    lock(&I2C_bus_mutex);
     while(I2C_bus_mutex)
       vTaskDelay(portTICK_PERIOD_MS);
     // I2C_bus_mutex = true;
     // read sensor
     sensors_data.humidity = bme280.readHumidity();
-    xSemaphoreGive(I2C_bus_mutex);
+    unlock(&I2C_bus_mutex);
 
-    xSemaphoreTake(serial_mutex, portMAX_DELAY);
+    lock(&serial_mutex);
     // Serial.print("Read new humidity: ");
     // Serial.print(sensors_data.humidity);
     Serial.print(sensors_data.humidity);
     Serial.println("%");
-    xSemaphoreGive(serial_mutex);
+    unlock(&serial_mutex);
     // I2C_bus_mutex = false;
 
     written_data[idx] = 1;
@@ -319,18 +324,18 @@ void TaskGetPress(void *pvParameters)
   {
     start_tick = xTaskGetTickCount();
     // xSemaphoreTake(uart1_mutex, portMAX_DELAY);
-    xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
+    lock(&I2C_bus_mutex);
     while(I2C_bus_mutex)
       vTaskDelay(portTICK_PERIOD_MS);
     // I2C_bus_mutex = true;
     // read sensor
     sensors_data.pressure = bme280.readPressure();
-    xSemaphoreGive(I2C_bus_mutex);
+    unlock(&I2C_bus_mutex);
 
-    xSemaphoreTake(serial_mutex, portMAX_DELAY);
+    lock(&serial_mutex);
     Serial.print(sensors_data.pressure);
     Serial.println("hPa");
-    xSemaphoreGive(serial_mutex);
+    unlock(&serial_mutex);
     // I2C_bus_mutex = false;
     
     written_data[idx] = 1;
@@ -359,18 +364,18 @@ void TaskGetAlt(void *pvParameters)
   {
     start_tick = xTaskGetTickCount();
     // xSemaphoreTake(uart1_mutex, portMAX_DELAY);
-    xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
+    lock(&I2C_bus_mutex);
     while(I2C_bus_mutex)
       vTaskDelay(portTICK_PERIOD_MS);
     // I2C_bus_mutex = true;
     // read sensor
     sensors_data.altitude = bme280.readAltitude(SEALEVELPRESSURE_HPA);
-    xSemaphoreGive(I2C_bus_mutex);
+    unlock(&I2C_bus_mutex);
 
-    xSemaphoreTake(serial_mutex, portMAX_DELAY);
+    lock(&serial_mutex);
     Serial.print(sensors_data.altitude);
     Serial.println("m");
-    xSemaphoreGive(serial_mutex);
+    unlock(&serial_mutex);
     // I2C_bus_mutex = false;
 
     written_data[idx] = 1;
@@ -399,18 +404,18 @@ void TaskGetBright(void *pvParameters)
   {
     start_tick = xTaskGetTickCount();
     // xSemaphoreTake(uart1_mutex, portMAX_DELAY);
-    xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
+    lock(&I2C_bus_mutex);
     while(I2C_bus_mutex)
       vTaskDelay(portTICK_PERIOD_MS);
     // I2C_bus_mutex = true;
     // read sensor
     sensors_data.brightness = light_sensor.get_lux();
-    xSemaphoreGive(I2C_bus_mutex);
+    unlock(&I2C_bus_mutex);
 
-    xSemaphoreTake(serial_mutex, portMAX_DELAY);
+    lock(&serial_mutex);
     Serial.print(sensors_data.brightness);
     Serial.println("lux");
-    xSemaphoreGive(serial_mutex);
+    unlock(&serial_mutex);
     // I2C_bus_mutex = false;
 
     written_data[idx] = 1;
@@ -441,7 +446,7 @@ void TaskSendData(void *pvParameters) // No delay for this task as it always wai
     if(sum(written_data) >= 5){
 
       // Block communication
-      xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
+      lock(&I2C_bus_mutex);
       while(I2C_bus_mutex)
         vTaskDelay(portTICK_PERIOD_MS);
       // I2C_bus_mutex = true;
@@ -458,7 +463,7 @@ void TaskSendData(void *pvParameters) // No delay for this task as it always wai
 
       Wire.endTransmission();
       // Release mutex on I2C communication
-      xSemaphoreGive(I2C_bus_mutex);
+      unlock(&I2C_bus_mutex);
       // I2C_bus_mutex = false;
     }
     // Never // xSemaphoreGive on the sem_send_data so that the task will block on the next for loop iteration
@@ -479,22 +484,22 @@ void TaskGetDelay(void *pvParameters)
   TickType_t start_tick, end_tick;
   int delay_;
 
-  // xSemaphoreTake(serial_mutex, portMAX_DELAY);
+  // lock(&serial_mutex);
   Serial.println("TaskGetDelay: task initialized.");
-  // xSemaphoreGive(serial_mutex);
+  // unlock(&serial_mutex);
   
   for (;;) // A Task shall never return or exit.
   {
     start_tick = xTaskGetTickCount();
-    xSemaphoreTake(I2C_bus_mutex, portMAX_DELAY);
+    lock(&I2C_bus_mutex);
     while(I2C_bus_mutex)
         vTaskDelay(portTICK_PERIOD_MS);
       // I2C_bus_mutex = true;
       
     Wire.requestFrom(ESP8266_ADDR, 16);
-    // xSemaphoreTake(serial_mutex, portMAX_DELAY);
+    // lock(&serial_mutex);
     Serial.println("New delay: ");
-    // xSemaphoreGive(serial_mutex);
+    // unlock(&serial_mutex);
     // Waiting for data availability
     while(!Wire.available());
     // Init array
@@ -504,13 +509,13 @@ void TaskGetDelay(void *pvParameters)
     new_delay.uint8[1] = Wire.read();
 
     if(new_delay.uint16 != 0){
-      // xSemaphoreTake(serial_mutex, portMAX_DELAY);
+      // lock(&serial_mutex);
       Serial.print(new_delay.uint16);
       Serial.print(" (");
       Serial.print(new_delay.uint8[0], HEX);
       Serial.print(new_delay.uint8[1], HEX);
       Serial.println(")");
-      // xSemaphoreGive(serial_mutex);
+      // unlock(&serial_mutex);
   
       bool ok = set_new_delay(new_delay.uint16);
   
@@ -521,9 +526,9 @@ void TaskGetDelay(void *pvParameters)
   
       if (ok){
         sprintf(answer, "ok");
-        // xSemaphoreTake(serial_mutex, portMAX_DELAY);
+        // lock(&serial_mutex);
         Serial.println("ok");
-        // xSemaphoreGive(serial_mutex);
+        // unlock(&serial_mutex);
       }
       else{
         sprintf(answer, "no");
@@ -544,7 +549,7 @@ void TaskGetDelay(void *pvParameters)
       Serial.println("no new delay");
     }
 
-    xSemaphoreGive(I2C_bus_mutex);
+    unlock(&I2C_bus_mutex);
     // I2C_bus_mutex = false;
 
     end_tick = xTaskGetTickCount();
@@ -576,10 +581,10 @@ bool set_new_delay(const uint16_t new_delay) {
       sensors_delay = TAKE_A_BREAK;
       break;
     default:
-      // xSemaphoreTake(serial_mutex, portMAX_DELAY);
+      // lock(&serial_mutex);
       Serial.print("New delay error: ");
       Serial.println(new_delay);
-      // xSemaphoreGive(serial_mutex);
+      // unlock(&serial_mutex);
       ok = false;
       break;
   }

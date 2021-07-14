@@ -10,19 +10,20 @@
 *********/
 
 // Import required libraries
-// #include <Wire.h>
+#include <Wire.h>
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <Hash.h>
 #include <ESPAsyncTCP.h>
 #include <ESPAsyncWebServer.h>
-#include <FS.h>
-// #include <SPIFFS.h>
+// #include <FS.h>
+#include "LittleFS.h"
 #include <ESP8266mDNS.h>
 
 
 #define DELAY_FLAG 0x64 // "d" letter
-#define I2C_ADDR 0x33
+// #define I2C_ADDR 0x33
+#define DUE_ADDR 0x33
 
 typedef struct {
   float temperature;
@@ -51,19 +52,15 @@ sensors_data_t *sensors_data;
 uint8_t *sent_data;
 bool updating_struct, using_delay;
 
-// SPISettings spisettings;
-
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
 
-unsigned long start_time, end_time, loop_delay;
+unsigned long start_time, end_time;
 
 void setup() {
   // Serial port for debugging purposes (USB Cable)
   Serial.begin(9600);
-  // Wire.begin(I2C_ADDR);
-  // Wire.onReceive(readSensorData);
-  // Wire.onRequest(sendNewDelay);
+  Wire.begin();
 
   delay(1000);
 
@@ -80,20 +77,11 @@ void setup() {
 
   sent_data = (uint8_t *)sensors_data;
 
-  // Initialization of SPI library, setting transmitting rate as 1/4 of chip clock (80 MHz / 4 = 20 MHz)
-  // SPI.begin();
-  // SPI.setClockDivider(SPI_CLOCK_DIV4);
-  // spisettings = SPISettings(20000000, MSBFIRST, SPI_MODE0);
+  Serial.println("Setting up LittleFS.");
 
-  // Setting SS Pin to HIGH to ignore comunication
-  // pinMode(SSPIN, OUTPUT);
-  // digitalWrite(SSPIN, HIGH);
-
-  Serial.println("Setting up SPIFFS.");
-
-  // Initialization of SPIFFS to read files from FLASH memory
-  if (!SPIFFS.begin()) {
-    Serial.println("An Error has occurred while mounting SPIFFS. Board stalling.");
+  // Initialization of LittleFS to read files from FLASH memory
+  if (!LittleFS.begin()) {
+    Serial.println("An Error has occurred while mounting LittleFS. Board stalling.");
     while(1);
   }
   
@@ -114,7 +102,7 @@ void setup() {
   else
     Serial.println("There was a problem with the DNS initialization but you can still connect via the IP address.");
 
-  start_time = end_time = loop_delay = 0;
+  start_time = end_time = 0;
 
   Serial.println("Setting up server pages.");
   server_setup();
@@ -124,10 +112,20 @@ void setup() {
 
 void loop() {
   start_time = millis();
-  MDNS.update();
-  end_time = millis();
 
-  loop_delay = sensors_delay - (end_time - start_time);
+  updating_struct = true;
+
+  Wire.requestFrom(DUE_ADDR, sizeof(sensors_data_t));
+  while(!Wire.available());
+  for(uint8_t i=0; Wire.available(); i++)
+    sent_data[i] = Wire.read();
+
+  updating_struct = false;
+  
+  MDNS.update();
+
+  end_time = millis();
+  int loop_delay = sensors_delay - (end_time - start_time);
 
   if (loop_delay > 0)
     delay(loop_delay);
@@ -136,10 +134,10 @@ void loop() {
 void server_setup() {
   // Route for root / web page
   server.on("/", HTTP_GET, [](AsyncWebServerRequest * request) {
-    request->send(SPIFFS, "/index.html");
+    request->send(LittleFS, "/index.html");
   });
   server.on("/functions.js", HTTP_GET, [](AsyncWebServerRequest * request) {
-    request->send(SPIFFS, "/functions.js");
+    request->send(LittleFS, "/functions.js");
   });
   server.on("/temperature", HTTP_GET, [](AsyncWebServerRequest * request) {
     char *temp = getTemperature();
@@ -194,7 +192,8 @@ char *getTemperature() {
   char *temp = (char *)malloc(sizeof(char) * 5);
   // active wait, can't use delay() here
   //while(!digitalRead(SSPIN));
-  while (updating_struct);
+  // TODO: check if this freezes because of a request from client during struct update
+  while(updating_struct);
   sprintf(temp, "%.02f", sensors_data->temperature);
   // Serial.print("Sending temperature value to client: ");
   // Serial.println(String(temp));
@@ -277,20 +276,44 @@ char *getDelay(){
 
 char *setDelay(String delay_) {
   char *result = (char *)malloc(sizeof(char) * 3);
-  uint16_t new_delay = strtol(delay_.c_str(), NULL, DEC);
+  union{
+    uint16_t uint16;
+    uint8_t uint8[2];
+  } new_delay;
+
+  new_delay.uint16 = strtol(delay_.c_str(), NULL, DEC);
 
   Serial.print("New delay in setDelay(): ");
-  Serial.println(new_delay);
+  Serial.println(new_delay.uint16);
 
-  if(new_delay == sensors_delay)
+  if(new_delay.uint16 == sensors_delay)
     sprintf(result, "ok");
   else
   {
     old_sensors_delay = sensors_delay;
-    bool answer = set_new_delay(new_delay);
+    bool answer = set_new_delay(new_delay.uint16);
   
     if (answer) {
-      sprintf(result, "ok");
+      Wire.beginTransmission(DUE_ADDR);
+      Wire.write(new_delay.uint8[0]);
+      Wire.write(new_delay.uint8[1]);
+      Wire.endTransmission();
+
+      Wire.requestFrom(DUE_ADDR, 3);
+      while(!Wire.available());
+      char *answer = (char *)malloc(sizeof(char) * 3);
+
+      for(uint8_t i=0; Wire.available(); i++)
+        answer[i] = Wire.read();
+
+      if(strcmp(answer, "ok\0") == 0){
+        sprintf(result, "ok");
+        old_sensors_delay = sensors_delay;
+      }
+      else{
+        sprintf(result, "no");
+        sensors_delay = old_sensors_delay;
+      }
     }
     else
       sprintf(result, "no");
@@ -301,12 +324,6 @@ char *setDelay(String delay_) {
   }
 
   return result;
-}
-
-void sendNewDelay() {
-  using_delay = true;
-  // Wire.write(sensors_delay);
-  using_delay = false;
 }
 
 bool set_new_delay(const uint16_t new_delay) {
@@ -336,88 +353,4 @@ bool set_new_delay(const uint16_t new_delay) {
   }
 
   return ok;
-}
-
-void readSensorData(int bytes_to_read) {
-  uint8_t struct_size = sizeof(sensors_data_t);
-
-  /* if(bytes_to_read == 4){
-    using_delay = true;
-    
-    uint8_t delay_flag = Wire.read();
-
-    if(delay_flag == DELAY_FLAG){
-      char *answer = (char *)malloc(sizeof(char) * 3);
-  
-      for(uint8_t i = 0; i < 3; i++)
-        answer[i] = Wire.read();
-  
-      if(strcmp(answer, "ok\0") == 0){
-        Serial.println("New delay confirmed and set up.");
-        old_sensors_delay = sensors_delay;
-      }
-  
-      else if(strcmp(answer, "no\0") == 0){
-        Serial.println("Something went wrong with the new delay, received a \"no\" answer. Going back");
-        sensors_delay = old_sensors_delay;
-      }
-  
-      else{
-        Serial.println("Received answer is neither yes nor no. What now?");
-        // Assuming no
-        sensors_delay = old_sensors_delay;
-      }
-    }
-    else{
-      Serial.println("Waiting for a new-delay-set answer, the first byte sent as an answer is not the DELAY_FLAG. Aborting change");
-      sensors_delay = old_sensors_delay;  
-    }
-
-    using_delay = false;
-  }
-  else{
-    updating_struct = true;
-    
-    Serial.println("Receiving new data struct.");
-  
-    if (bytes_to_read != struct_size) {
-      Serial.println("Sent data structure size doesn't correspond, thus it hasn't been read.");
-      return;
-    }
-  
-    for (uint8_t i = 0; i < sizeof(sensors_data); i++) {
-      sent_data[i] = Wire.read();
-    }
-  
-    updating_struct = false;
-  
-    Serial.print("Temperature: ");
-    Serial.print(sensors_data->temperature);
-    Serial.println("°C");
-  
-    Serial.print("(HEX: ");
-    Serial.print(sent_data[0], HEX);
-    Serial.print(sent_data[1], HEX);
-    Serial.print(sent_data[2], HEX);
-    Serial.print(sent_data[3], HEX);
-    Serial.println(")");
-  
-    Serial.print("Pressure: ");
-    Serial.print(sensors_data->pressure);
-    Serial.println(" hPa");
-  
-    Serial.print("Humidity: ");
-    Serial.print(sensors_data->humidity);
-    Serial.println("%");
-  
-    Serial.print("Altitude: ");
-    Serial.print(sensors_data->altitude);
-    Serial.println("m");
-  
-    Serial.print("Brightness: ");
-    Serial.print(sensors_data->brightness);
-    Serial.println(" lux");
-    Serial.println();
-  }
-  */
 }

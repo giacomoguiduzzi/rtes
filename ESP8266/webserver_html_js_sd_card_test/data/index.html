@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<!-- Rui Santos - Complete project details at https://RandomNerdTutorials.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software. -->
+    <head>
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script language="JavaScript" type="text/JavaScript" src="functions.js"></script>
+
+        <style>
+            h2 {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+
+            #delay-confirm{
+                opacity: 0;
+                transition: .5s all ease;
+                display: inline-block;
+                border-radius:5px;
+                display: inline-block;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border: none;
+            }
+
+            .ok{
+                color: white;
+                background-color: green;
+            }
+
+            .no{
+                color: black;
+                background-color: red;
+            }
+
+            /* #delay-confirm span{
+                padding: 10px;
+            } */
+
+            fieldset{
+                border-radius: 5px;
+                border: solid;
+                border-color: black;
+            }
+
+            fieldset span, #delay-confirm{
+                display: block;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
+        </style>
+    </head>
+    <body>
+      <h2>STM32L475VG + ESP8266 Weather Station</h2>
+      <div id="chart-temperature" class="container"></div>
+      <div id="chart-humidity" class="container"></div>
+      <div id="chart-pressure" class="container"></div>
+      <div id="altitude" class="container">0m</div>
+      <div id="brightness" class="container">0 lux</div>
+
+      <fieldset>
+          <legend>Sensors refresh rate</legend>
+          <span>
+              <input type="radio" name="delay" value="Fast" checked="checked" />Fast
+          </span>
+          <span>
+              <input type="radio" name="delay" value="Medium" />Medium
+          </span>
+          <span>
+              <input type="radio" name="delay" value="Slow" />Slow
+          </span>
+          <span>
+              <input type="radio" name="delay" value="Very slow" />Very slow
+          </span>
+          <span>
+              <input type="radio" name="delay" value="Take a break" />Take a break
+          </span>
+
+          <button onclick="sendDelay()"> Set refresh rate</button>
+          <button id="delay-confirm">Delay correctly set!</button>
+      </fieldset>
+    </body>
+</html>
