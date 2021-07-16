@@ -3,11 +3,15 @@
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
 #include <SD.h>
+#include <Wire.h>
 
 #ifndef STASSID
 #define STASSID "Vodafone - Packets Are Coming"
 #define STAPSK  "Arouteroficeandfire96!"
 #endif
+
+#define DUE_ADDR 0x33
+#define ISR_BUTTON_PIN 2
 
 const char* ssid = STASSID;
 const char* password = STAPSK;
@@ -19,6 +23,14 @@ typedef struct {
   float altitude;
   float brightness;
 } sensors_data_t;
+
+typedef struct{
+  char temperature[5];
+  char pressure[5];
+  char humidity[5];
+  char altitude[5];
+  char brightness[5];
+} sensors_data_str_t;
 
 typedef enum
 {
@@ -33,16 +45,17 @@ uint16_t sensors_delay = FAST;
 uint16_t old_sensors_delay = FAST;
 
 sensors_data_t *sensors_data;
+sensors_data_str_t sensors_data_str;
 uint8_t *sent_data;
 
 ESP8266WebServer server(80);
 
 unsigned long start_time, end_time, loop_delay;
 
-const int led = 2;
-
 void handleRoot() {
   // server.send(200, "text/plain", "hello from esp8266!\r\n");
+  Serial.println("Received request for index page.");
+  
   File index_file = SD.open("/index.html");
   
   size_t sent = server.streamFile(index_file, "text/html");
@@ -51,9 +64,13 @@ void handleRoot() {
     Serial.println("Sent less bytes to client than expected for the index page.");
   
   index_file.close();
+
+  Serial.println("Page index.html sent.");
 }
 
 void handleJS(){
+  Serial.println("Received request for JS file.");
+  
   File functions_file = SD.open("/functions.js");
 
   size_t sent = server.streamFile(functions_file, "text/javascript");
@@ -62,6 +79,8 @@ void handleJS(){
     Serial.println("Sent less bytes to client than expected for the functions.js file");
 
   functions_file.close();
+
+  Serial.println("JS sent.");
 }
 
 void handleNotFound() {
@@ -80,9 +99,24 @@ void handleNotFound() {
 }
 
 void setup(void) {
-  pinMode(led, OUTPUT);
-  digitalWrite(led, 0);
   Serial.begin(9600);
+  while(!Serial)
+    delay(100);
+
+  if (!SD.begin(15)) {
+    Serial.println("Couldn't initialize the SD Reader. Board stalling.");
+    while(1)
+      delay(1000);
+  }
+
+  if(!SD.exists("/index.html") || !SD.exists("/functions.js")){
+    Serial.println("It looks like some files are missing on the SD Card. Board stalling.");
+    while(1)
+      delay(1000);  
+  }
+
+  Serial.println("SD initialized.");
+  
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   Serial.println("");
@@ -125,7 +159,7 @@ void setup(void) {
 
   server.on("/getdelay", getDelay);
 
-  server.on("/inline", []() {
+  /*server.on("/inline", []() {
     server.send(200, "text/plain", "this works as well");
   });
 
@@ -144,7 +178,7 @@ void setup(void) {
     gif_colored[17] = millis() % 256;
     gif_colored[18] = millis() % 256;
     server.send(200, "image/gif", gif_colored, sizeof(gif_colored));
-  });
+  }); */
 
   server.onNotFound(handleNotFound);
 
@@ -211,59 +245,109 @@ void setup(void) {
   server.begin();
   Serial.println("HTTP server started");
 
-  if (!SD.begin(15)) {
-    Serial.println("Couldn't initialize the SD Reader. Board stalling.");
-    while(1)
-      delay(1000);
-  }
+  Wire.begin();
 
-  if(!SD.exists("/index.html") || !SD.exists("/functions.js")){
-    Serial.println("It looks like some files are missing on the SD Card. Board stalling.");
-    while(1)
-      delay(1000);  
-  }
+  Serial.println("Wire library initialized.");
 
-  Serial.println("SD initialized.");
+  // ISR setup
+  pinMode(ISR_BUTTON_PIN, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(ISR_BUTTON_PIN), buttonDelay, RISING);
+
 }
 
 void loop(void) {
+  //start_time = millis();
+  
   server.handleClient();
   MDNS.update();
+
+  // updateStruct();
+
+  //end_time = millis();
+
+  /* int loop_delay = sensors_delay - (end_time - start_time);
+
+  if(loop_delay > 0)
+    delay(loop_delay);*/
+}
+
+ICACHE_RAM_ATTR void buttonDelay(){
+  
+switch(sensors_delay){
+    case FAST:
+      sensors_delay = MEDIUM;
+      break;
+
+    case MEDIUM:
+      sensors_delay = SLOW;
+      break;
+
+    case SLOW:
+      sensors_delay = VERY_SLOW;
+      break;
+
+    case VERY_SLOW:
+      sensors_delay = TAKE_A_BREAK;
+      break;
+
+    case TAKE_A_BREAK:
+      sensors_delay = FAST;
+      break;
+
+    default: break;
+  };
+
+  Serial.print("New delay: ");
+  Serial.println(sensors_delay);
+}
+
+void updateStruct(){
+  
+  Wire.requestFrom(DUE_ADDR, sizeof(sensors_data_t));
+  while(!Wire.available())
+    delay(100);
+  for(uint8_t i=0; Wire.available(); i++)
+    sent_data[i] = Wire.read();
 }
 
 void getTemperature() {
-  char *temp = (char *)malloc(sizeof(char) * 5);
-  sprintf(temp, "%.02f", sensors_data->temperature);
-  server.send_P(200, "text/plain", temp);
-  free(temp);
+  // char *temp = (char *)malloc(sizeof(char) * 5);
+  sprintf(sensors_data_str.temperature, "%.02f", sensors_data->temperature);
+  Serial.println("Sending temperature " + (String(sensors_data_str.temperature)) + ".");
+  server.send_P(200, "text/plain", sensors_data_str.temperature);
+  // free(temp);
 }
 
 void getHumidity() {
-  char *hum = (char *)malloc(sizeof(char) * 5);
-  sprintf(hum, "%.02f", sensors_data->humidity);
-  server.send_P(200, "text/plain", hum);
-  free(hum);
+  // char *hum = (char *)malloc(sizeof(char) * 5);
+  sprintf(sensors_data_str.humidity, "%.02f", sensors_data->humidity);
+  Serial.println("Sending humidity " + (String(sensors_data_str.humidity)) + ".");
+  server.send_P(200, "text/plain", sensors_data_str.humidity);
+  // free(hum);
 }
 
 void getPressure() {
-  char *pres = (char *)malloc(sizeof(char) * 5);
-  sprintf(pres, "%.02f", sensors_data->pressure);
-  server.send_P(200, "text/plain", pres);
-  free(pres);
+  // char *pres = (char *)malloc(sizeof(char) * 5);
+  sprintf(sensors_data_str.pressure, "%.02f", sensors_data->pressure);
+  Serial.println("Sending pressure " + (String(sensors_data_str.pressure)) + ".");
+  server.send_P(200, "text/plain", sensors_data_str.pressure);
+  // free(pres);
 }
 
 void getAltitude() {
-  char *alt = (char *)malloc(sizeof(char) * 5);
-  sprintf(alt, "%.02f", sensors_data->altitude);
-  server.send_P(200, "text/plain", alt);
-  free(alt);
+  // char *alt = (char *)malloc(sizeof(char) * 5);
+  sprintf(sensors_data_str.altitude, "%.02f", sensors_data->altitude);
+  Serial.println("Sending altitude " + (String(sensors_data_str.altitude)) + ".");
+  server.send_P(200, "text/plain", sensors_data_str.altitude);
+  // free(alt);
 }
 
 void getBrightness() {
-  char *brightn = (char *)malloc(sizeof(char) * 5);
-  sprintf(brightn, "%.02f", sensors_data->brightness);
-  server.send_P(200, "text/plain", brightn);
-  free(brightn);
+  // char *brightn = (char *)malloc(sizeof(char) * 5);
+  sprintf(sensors_data_str.brightness, "%.02f", sensors_data->brightness);
+  Serial.println("Sending brightness " + (String(sensors_data_str.brightness)) + ".");
+  server.send_P(200, "text/plain", sensors_data_str.brightness);
+  // free(brightn);
 }
 
 void getDelay(){
@@ -292,6 +376,7 @@ void getDelay(){
   }
 
   sprintf(current_delay, "%u", sensors_delay);
+  Serial.println("Sending delay " + (String(current_delay)) + ".");
   server.send_P(200, "text/plain", current_delay);
   
   free(current_delay);
@@ -323,26 +408,13 @@ void setDelay(){
       bool answer = set_new_delay(new_delay.uint16);
     
       if (answer) {
-        /* Wire.beginTransmission(DUE_ADDR);
-        Wire.write(new_delay.uint8[0]);
-        Wire.write(new_delay.uint8[1]);
-        Wire.endTransmission();
-  
-        Wire.requestFrom(DUE_ADDR, 3);
-        while(!Wire.available());
-        char *answer = (char *)malloc(sizeof(char) * 3);
-  
-        for(uint8_t i=0; Wire.available(); i++)
-          answer[i] = Wire.read();
-  
-        if(strcmp(answer, "ok\0") == 0){
+        /*bool success = i2c_send_new_delay(&new_delay.uint8);
+
+        if(success)
           sprintf(result, "ok");
-          old_sensors_delay = sensors_delay;
-        }
-        else{
+        else
           sprintf(result, "no");
-          sensors_delay = old_sensors_delay;
-        }*/
+        */
         sprintf(result, "ok");
       }
       else
@@ -385,4 +457,28 @@ bool set_new_delay(const uint16_t new_delay) {
   }
 
   return ok;
+}
+
+bool i2c_send_new_delay(uint8_t *uint8_delay){
+  
+  Wire.beginTransmission(DUE_ADDR);
+  Wire.write(uint8_delay[0]);
+  Wire.write(uint8_delay[1]);
+  Wire.endTransmission();
+  
+  Wire.requestFrom(DUE_ADDR, 3);
+  while(!Wire.available());
+  char *answer = (char *)malloc(sizeof(char) * 3);
+
+  for(uint8_t i=0; Wire.available(); i++)
+    answer[i] = Wire.read();
+
+  if(strcmp(answer, "ok\0") == 0){
+    old_sensors_delay = sensors_delay;
+    return true;
+  }
+  else{
+    sensors_delay = old_sensors_delay;
+    return false;
+  }
 }

@@ -10,7 +10,6 @@
 #define SENSORS_DELAY pdMS_TO_TICKS(sensors_delay)
 #define CHECK_DATA_DELAY pdMS_TO_TICKS(2000)
 #define DELAY_FLAG 0x64 // "d" letter
-#define ISR_BUTTON_PIN 45
 
 Adafruit_BME280 bme; //  I2C Define BME280
 MAX44009 light_sensor;    //   I2C Define MAX44009
@@ -37,7 +36,7 @@ typedef enum{
   UNLOCKED = false
 } bool_mutex;
 
-volatile uint16_t sensors_delay = FAST;
+uint16_t sensors_delay = MEDIUM;
 
 // uint8_t written_data[5];
 
@@ -138,9 +137,9 @@ void setup() {
     status = bme.begin(0x76);
   }
 
-  /* Wire.begin(0x33);
+  Wire.begin(0x33);
   Wire.onReceive(getNewDelay);
-  Wire.onRequest(dataRequired); */
+  Wire.onRequest(dataRequired);
 
   Serial.println(F("Set up Serial lines for communication."));
 
@@ -161,12 +160,6 @@ void setup() {
 
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW);
-
-  // ISR setup
-  pinMode(52, OUTPUT);
-  digitalWrite(52, HIGH); // 5V generator for the delay button
-  pinMode(ISR_BUTTON_PIN, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(ISR_BUTTON_PIN), buttonDelay, RISING);
   
   vTaskStartScheduler();
 
@@ -177,39 +170,8 @@ void setup() {
 void loop() {
   // Serial_println("\nlooping!\n");
   // delay(500);
-  Serial.println();
-  delay(sensors_delay);
 }
 
-void buttonDelay(){
-  
-  switch(sensors_delay){
-    case FAST:
-      sensors_delay = MEDIUM;
-      break;
-
-    case MEDIUM:
-      sensors_delay = SLOW;
-      break;
-
-    case SLOW:
-      sensors_delay = VERY_SLOW;
-      break;
-
-    case VERY_SLOW:
-      sensors_delay = TAKE_A_BREAK;
-      break;
-
-    case TAKE_A_BREAK:
-      sensors_delay = FAST;
-      break;
-
-    default: break;
-  };
-
-  Serial.print("New delay: ");
-  Serial.println(sensors_delay);
-}
 
 void TaskReadTemp(void *pvParameters){  // This is a task. pvParameters is necessary, FreeRTOS gets angry otherwise  
   (void) pvParameters; // Avoids the warning on unused parameter
@@ -309,7 +271,7 @@ void TaskReadPress(void *pvParameters){  // This is a task. pvParameters is nece
     // read sensor
     sensors_data.pressure = bme.readPressure();
     unlock(&I2C_bus_mutex);
-    Serial_print_data("Pressure: ", sensors_data.pressure, "Pa");
+    Serial_print_data("Pressure: ", sensors_data.pressure, "hPa");
     // I2C_bus_mutex = false;
 
     /* written_data[idx] = 1;
@@ -620,7 +582,6 @@ bool set_new_delay(const uint16_t new_delay) {
 } */
 
 void dataRequired(){
-  // TODO: implement this with first bytes as index to what kind of information is required from the slave
   // Requesting delay confirmation
   if(delay_ok == DELAY_OK || delay_ok == DELAY_NOT_OK){
     char *answer = (char *)malloc(sizeof(char) * 3);
