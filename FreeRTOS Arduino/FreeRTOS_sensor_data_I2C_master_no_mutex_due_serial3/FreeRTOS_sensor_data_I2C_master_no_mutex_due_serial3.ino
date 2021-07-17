@@ -113,7 +113,12 @@ static inline void unlock(bool_mutex *mutex){ *mutex = UNLOCKED; }
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial);
+  while(!Serial)
+    delay(100);
+
+  Serial3.begin(9600);
+  while(!Serial3)
+    delay(100);
   
   Serial.println(F("Setting up data structures."));
 
@@ -174,7 +179,19 @@ void setup() {
 void loop() {
   // Serial_println("\nlooping!\n");
   // delay(500);
-  Serial.println();
+  Serial3.println("Hello ESP8266");
+  
+  if(Serial3.available()){
+    String message = "";
+    Serial.print("Received message from ESP8266: ");
+    while(Serial3.available())
+      message += (char)Serial3.read();
+      
+    Serial.println(message);
+
+    Serial3.println(message);
+  }
+  Serial.println("------------------");
   delay(sensors_delay);
 }
 

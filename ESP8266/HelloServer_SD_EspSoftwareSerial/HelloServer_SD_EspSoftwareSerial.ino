@@ -4,14 +4,15 @@
 #include <ESP8266mDNS.h>
 #include <SD.h>
 #include <Wire.h>
+#include <SoftwareSerial.h>
 
 #ifndef STASSID
 #define STASSID "Vodafone - Packets Are Coming"
 #define STAPSK  "Arouteroficeandfire96!"
 #endif
 
-#define DUE_ADDR 0x33
-#define ISR_BUTTON_PIN 10
+// #define DUE_ADDR 0x33
+// #define ISR_BUTTON_PIN 10
 
 const char* ssid = STASSID;
 const char* password = STAPSK;
@@ -40,6 +41,11 @@ typedef enum
   TAKE_A_BREAK = 10000
 } sensors_delay_t;
 
+typedef enum{
+  LOCKED = true,
+  UNLOCKED = false
+} bool_mutex;
+
 volatile uint16_t sensors_delay = MEDIUM;
 uint16_t old_sensors_delay = MEDIUM;
 
@@ -52,6 +58,10 @@ ESP8266WebServer server(80);
 unsigned long start_time, end_time, loop_delay;
 
 bool celsius = true, pascal = true;
+
+SoftwareSerial SWSerial;
+
+bool_mutex usb_serial_mutex;
 
 void handleRoot() {
   // server.send(200, "text/plain", "hello from esp8266!\r\n");
@@ -101,11 +111,18 @@ void handleNotFound() {
 
 void setup(void) {
   // ISR setup
-  pinMode(ISR_BUTTON_PIN, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(ISR_BUTTON_PIN), buttonDelay, RISING);
+  // pinMode(ISR_BUTTON_PIN, INPUT_PULLUP);
+  // attachInterrupt(digitalPinToInterrupt(ISR_BUTTON_PIN), buttonDelay, RISING);
+  
   
   Serial.begin(9600);
   while(!Serial)
+    delay(100);
+
+  SWSerial.begin(9600, SWSERIAL_8N1, 5, -1); // RX, TX not used
+  
+  Serial1.begin(9600); // TX only on pin GPIO2 (D4)
+  while(!Serial1)
     delay(100);
 
   if (!SD.begin(15)) {
@@ -265,6 +282,14 @@ void loop(void) {
 
   //end_time = millis();
 
+  if (SWSerial.available()){
+    Serial.print("Received back message from Arduino: ");
+    while(SWSerial.available())
+      Serial.print((char)SWSerial.read());
+  }
+
+  Serial1.println("Hello Arduino");
+  
   delay(50);
 
   /* int loop_delay = sensors_delay - (end_time - start_time);
@@ -299,14 +324,14 @@ switch(sensors_delay){
   Serial.println(sensors_delay);
 }
 
-void updateStruct(){
+/* void updateStruct(){
   
   Wire.requestFrom(DUE_ADDR, sizeof(sensors_data_t));
   while(!Wire.available())
     delay(100);
   for(uint8_t i=0; Wire.available(); i++)
     sent_data[i] = Wire.read();
-}
+} */
 
 void getTemperature() {
   // char *temp = (char *)malloc(sizeof(char) * 5);
@@ -459,7 +484,7 @@ bool set_new_delay(const uint16_t new_delay) {
   return ok;
 }
 
-bool i2c_send_new_delay(uint8_t *uint8_delay){
+/* bool i2c_send_new_delay(uint8_t *uint8_delay){
   
   Wire.beginTransmission(DUE_ADDR);
   Wire.write(uint8_delay[0]);
@@ -481,7 +506,7 @@ bool i2c_send_new_delay(uint8_t *uint8_delay){
     sensors_delay = old_sensors_delay;
     return false;
   }
-}
+} */
 
 void setUnits(){
   if(server.arg("temp")=="" && server.arg("press")=="")

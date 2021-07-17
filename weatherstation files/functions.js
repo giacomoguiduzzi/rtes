@@ -199,6 +199,58 @@ document.addEventListener("DOMContentLoaded", function(event) {
     brightness_interval = setInterval(getBrightness, currentDelay);
 });
 
+function getDelay(){
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            if (parseInt(this.responseText) != currentDelay) {
+                console.log("New delay value: " + parseInt(this.responseText));
+
+                var delay_int = parseInt(this.responseText);
+                var accepted_values = [1000, 2500, 5000, 10000];
+                var ok = false;
+
+                for(int i = 0; i < accepted_values.length; i++){
+                    if(delay_int == accepted_values[i]){
+                        currentDelay = delay_int;
+
+                        clearInterval(temp_interval);
+                        temp_interval = setInterval(getTemperature, currentDelay);
+
+                        clearInterval(hum_interval);
+                        hum_interval = setInterval(getHumidity, currentDelay);
+
+                        clearInterval(press_interval);
+                        press_interval = setInterval(getPressure, currentDelay);
+
+                        clearInterval(altitude_interval);
+                        altitude_interval = setInterval(getAltitude, currentDelay);
+
+                        clearInterval(brightness_interval);
+                        brightness_interval = setInterval(getBrightness, currentDelay);
+
+                        ok = true;
+                        console.log("New delay requested from button set.");
+                        break;
+                    }
+                }
+
+                if(!ok){
+                    console.log("ERROR: delay was edited from the physical button \
+                    but was sent incorrectly to client.");
+                }
+                else{
+                    document.alert("Physical button pressed, delay updated to " + currentDelay + ".");
+                }
+            }
+        }
+    };
+
+    xhttp.open("GET", "/getdelay", true);
+    xhttp.send();
+}
+
 function sendDelay(){
     var delay;
     var delay_int = 0;
