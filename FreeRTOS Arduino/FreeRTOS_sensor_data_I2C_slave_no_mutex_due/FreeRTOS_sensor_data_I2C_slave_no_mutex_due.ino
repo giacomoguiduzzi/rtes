@@ -25,7 +25,6 @@ typedef struct {
 
 typedef enum
 {
-  FAST = 500,
   MEDIUM = 1000,
   SLOW = 2500,
   VERY_SLOW = 5000,
@@ -37,7 +36,7 @@ typedef enum{
   UNLOCKED = false
 } bool_mutex;
 
-volatile uint16_t sensors_delay = FAST;
+volatile uint16_t sensors_delay = MEDIUM;
 
 // uint8_t written_data[5];
 
@@ -164,7 +163,7 @@ void setup() {
 
   // ISR setup
   pinMode(52, OUTPUT);
-  digitalWrite(52, HIGH); // 5V generator for the delay button
+  // digitalWrite(52, HIGH); // 3.3V generator for the delay button
   pinMode(ISR_BUTTON_PIN, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(ISR_BUTTON_PIN), buttonDelay, RISING);
   
@@ -184,10 +183,6 @@ void loop() {
 void buttonDelay(){
   
   switch(sensors_delay){
-    case FAST:
-      sensors_delay = MEDIUM;
-      break;
-
     case MEDIUM:
       sensors_delay = SLOW;
       break;
@@ -201,7 +196,7 @@ void buttonDelay(){
       break;
 
     case TAKE_A_BREAK:
-      sensors_delay = FAST;
+      sensors_delay = MEDIUM;
       break;
 
     default: break;
@@ -576,9 +571,6 @@ bool set_new_delay(const uint16_t new_delay) {
   bool ok = true;
 
   switch (new_delay) {
-    case 500:
-      sensors_delay = FAST;
-      break;
     case 1000:
       sensors_delay = MEDIUM;
       break;

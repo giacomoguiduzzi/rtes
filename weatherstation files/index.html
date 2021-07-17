@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script language="JavaScript" type="text/JavaScript" src="functions.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+        <style>
+
+            body, html {
+                background-image: linear-gradient(#81d4fa,#9575cd);
+                font-family: 'Roboto', sans-serif;
+                font-size: 16px;
+            }
+
+            .bg-image {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .bg-text {
+                color: darkslategray;
+                padding-bottom: 10px
+                font-size: 1.2rem;
+                text-align: center;
+                order: 1;
+            }
+
+            .charts {
+                font-weight: bold;
+                order: 2;
+                align-self: center;
+                text-align: center;
+                min-width: 96%;
+                margin: 0 auto;
+            }
+
+            #alt_brightn{
+                order: 3;
+                text-align: center;
+            }
+
+            #chart-temperature{
+                border-radius: 15px 15px 0 0;
+            }
+
+            #chart-pressure{
+                border-radius: 0 0 15px 15px;
+            }
+
+            .options-div{
+                order: 4;
+                display: flex;
+                flex-direction: row;
+            }
+
+            .delay-div{
+                width: 47%;
+                padding-left: 2%;
+            }
+
+            .units-div{
+                width: 47%;
+                padding-left: 2%;
+                padding-right: 2%;
+            }
+
+            .temp-div{
+                float: left;
+                width: 46%;
+                padding-right: 2%;
+            }
+
+            .press-div{
+                float: right;
+                width: 46%;
+                padding-right: 2%;
+            }
+
+            .button2-div{
+                float: left;
+            }
+
+            fieldset{
+                border-radius: 5px;
+                box-shadow: 0 0 20px black;
+                border: solid darkslategray;
+                color: white;
+                font-weight: bold;
+                max-width: 96%;
+                margin: 0 auto;
+                max-height: 250px;
+                min-height: 250px;
+            }
+
+            legend{
+                text-shadow: 0 0 10px black;
+            }
+
+            #delay-confirm{
+                opacity: 0;
+                transition: .5s all ease;
+                display: inline-block;
+                border-radius:5px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border: none;
+            }
+
+            #units-confirm{
+                opacity: 0;
+                transition: .5s all ease;
+                display: inline-block;
+                border-radius:5px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border: none;
+            }
+
+            .ok{
+                color: white;
+                background-color: green;
+            }
+
+            .no{
+                color: black;
+                background-color: red;
+            }
+
+            .button {
+                background-color: #ffcaff;
+                border: 2px solid #7200ca;
+                border-radius: 5px;
+                color: #7200ca;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            .hover:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+                border: 2px solid #ffcaff;
+                background-color: #7200ca;
+                color: #ffcaff;
+            }
+
+            .fieldset span, #delay-confirm{
+                display: block;
+
+            }
+
+            .fieldset span, #units-confirm{
+                display: block;
+                margin-top: 8px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="bg-image">
+            <div class="bg-text">
+                <h1>Weather Station</h1>
+                <h2>Arduino Due + GY-39 + ESP8266 + SD card adapter</h2>
+            </div>
+
+            <div class="charts">
+                <div id="chart-temperature" class="container"></div>
+                <div id="chart-humidity" class="container"></div>
+                <div id="chart-pressure" class="container"></div>
+
+            </div>
+            <br>
+            <div id="alt_brightn">
+                <h2 id="altitude" class="container">Altitude: 0m</h2>
+                <h2 id="brightness" class="container">Brightness: 0 lux</h2>
+            </div>
+
+            <br>
+
+            <div class="options-div">
+              <div class="delay-div">
+                <fieldset>
+                    <legend>Sensors refresh rate</legend>
+                        <br>
+                        <div class="choice1-div">
+                          <span>
+                              <input type="radio" name="delay" value="Medium" checked="checked">&emsp;Medium
+                          </span>
+                          <br>
+                          <span>
+                              <input type="radio" name="delay" value="Slow" />&emsp;Slow
+                          </span>
+                          <br>
+                          <span>
+                              <input type="radio" name="delay" value="Very slow" />&emsp;Very slow
+                          </span>
+                          <br>
+                          <span>
+                              <input type="radio" name="delay" value="Take a break" />&emsp;Take a break
+                          </span>
+                          <br>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="button1-div">
+                          <button class="button hover" onclick="sendDelay()"> Set refresh rate</button>
+                          <button id="delay-confirm">Delay correctly set!</button>
+                        </div>
+                </fieldset>
+              </div>
+              <div class="units-div">
+                <fieldset>
+                    <legend>Check unit of measure</legend>
+                        <br>
+                        <div class="choice2-div">
+                          <div class="temp-div">
+                            <span>
+                              <label>Temperature: </label>
+                              <br><br>
+                              <input type="radio" name="temp" value="Celsius" checked="checked" /> &emsp;Celsius (°C)
+                              <br>
+                              <input type="radio" name="temp" value="Fahrenheit"/> &emsp;Fahrenheit (°F)
+                            </span>
+                            <br>
+                          </div>
+                          <div class="press-div">
+                            <span>
+                              <label>Pressure: </label>
+                              <br><br>
+                              <input type="radio" name="press" value="Pascal" checked="checked" /> &emsp;Pascal (Pa)
+                              <br>
+                              <input type="radio" name="press" value="Bar"/> &emsp;Bar (bar)
+                            </span>
+                            <br><br>
+                          </div>
+                          <br><br><br><br><br>
+                        </div>
+                        <br>
+                        <div class="button2-div">
+                          <button class="button hover" onclick="sendUnits()"> Set units of measure</button>
+                          <button id="units-confirm">Units correctly set!</button>
+                        </div>
+                </fieldset>
+              </div>
+            </div>
+        </div>
+    <br>
+    </body>
+</html>

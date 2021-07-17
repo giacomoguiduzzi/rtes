@@ -11,7 +11,7 @@
 #endif
 
 #define DUE_ADDR 0x33
-#define ISR_BUTTON_PIN 2
+#define ISR_BUTTON_PIN 10
 
 const char* ssid = STASSID;
 const char* password = STAPSK;
@@ -34,15 +34,14 @@ typedef struct{
 
 typedef enum
 {
-  FAST = 500,
   MEDIUM = 1000,
   SLOW = 2500,
   VERY_SLOW = 5000,
   TAKE_A_BREAK = 10000
 } sensors_delay_t;
 
-uint16_t sensors_delay = FAST;
-uint16_t old_sensors_delay = FAST;
+volatile uint16_t sensors_delay = MEDIUM;
+uint16_t old_sensors_delay = MEDIUM;
 
 sensors_data_t *sensors_data;
 sensors_data_str_t sensors_data_str;
@@ -51,6 +50,8 @@ uint8_t *sent_data;
 ESP8266WebServer server(80);
 
 unsigned long start_time, end_time, loop_delay;
+
+bool celsius = true, pascal = true;
 
 void handleRoot() {
   // server.send(200, "text/plain", "hello from esp8266!\r\n");
@@ -156,8 +157,8 @@ void setup(void) {
   server.on("/altitude", getAltitude);
   server.on("/brightness", getBrightness);
   server.on("/delay", setDelay);
-
   server.on("/getdelay", getDelay);
+  server.on("/units", setUnits);
 
   /*server.on("/inline", []() {
     server.send(200, "text/plain", "this works as well");
@@ -250,8 +251,10 @@ void setup(void) {
   Serial.println("Wire library initialized.");
 
   // ISR setup
-  pinMode(ISR_BUTTON_PIN, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(ISR_BUTTON_PIN), buttonDelay, RISING);
+  // pinMode(ISR_BUTTON_PIN, INPUT_PULLUP);
+  pinMode(ISR_BUTTON_PIN, OUTPUT);
+  digitalWrite(ISR_BUTTON_PIN, HIGH);
+  // attachInterrupt(digitalPinToInterrupt(ISR_BUTTON_PIN), buttonDelay, RISING);
 
 }
 
@@ -265,6 +268,8 @@ void loop(void) {
 
   //end_time = millis();
 
+  delay(50);
+
   /* int loop_delay = sensors_delay - (end_time - start_time);
 
   if(loop_delay > 0)
@@ -274,10 +279,6 @@ void loop(void) {
 ICACHE_RAM_ATTR void buttonDelay(){
   
 switch(sensors_delay){
-    case FAST:
-      sensors_delay = MEDIUM;
-      break;
-
     case MEDIUM:
       sensors_delay = SLOW;
       break;
@@ -291,7 +292,7 @@ switch(sensors_delay){
       break;
 
     case TAKE_A_BREAK:
-      sensors_delay = FAST;
+      sensors_delay = MEDIUM;
       break;
 
     default: break;
@@ -312,7 +313,12 @@ void updateStruct(){
 
 void getTemperature() {
   // char *temp = (char *)malloc(sizeof(char) * 5);
-  sprintf(sensors_data_str.temperature, "%.02f", sensors_data->temperature);
+  if(celsius)
+    sprintf(sensors_data_str.temperature, "%.02f", sensors_data->temperature);
+  else
+    // fahrenheit
+    sprintf(sensors_data_str.temperature, "%.02f", (sensors_data->temperature * 1.8) + 32);
+    
   Serial.println("Sending temperature " + (String(sensors_data_str.temperature)) + ".");
   server.send_P(200, "text/plain", sensors_data_str.temperature);
   // free(temp);
@@ -328,7 +334,11 @@ void getHumidity() {
 
 void getPressure() {
   // char *pres = (char *)malloc(sizeof(char) * 5);
-  sprintf(sensors_data_str.pressure, "%.02f", sensors_data->pressure);
+  if(pascal)
+    sprintf(sensors_data_str.pressure, "%.02f", sensors_data->pressure);
+  else
+    // bar
+    sprintf(sensors_data_str.pressure, "%.02f", sensors_data->pressure / 100000);
   Serial.println("Sending pressure " + (String(sensors_data_str.pressure)) + ".");
   server.send_P(200, "text/plain", sensors_data_str.pressure);
   // free(pres);
@@ -354,10 +364,6 @@ void getDelay(){
   char *current_delay;
 
   switch(sensors_delay){
-    case FAST:
-      current_delay = (char *)malloc(sizeof(char) * 4);
-      break;
-
     case MEDIUM:
     case SLOW:
     case VERY_SLOW:
@@ -434,9 +440,6 @@ bool set_new_delay(const uint16_t new_delay) {
   bool ok = true;
 
   switch (new_delay) {
-    case 500:
-      sensors_delay = FAST;
-      break;
     case 1000:
       sensors_delay = MEDIUM;
       break;
@@ -480,5 +483,34 @@ bool i2c_send_new_delay(uint8_t *uint8_delay){
   else{
     sensors_delay = old_sensors_delay;
     return false;
+  }
+}
+
+void setUnits(){
+  if(server.arg("temp")=="" && server.arg("press")=="")
+      Serial.println("ERROR: For some reason the setUnits request has lesser than 2 arguments.");
+  else{
+    String temp = server.arg("temp");
+    String press = server.arg("press");
+    Serial.println("Received new units request with arguments: temp = " + temp + ", press = " + press + ".");
+      
+    char *result = (char *)malloc(sizeof(char) * 3);
+
+    if(strcmp(temp.c_str(), "Celsius\0") == 0)
+      celsius = true;
+    else
+      celsius = false;
+
+    if(strcmp(press.c_str(), "Pascal\0") == 0)
+      pascal = true;
+    else
+      pascal = false;
+  
+    sprintf(result, "ok");
+
+    Serial.println("Set up new units. Sending response " + (String(result)) + " to client.");
+  
+    server.send_P(200, "text/plain", result);
+    free(result);
   }
 }
