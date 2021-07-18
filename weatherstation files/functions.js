@@ -1,7 +1,7 @@
 var currentDelay = 1000;
 var chartT, chartH, chartP;
 var temp_interval, hum_interval, press_interval, north_interval, altitude_interval,
-brightness_interval;
+brightness_interval, getdelay_interval;
 
 var light_theme;
 
@@ -197,6 +197,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     press_interval = setInterval(getPressure, currentDelay);
     altitude_interval = setInterval(getAltitude, currentDelay);
     brightness_interval = setInterval(getBrightness, currentDelay);
+    getdelay_interval = setInterval(getDelay, currentDelay);
 });
 
 function getDelay(){
@@ -205,10 +206,10 @@ function getDelay(){
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             if (parseInt(this.responseText) != currentDelay) {
-                console.log("New delay value: " + parseInt(this.responseText));
+                console.log("getDelay: received delay value: " + parseInt(this.responseText));
 
                 var delay_int = parseInt(this.responseText);
-                var accepted_values = [1000, 2500, 5000, 10000];
+                const accepted_values = [1000, 2500, 5000, 10000];
                 var ok = false;
 
                 for(int i = 0; i < accepted_values.length; i++){
@@ -230,6 +231,9 @@ function getDelay(){
                         clearInterval(brightness_interval);
                         brightness_interval = setInterval(getBrightness, currentDelay);
 
+                        clearInterval(getdelay_interval);
+                        getdelay_interval = setInterval(getDelay, currentDelay);
+
                         ok = true;
                         console.log("New delay requested from button set.");
                         break;
@@ -246,6 +250,8 @@ function getDelay(){
             }
         }
     };
+
+    console.log("Requesting current delay.");
 
     xhttp.open("GET", "/getdelay", true);
     xhttp.send();
@@ -318,6 +324,9 @@ function sendDelay(){
 
                 clearInterval(brightness_interval);
                 brightness_interval = setInterval(getBrightness, currentDelay);
+
+                clearInterval(getdelay_interval);
+                getdelay_interval = setInterval(getDelay, currentDelay);
             }
 
             else

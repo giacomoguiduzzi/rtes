@@ -8,7 +8,7 @@
 // #define ESP8266_ADDR 0x33
 #define DUE_ADDR 0x33
 #define SENSORS_DELAY pdMS_TO_TICKS(sensors_delay)
-#define CHECK_DATA_DELAY pdMS_TO_TICKS(2000)
+#define CHECK_DELAY pdMS_TO_TICKS(250)
 #define DELAY_FLAG 0x64 // "d" letter
 #define ISR_BUTTON_PIN 45
 
@@ -36,19 +36,17 @@ typedef enum{
   UNLOCKED = false
 } bool_mutex;
 
-volatile uint16_t sensors_delay = MEDIUM;
+volatile sensors_delay_t sensors_delay = MEDIUM;
+volatile sensors_delay_t old_sensors_delay;
 
-// uint8_t written_data[5];
+uint8_t written_data[5];
 
 sensors_data_t sensors_data;
 uint8_t *sent_data;
 
-// TaskHandle_t xTaskSendDataHandle;
+TaskHandle_t xTaskSendDataHandle;
 
 bool_mutex I2C_bus_mutex, serial_mutex;
-
-typedef enum {DELAY_OK, DELAY_NOT_OK, NONE} delay_status;
-delay_status delay_ok;
 
 void Serial_println(const char *string){
   lock(&serial_mutex);
@@ -83,7 +81,7 @@ void Serial_print_data_struct(){
 
   Serial.print("Pressure: ");
   Serial.print(sensors_data.pressure);
-  Serial.println("hPa");
+  Serial.println("Pa");
 
   Serial.print("Altitude: ");
   Serial.print(sensors_data.altitude);
@@ -112,11 +110,11 @@ static inline void lock(bool_mutex *mutex){
 static inline void unlock(bool_mutex *mutex){ *mutex = UNLOCKED; }
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   while(!Serial)
     delay(100);
 
-  Serial3.begin(9600);
+  Serial3.begin(115200);
   while(!Serial3)
     delay(100);
   
@@ -130,9 +128,7 @@ void setup() {
 
   sent_data = (uint8_t *)&sensors_data;
 
-  delay_ok = DELAY_OK;
-
-  // xTaskSendDataHandle = NULL;
+  xTaskSendDataHandle = NULL;
 
   bool status;
   status = bme.begin(0x76);  
@@ -141,10 +137,6 @@ void setup() {
     delay(500);
     status = bme.begin(0x76);
   }
-
-  /* Wire.begin(0x33);
-  Wire.onReceive(getNewDelay);
-  Wire.onRequest(dataRequired); */
 
   Serial.println(F("Set up Serial lines for communication."));
 
@@ -157,8 +149,8 @@ void setup() {
   xTaskCreate(TaskReadPress, (const portCHAR *)"TaskReadPress", 128, NULL, 2, NULL);
   xTaskCreate(TaskReadAlt, (const portCHAR *)"TaskReadAlt", 128, NULL, 2, NULL);
   xTaskCreate(TaskReadBright, (const portCHAR *)"TaskReadBright", 128, NULL, 2, NULL);
-  // xTaskCreate(TaskGetDelay, (const portCHAR *)"TaskGetDelay", 128, NULL, 3, NULL);
-  // xTaskCreate(TaskSendData, (const portCHAR *)"TaskSendData", 128, NULL, 3, &xTaskSendDataHandle);
+  xTaskCreate(TaskGetDelay, (const portCHAR *)"TaskGetDelay", 128, NULL, 4, NULL);
+  xTaskCreate(TaskSendData, (const portCHAR *)"TaskSendData", 128, NULL, 3, &xTaskSendDataHandle);
   // xTaskCreate(TaskReadData, (const portCHAR *)"TaskReadData", 128, NULL, 2, NULL);
 
   Serial.println(F("Set up FreeRTOS tasks. Scheduler starting."));
@@ -177,48 +169,51 @@ void setup() {
 }
 
 void loop() {
-  // Serial_println("\nlooping!\n");
-  // delay(500);
-  Serial3.println("Hello ESP8266");
-  
-  if(Serial3.available()){
-    String message = "";
-    Serial.print("Received message from ESP8266: ");
-    while(Serial3.available())
-      message += (char)Serial3.read();
-      
-    Serial.println(message);
-
-    Serial3.println(message);
-  }
   Serial.println("------------------");
   delay(sensors_delay);
 }
 
 void buttonDelay(){
+  union{
+    uint16_t uint16;
+    uint8_t uint8[2];
+  } delay_int;
+
+  old_sensors_delay = sensors_delay;
   
   switch(sensors_delay){
     case MEDIUM:
       sensors_delay = SLOW;
+      delay_int.uint16 = 2500;
       break;
 
     case SLOW:
       sensors_delay = VERY_SLOW;
+      delay_int.uint16 = 5000;
       break;
 
     case VERY_SLOW:
       sensors_delay = TAKE_A_BREAK;
+      delay_int.uint16 = 10000;
       break;
 
     case TAKE_A_BREAK:
       sensors_delay = MEDIUM;
+      delay_int.uint16 = 1000;
       break;
 
-    default: break;
+    default: 
+      delay_int.uint16 = 0;
+      break;
   };
 
-  Serial.print("New delay: ");
-  Serial.println(sensors_delay);
+  if(delay_int.uint16 != 0){
+    Serial_print("New delay: ");
+    Serial.println(sensors_delay);
+    
+    Serial3.write(delay_int.uint8[0]);
+    Serial3.write(delay_int.uint8[1]);
+  }
 }
 
 void TaskReadTemp(void *pvParameters){  // This is a task. pvParameters is necessary, FreeRTOS gets angry otherwise  
@@ -239,11 +234,10 @@ void TaskReadTemp(void *pvParameters){  // This is a task. pvParameters is neces
     Serial_print_data("Temperature: ", sensors_data.temperature, "°C");
     // I2C_bus_mutex = false;
 
-    /* written_data[idx] = 1;
+    written_data[idx] = 1;
 
-    // TODO: This brings the task to be preempted, verify if this delay thing is correct
     if (sum(written_data) >= 5)
-      xTaskNotifyGive(xTaskSendDataHandle);*/
+      xTaskNotifyGive(xTaskSendDataHandle);
       // xSemaphoreGive(sem_send_data);
 
     end_tick = xTaskGetTickCount();
@@ -253,21 +247,6 @@ void TaskReadTemp(void *pvParameters){  // This is a task. pvParameters is neces
       vTaskDelay((uint32_t) delay_);
   }
 }
-
-/* void TaskReadTemp(void *pvParameters){
-  (void) pvParameters;
-
-  for(;;){
-    lock(&I2C_bus_mutex);
-    Serial.print("Temperature = ");
-    Serial.print(bme.readTemperature());
-    Serial.println(" °C");
-
-    unlock(&I2C_bus_mutex);
-
-    vTaskDelay(pdMS_TO_TICKS(500));
-  }
-}*/ 
 
 void TaskReadHum(void *pvParameters){  // This is a task. pvParameters is necessary, FreeRTOS gets angry otherwise  
   (void) pvParameters; // Avoids the warning on unused parameter
@@ -288,11 +267,10 @@ void TaskReadHum(void *pvParameters){  // This is a task. pvParameters is necess
     Serial_print_data("Humidity: ", sensors_data.humidity, "%");
     // I2C_bus_mutex = false;
 
-    /* written_data[idx] = 1;
+    written_data[idx] = 1;
 
-    // TODO: This brings the task to be preempted, verify if this delay thing is correct
     if (sum(written_data) >= 5)
-      xTaskNotifyGive(xTaskSendDataHandle); */
+      xTaskNotifyGive(xTaskSendDataHandle);
       // xSemaphoreGive(sem_send_data);
 
     end_tick = xTaskGetTickCount();
@@ -322,11 +300,10 @@ void TaskReadPress(void *pvParameters){  // This is a task. pvParameters is nece
     Serial_print_data("Pressure: ", sensors_data.pressure, "Pa");
     // I2C_bus_mutex = false;
 
-    /* written_data[idx] = 1;
+    written_data[idx] = 1;
 
-    // TODO: This brings the task to be preempted, verify if this delay thing is correct
     if (sum(written_data) >= 5)
-      xTaskNotifyGive(xTaskSendDataHandle); */
+      xTaskNotifyGive(xTaskSendDataHandle);
       // xSemaphoreGive(sem_send_data);
 
     end_tick = xTaskGetTickCount();
@@ -356,11 +333,10 @@ void TaskReadAlt(void *pvParameters){  // This is a task. pvParameters is necess
     Serial_print_data("Altitude: ", sensors_data.altitude, "m");
     // I2C_bus_mutex = false;
 
-   /* written_data[idx] = 1;
+    written_data[idx] = 1;
 
-    // TODO: This brings the task to be preempted, verify if this delay thing is correct
     if (sum(written_data) >= 5)
-      xTaskNotifyGive(xTaskSendDataHandle); */
+      xTaskNotifyGive(xTaskSendDataHandle);
       // xSemaphoreGive(sem_send_data);
 
     end_tick = xTaskGetTickCount();
@@ -390,11 +366,10 @@ void TaskReadBright(void *pvParameters){  // This is a task. pvParameters is nec
     Serial_print_data("Brightness: ", sensors_data.brightness, "lux");
     // I2C_bus_mutex = false;
 
-    /* written_data[idx] = 1;
-
-    // TODO: This brings the task to be preempted, verify if this delay thing is correct
+    written_data[idx] = 1;
+    
     if (sum(written_data) >= 5)
-      xTaskNotifyGive(xTaskSendDataHandle); */
+      xTaskNotifyGive(xTaskSendDataHandle);
       // xSemaphoreGive(sem_send_data);
 
     end_tick = xTaskGetTickCount();
@@ -405,8 +380,7 @@ void TaskReadBright(void *pvParameters){  // This is a task. pvParameters is nec
   }
 }
 
-/* void TaskSendData(void *pvParameters) // No delay for this task as it always waits on the semaphore (it's kind of an aperiodic task)
-{
+void TaskSendData(void *pvParameters){ // No delay for this task as it always waits on the semaphore (it's kind of an aperiodic task)
   (void) pvParameters; // Avoids the warning on unused parameter
 
   Serial_println("TaskSendData initialized.");
@@ -422,22 +396,12 @@ void TaskReadBright(void *pvParameters){  // This is a task. pvParameters is nec
 
     if(sum(written_data) >= 5){
 
-      // Block communication
-      lock(&I2C_bus_mutex);
-      // I2C_bus_mutex = true;
       // Reset writing values for the other tasks
       reset_written_data();
     
       // Send data to ESP8266
-      Wire.beginTransmission(ESP8266_ADDR);
-
-      for(uint8_t i = 0; i < sizeof(sensors_data_t); i++)
-        Wire.write(sent_data[i]);
-
-      Wire.endTransmission();
-      // Release mutex on I2C communication
-      unlock(&I2C_bus_mutex);
-      // I2C_bus_mutex = false;
+      for(uint8_t i=0; i<sizeof(sensors_data_t); i++)
+        Serial3.write(sent_data[i]);
 
       Serial_println("Sent to ESP8266 new data structure: ");
       Serial_print_data_struct();
@@ -446,8 +410,7 @@ void TaskReadBright(void *pvParameters){  // This is a task. pvParameters is nec
   }
 }
 
-void TaskGetDelay(void *pvParameters)
-{
+void TaskGetDelay(void *pvParameters){
   (void) pvParameters; // Avoids the warning on unused parameter
   
   union {
@@ -462,125 +425,66 @@ void TaskGetDelay(void *pvParameters)
 
   Serial_println("TaskGetDelay initialized.");
   
-  for (;;) // A Task shall never return or exit.
+  for (;;) 
   {
     start_tick = xTaskGetTickCount();
-    lock(&I2C_bus_mutex);
+    
+    if(Serial3.available()){
+      char peeked = (char)Serial3.peek();
       
-    Wire.requestFrom(ESP8266_ADDR, 16);
-    // lock(&serial_mutex);
-    Serial_print("Checking for new delay: ");
-    // unlock(&serial_mutex);
-    // Waiting for data availability
-    for(uint8_t i = 0; i < 3; i++){
-      if(Wire.available())
-        break;
+      if(peeked == 'n'){
+          Serial3.read();
 
-      vTaskDelay(pdMS_TO_TICKS(100));
-    }
-
-    // while(!Wire.available());
-    
-    if(Wire.available()){
-      // Init array
-      new_delay.uint8[0] = new_delay.uint8[1] = 0;
-      // Read uint16_t value
-      new_delay.uint8[0] = Wire.read();
-      new_delay.uint8[1] = Wire.read();
-  
-      if(new_delay.uint16 != sensors_delay){
-        lock(&serial_mutex);
-        Serial.print(new_delay.uint16);
-        Serial.print(" (");
-        Serial.print(new_delay.uint8[0], HEX);
-        Serial.print(new_delay.uint8[1], HEX);
-        Serial.println(")");
-        unlock(&serial_mutex);
-    
-        bool ok = set_new_delay(new_delay.uint16);
-    
-        // Take UART2 mutex to send set_delay result
-        // // xSemaphoreTake(uart2_mutex, portMAX_DELAY);
-    
-        answer = (char *)malloc(sizeof(char) * 3);
-    
-        if (ok){
-          sprintf(answer, "ok");
-          // lock(&serial_mutex);
-          Serial_println("ok");
-          // unlock(&serial_mutex);
-        }
-        else{
-          sprintf(answer, "no");
-          Serial_println("no");
-        }
-    
-        // write flag, this is the answer to the new delay value
-        Wire.beginTransmission(ESP8266_ADDR);
-        Wire.write(DELAY_FLAG);
-        for (uint8_t i = 0; i < 3; i++)
-          Wire.write(answer[i]);
-    
-        Wire.endTransmission();
-    
-        free(answer);
+          Serial_print("ESP8266 answered to new delay by button: ");
+          
+          uint8_t ok = Serial3.read();
+          if(ok){
+            old_sensors_delay = sensors_delay;
+            Serial_println("ok!");
+          }
+          else{
+            sensors_delay = old_sensors_delay;
+            Serial_println("not ok.");
+          }
       }
       else{
-        Serial_println("received delay is equal to current, not changing.");
+
+        Serial_print("New delay set by client: ");
+        
+        new_delay.uint8[0] = Serial3.read();
+        new_delay.uint8[1] = Serial3.read();
+  
+        Serial.println(new_delay.uint16);
+      
+        bool ok = set_new_delay(new_delay.uint16);
+      
+        char *answer = (char *)malloc(sizeof(char) * 3);
+        
+        if(ok)
+          sprintf(answer, "ok");
+        else
+          sprintf(answer, "no");
+  
+        Serial_print("Answering \"");
+        Serial.print(answer);
+        Serial_println("\" to ESP8266.");
+        
+        Serial3.write(DELAY_FLAG);
+        for(uint8_t i=0; i<sizeof(answer); i++)
+          Serial3.write(answer[i]);
+      
+        free(answer);
       }
     }
-    else
-      Serial_println("ESP8266 didn't answer a new delay request.");
-      
-    unlock(&I2C_bus_mutex);
-    // I2C_bus_mutex = false;
-
+    
     end_tick = xTaskGetTickCount();
 
-    delay_ = CHECK_DATA_DELAY - (end_tick - start_tick);
+    delay_ = CHECK_DELAY - (end_tick - start_tick);
 
     if (delay_ > 0)
       vTaskDelay((uint32_t) delay_);
   }
 }
-
-void TaskReadData(void *pvParameters){
-  (void) pvParameters;
-
-  for(;;){
-    lock(&I2C_bus_mutex);
-    // Output data to serial monitor
-    Serial.print("Ambient Light luminance :");
-    Serial.print(light_sensor.get_lux());
-    Serial.println(" lux");
-  
-    Serial.print("Temperature = ");
-    Serial.print(bme.readTemperature());
-    Serial.println(" *C");
-  
-    // Convert temperature to Fahrenheit
-    // Serial.print("Temperature = ");
-    // Serial.print(1.8 * bme.readTemperature() + 32);
-    // Serial.println(" *F");
-    
-    Serial.print("Pressure = ");
-    Serial.print(bme.readPressure() / 100.0F);
-    Serial.println(" hPa");
-  
-    Serial.print("Approx. Altitude = ");
-    Serial.print(bme.readAltitude(SEALEVELPRESSURE_HPA));
-    Serial.println(" m");
-  
-    Serial.print("Humidity = ");
-    Serial.print(bme.readHumidity());
-    Serial.println(" %");
-    Serial.println();
-
-    unlock(&I2C_bus_mutex);
-
-    vTaskDelay(pdMS_TO_TICKS(500));
-  }
-} */
 
 bool set_new_delay(const uint16_t new_delay) {
   bool ok = true;
@@ -610,7 +514,7 @@ bool set_new_delay(const uint16_t new_delay) {
   return ok;
 }
 
-/* uint8_t sum(uint8_t *written_data) {
+uint8_t sum(uint8_t *written_data) {
   uint8_t sum_ = 0;
 
   for (uint8_t i = 0; i < 5; i++) {
@@ -618,72 +522,10 @@ bool set_new_delay(const uint16_t new_delay) {
   }
 
   return sum_;
-} */
+}
 
-/* void reset_written_data() {
+void reset_written_data() {
   for (uint8_t i = 0; i < 5; i++) {
     written_data[i] = 0;
   }
-} */
-
-void dataRequired(){
-  // TODO: implement this with first bytes as index to what kind of information is required from the slave
-  // Requesting delay confirmation
-  if(delay_ok == DELAY_OK || delay_ok == DELAY_NOT_OK){
-    char *answer = (char *)malloc(sizeof(char) * 3);
-    
-    if(delay_ok == DELAY_OK)
-      sprintf(answer, "ok");
-    else
-      sprintf(answer, "no");
-
-    lock(&I2C_bus_mutex);
-    
-    for(uint8_t i=0; i<sizeof(answer); i++)
-      Wire.write(answer[i]);
-
-    unlock(&I2C_bus_mutex);
-
-    delay_ok = NONE;
-  }
-  
-  // Requesting new sensors data
-  else if(delay_ok == NONE)
-    sendSensorData();
-}
-
-void sendSensorData() {
-  uint8_t struct_size = sizeof(sensors_data_t);
-
-  lock(&I2C_bus_mutex);
-  
-  for(uint8_t i=0; i<struct_size; i++)
-    Wire.write(sent_data[i]);
-
-  unlock(&I2C_bus_mutex);
-
-  Serial_println("Sent new data to webserver.");
-}
-
-void getNewDelay(int numBytes) {
-
-  union{
-    uint16_t uint16;
-    uint8_t uint8[2];  
-  } new_delay;
-
-  for(uint8_t i=0; i<numBytes; i++)
-    new_delay.uint8[i] = Wire.read();
-
-  bool ok = set_new_delay(new_delay.uint16);
-
-  if(ok){
-    lock(&serial_mutex);
-    Serial.print("Got new delay from webserver:");
-    Serial.println(new_delay.uint16);
-    delay_ok = DELAY_OK;
-    unlock(&serial_mutex);
-  }
-  else
-    delay_ok = DELAY_NOT_OK;
 }

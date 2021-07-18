@@ -1,9 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
-#include <ESP8266mDNS.h>
+// #include <ESP8266mDNS.h>
 #include <SD.h>
-#include <Wire.h>
 #include <SoftwareSerial.h>
 
 #ifndef STASSID
@@ -19,16 +18,16 @@ const char* password = STAPSK;
 
 typedef struct {
   float temperature;
-  float pressure;
   float humidity;
+  float pressure;
   float altitude;
   float brightness;
 } sensors_data_t;
 
 typedef struct{
   char temperature[5];
-  char pressure[5];
   char humidity[5];
+  char pressure[5];
   char altitude[5];
   char brightness[5];
 } sensors_data_str_t;
@@ -41,15 +40,12 @@ typedef enum
   TAKE_A_BREAK = 10000
 } sensors_delay_t;
 
-typedef enum{
-  LOCKED = true,
-  UNLOCKED = false
-} bool_mutex;
-
-volatile uint16_t sensors_delay = MEDIUM;
+uint16_t sensors_delay = MEDIUM;
 uint16_t old_sensors_delay = MEDIUM;
 
-sensors_data_t *sensors_data;
+volatile bool sending_pages = false;
+
+sensors_data_t sensors_data;
 sensors_data_str_t sensors_data_str;
 uint8_t *sent_data;
 
@@ -59,11 +55,14 @@ unsigned long start_time, end_time, loop_delay;
 
 bool celsius = true, pascal = true;
 
+// uint16_t mDNS_update_counter = 0;
+
 SoftwareSerial SWSerial;
 
-bool_mutex usb_serial_mutex;
+char delay_answer[3];
 
 void handleRoot() {
+  sending_pages = true;
   // server.send(200, "text/plain", "hello from esp8266!\r\n");
   Serial.println("Received request for index page.");
   
@@ -77,6 +76,7 @@ void handleRoot() {
   index_file.close();
 
   Serial.println("Page index.html sent.");
+  sending_pages = false;
 }
 
 void handleJS(){
@@ -92,6 +92,7 @@ void handleJS(){
   functions_file.close();
 
   Serial.println("JS sent.");
+  sending_pages = false;
 }
 
 void handleNotFound() {
@@ -113,15 +114,16 @@ void setup(void) {
   // ISR setup
   // pinMode(ISR_BUTTON_PIN, INPUT_PULLUP);
   // attachInterrupt(digitalPinToInterrupt(ISR_BUTTON_PIN), buttonDelay, RISING);
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH);
   
-  
-  Serial.begin(9600);
+  Serial.begin(115200);
   while(!Serial)
     delay(100);
 
-  SWSerial.begin(9600, SWSERIAL_8N1, 5, -1); // RX, TX not used
+  SWSerial.begin(115200, SWSERIAL_8N1, 5, -1); // RX, TX not used
   
-  Serial1.begin(9600); // TX only on pin GPIO2 (D4)
+  Serial1.begin(115200); // TX only on pin GPIO2 (D4)
   while(!Serial1)
     delay(100);
 
@@ -143,14 +145,14 @@ void setup(void) {
   WiFi.begin(ssid, password);
   Serial.println("");
 
-  sensors_data = (sensors_data_t *)malloc(sizeof(sensors_data));
-  /*sensors_data->temperature = 0;
-  sensors_data->humidity = 0;
-  sensors_data->pressure = 0;
-  sensors_data->altitude = 0;
-  sensors_data->brightness = 0;*/
+  // sensors_data = (sensors_data_t *)malloc(sizeof(sensors_data_t));
+  sensors_data.temperature = 0;
+  sensors_data.humidity = 0;
+  sensors_data.pressure = 0;
+  sensors_data.altitude = 0;
+  sensors_data.brightness = 0;
 
-  sent_data = (uint8_t *)sensors_data;
+  sent_data = (uint8_t *)&sensors_data;
 
   start_time = end_time = loop_delay = 0;
 
@@ -165,9 +167,9 @@ void setup(void) {
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 
-  if (MDNS.begin("weatherstation")) {
+  /* if (MDNS.begin("weatherstation")) {
     Serial.println("MDNS responder started");
-  }
+  } */
 
   server.on("/", handleRoot);
   server.on("/functions.js", handleJS);
@@ -181,147 +183,106 @@ void setup(void) {
   server.on("/getdelay", getDelay);
   server.on("/units", setUnits);
 
-  /*server.on("/inline", []() {
-    server.send(200, "text/plain", "this works as well");
-  });
-
-  server.on("/gif", []() {
-    static const uint8_t gif[] PROGMEM = {
-      0x47, 0x49, 0x46, 0x38, 0x37, 0x61, 0x10, 0x00, 0x10, 0x00, 0x80, 0x01,
-      0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 0xff, 0x2c, 0x00, 0x00, 0x00, 0x00,
-      0x10, 0x00, 0x10, 0x00, 0x00, 0x02, 0x19, 0x8c, 0x8f, 0xa9, 0xcb, 0x9d,
-      0x00, 0x5f, 0x74, 0xb4, 0x56, 0xb0, 0xb0, 0xd2, 0xf2, 0x35, 0x1e, 0x4c,
-      0x0c, 0x24, 0x5a, 0xe6, 0x89, 0xa6, 0x4d, 0x01, 0x00, 0x3b
-    };
-    char gif_colored[sizeof(gif)];
-    memcpy_P(gif_colored, gif, sizeof(gif));
-    // Set the background to a random set of colors
-    gif_colored[16] = millis() % 256;
-    gif_colored[17] = millis() % 256;
-    gif_colored[18] = millis() % 256;
-    server.send(200, "image/gif", gif_colored, sizeof(gif_colored));
-  }); */
-
   server.onNotFound(handleNotFound);
 
-  /////////////////////////////////////////////////////////
-  // Hook examples
-
-  /* server.addHook([](const String & method, const String & url, WiFiClient * client, ESP8266WebServer::ContentTypeFunction contentType) {
-    (void)method;      // GET, PUT, ...
-    (void)url;         // example: /root/myfile.html
-    (void)client;      // the webserver tcp client connection
-    (void)contentType; // contentType(".html") => "text/html"
-    Serial.printf("A useless web hook has passed\n");
-    Serial.printf("(this hook is in 0x%08x area (401x=IRAM 402x=FLASH))\n", esp_get_program_counter());
-    return ESP8266WebServer::CLIENT_REQUEST_CAN_CONTINUE;
-  });
-
-  server.addHook([](const String&, const String & url, WiFiClient*, ESP8266WebServer::ContentTypeFunction) {
-    if (url.startsWith("/fail")) {
-      Serial.printf("An always failing web hook has been triggered\n");
-      return ESP8266WebServer::CLIENT_MUST_STOP;
-    }
-    return ESP8266WebServer::CLIENT_REQUEST_CAN_CONTINUE;
-  });
-
-  server.addHook([](const String&, const String & url, WiFiClient * client, ESP8266WebServer::ContentTypeFunction) {
-    if (url.startsWith("/dump")) {
-      Serial.printf("The dumper web hook is on the run\n");
-
-      // Here the request is not interpreted, so we cannot for sure
-      // swallow the exact amount matching the full request+content,
-      // hence the tcp connection cannot be handled anymore by the
-      // webserver.
-#ifdef STREAMSEND_API
-      // we are lucky
-      client->sendAll(Serial, 500);
-#else
-      auto last = millis();
-      while ((millis() - last) < 500) {
-        char buf[32];
-        size_t len = client->read((uint8_t*)buf, sizeof(buf));
-        if (len > 0) {
-          Serial.printf("(<%d> chars)", (int)len);
-          Serial.write(buf, len);
-          last = millis();
-        }
-      }
-#endif
-      // Two choices: return MUST STOP and webserver will close it
-      //                       (we already have the example with '/fail' hook)
-      // or                  IS GIVEN and webserver will forget it
-      // trying with IS GIVEN and storing it on a dumb WiFiClient.
-      // check the client connection: it should not immediately be closed
-      // (make another '/dump' one to close the first)
-      Serial.printf("\nTelling server to forget this connection\n");
-      static WiFiClient forgetme = *client; // stop previous one if present and transfer client refcounter
-      return ESP8266WebServer::CLIENT_IS_GIVEN;
-    }
-    return ESP8266WebServer::CLIENT_REQUEST_CAN_CONTINUE;
-  }); */
-
-  // Hook examples
-  /////////////////////////////////////////////////////////
 
   server.begin();
   Serial.println("HTTP server started");
-
-  Wire.begin();
-
-  Serial.println("Wire library initialized.");
 }
 
 void loop(void) {
-  //start_time = millis();
+  /*if(mDNS_update_counter >= 3000){
+      Serial.println("Updating mDNS.");
+      MDNS.update();
+      mDNS_update_counter = 0;
+    }
+    else
+      mDNS_update_counter++; */
   
   server.handleClient();
-  MDNS.update();
 
-  // updateStruct();
+  if(!sending_pages){
+    if(SWSerial.available()){
+      Serial.println("SWSerial new data.");
+      char peeked = (char)SWSerial.peek();
+      Serial.println("First char: " + peeked);
+      
+      if(peeked == 'd'){
+        SWSerial.read();
+        
+        for(uint8_t i=0; i<3; i++)
+          delay_answer[i] = (char)SWSerial.read();
 
-  //end_time = millis();
+        char *result = (char *)malloc(sizeof(char) * 3);
+        
+        if(strcmp(delay_answer, "ok\0") == 0){
+          Serial.println("Arduino new delay ok.");
+          old_sensors_delay = sensors_delay;
+          sprintf(result, "ok");
+          Serial.println("new delay \"ok\" to client.");
+          server.send_P(200, "text/plain", result);
+        }
+        
+        else if(strcmp(delay_answer, "no\0") == 0){
+          Serial.println("Arduino bad new delay.");
+          sensors_delay = old_sensors_delay;
+          sprintf(result, "no");
+          Serial.println("new delay \"no\" to client.");
+          server.send_P(200, "text/plain", result);
+        }
+  
+        else{
+          Serial.println("Arduino bad answer.");
+          sprintf(result, "no");
+          Serial.println("new delay \"no\" to client.");
+          server.send_P(200, "text/plain", result);
+        }
+        
+        free(result);
+      }
+      else if(peeked == 'n'){
+        SWSerial.read();
 
-  if (SWSerial.available()){
-    Serial.print("Received back message from Arduino: ");
-    while(SWSerial.available())
-      Serial.print((char)SWSerial.read());
+        Serial.print("New delay from button: ");
+        
+        union{
+          uint16_t uint16;
+          uint8_t uint8[2];
+        } new_delay;
+        
+        new_delay.uint8[0] = SWSerial.read();
+        new_delay.uint8[1] = SWSerial.read();
+
+        Serial.println(new_delay.uint16);
+
+        bool ok = set_new_delay(new_delay.uint16);
+        Serial1.write('n');
+        if(ok)
+          Serial1.write(0x01);
+        else
+          Serial1.write(0x00);
+      }
+  
+      else{
+        digitalWrite(LED_BUILTIN, LOW);
+        Serial.println("New Data: ");
+        for(uint8_t i=0; i<sizeof(sensors_data_t); i++)
+          sent_data[i] = SWSerial.read();
+
+        digitalWrite(LED_BUILTIN, HIGH);
+        
+        Serial_print_data_struct();
+        
+      }
+    }
   }
 
-  Serial1.println("Hello Arduino");
-  
   delay(50);
 
   /* int loop_delay = sensors_delay - (end_time - start_time);
 
   if(loop_delay > 0)
     delay(loop_delay);*/
-}
-
-ICACHE_RAM_ATTR void buttonDelay(){
-  
-switch(sensors_delay){
-    case MEDIUM:
-      sensors_delay = SLOW;
-      break;
-
-    case SLOW:
-      sensors_delay = VERY_SLOW;
-      break;
-
-    case VERY_SLOW:
-      sensors_delay = TAKE_A_BREAK;
-      break;
-
-    case TAKE_A_BREAK:
-      sensors_delay = MEDIUM;
-      break;
-
-    default: break;
-  };
-
-  Serial.print("New delay: ");
-  Serial.println(sensors_delay);
 }
 
 /* void updateStruct(){
@@ -333,23 +294,46 @@ switch(sensors_delay){
     sent_data[i] = Wire.read();
 } */
 
+void Serial_print_data_struct(){
+  
+  Serial.print("T:");
+  Serial.print(sensors_data.temperature);
+  Serial.print("/");
+
+  Serial.print("H:");
+  Serial.print(sensors_data.humidity);
+  Serial.print("/");
+
+  Serial.print("P:");
+  Serial.print(sensors_data.pressure);
+  Serial.print("/");
+
+  Serial.print("A:");
+  Serial.print(sensors_data.altitude);
+  Serial.print("/");
+
+  Serial.print("B");
+  Serial.print(sensors_data.brightness);
+  Serial.println("/");
+}
+
 void getTemperature() {
   // char *temp = (char *)malloc(sizeof(char) * 5);
   if(celsius)
-    sprintf(sensors_data_str.temperature, "%.02f", sensors_data->temperature);
+    sprintf(sensors_data_str.temperature, "%.02f", sensors_data.temperature);
   else
     // fahrenheit
-    sprintf(sensors_data_str.temperature, "%.02f", (sensors_data->temperature * 1.8) + 32);
+    sprintf(sensors_data_str.temperature, "%.02f", (sensors_data.temperature * 1.8) + 32);
     
-  Serial.println("Sending temperature " + (String(sensors_data_str.temperature)) + ".");
+  //Serial.println("Sending temperature " + (String(sensors_data_str.temperature)) + ".");
   server.send_P(200, "text/plain", sensors_data_str.temperature);
   // free(temp);
 }
 
 void getHumidity() {
   // char *hum = (char *)malloc(sizeof(char) * 5);
-  sprintf(sensors_data_str.humidity, "%.02f", sensors_data->humidity);
-  Serial.println("Sending humidity " + (String(sensors_data_str.humidity)) + ".");
+  sprintf(sensors_data_str.humidity, "%.02f", sensors_data.humidity);
+  //Serial.println("Sending humidity " + (String(sensors_data_str.humidity)) + ".");
   server.send_P(200, "text/plain", sensors_data_str.humidity);
   // free(hum);
 }
@@ -357,27 +341,27 @@ void getHumidity() {
 void getPressure() {
   // char *pres = (char *)malloc(sizeof(char) * 5);
   if(pascal)
-    sprintf(sensors_data_str.pressure, "%.02f", sensors_data->pressure);
+    sprintf(sensors_data_str.pressure, "%.02f", sensors_data.pressure);
   else
     // bar
-    sprintf(sensors_data_str.pressure, "%.02f", sensors_data->pressure / 100000);
-  Serial.println("Sending pressure " + (String(sensors_data_str.pressure)) + ".");
+    sprintf(sensors_data_str.pressure, "%.02f", sensors_data.pressure / 100000);
+  //Serial.println("Sending pressure " + (String(sensors_data_str.pressure)) + ".");
   server.send_P(200, "text/plain", sensors_data_str.pressure);
   // free(pres);
 }
 
 void getAltitude() {
   // char *alt = (char *)malloc(sizeof(char) * 5);
-  sprintf(sensors_data_str.altitude, "%.02f", sensors_data->altitude);
-  Serial.println("Sending altitude " + (String(sensors_data_str.altitude)) + ".");
+  sprintf(sensors_data_str.altitude, "%.02f", sensors_data.altitude);
+  //Serial.println("Sending altitude " + (String(sensors_data_str.altitude)) + ".");
   server.send_P(200, "text/plain", sensors_data_str.altitude);
   // free(alt);
 }
 
 void getBrightness() {
   // char *brightn = (char *)malloc(sizeof(char) * 5);
-  sprintf(sensors_data_str.brightness, "%.02f", sensors_data->brightness);
-  Serial.println("Sending brightness " + (String(sensors_data_str.brightness)) + ".");
+  sprintf(sensors_data_str.brightness, "%.02f", sensors_data.brightness);
+  //Serial.println("Sending brightness " + (String(sensors_data_str.brightness)) + ".");
   server.send_P(200, "text/plain", sensors_data_str.brightness);
   // free(brightn);
 }
@@ -417,7 +401,6 @@ void setDelay(){
     String delay_ = server.arg("delay");
     Serial.println("Received new delay request with argument: " + delay_);
       
-    char *result = (char *)malloc(sizeof(char) * 3);
     union{
       uint16_t uint16;
       uint8_t uint8[2];
@@ -428,33 +411,35 @@ void setDelay(){
     Serial.print("New delay in setDelay(): ");
     Serial.println(new_delay.uint16);
   
-    if(new_delay.uint16 == sensors_delay)
+    if(new_delay.uint16 == sensors_delay){
+      char * result = (char *)malloc(sizeof(char) * 3);
       sprintf(result, "ok");
+      Serial.print("Sending back response \"");
+      Serial.print(result);
+      Serial.println("\" to client.");
+      server.send_P(200, "text/plain", result);
+      free(result);
+    }
+      
     else
     {
       old_sensors_delay = sensors_delay;
       bool answer = set_new_delay(new_delay.uint16);
     
       if (answer) {
-        /*bool success = i2c_send_new_delay(&new_delay.uint8);
-
-        if(success)
-          sprintf(result, "ok");
-        else
-          sprintf(result, "no");
-        */
-        sprintf(result, "ok");
+        Serial1.write(new_delay.uint8[0]);
+        Serial1.write(new_delay.uint8[1]);
       }
-      else
+      else{
+        char * result = (char *)malloc(sizeof(char) * 3);
         sprintf(result, "no");
-    
-      Serial.print("Sending back response \"");
-      Serial.print(result);
-      Serial.println("\" to client.");
+        Serial.print("Sending back response \"");
+        Serial.print(result);
+        Serial.println("\" to client.");
+        server.send_P(200, "text/plain", result);
+        free(result);
+      }
     }
-  
-    server.send_P(200, "text/plain", result);
-    free(result);
   }
 }
 
