@@ -3,8 +3,6 @@ var chartT, chartH, chartP;
 var temp_interval, hum_interval, press_interval, north_interval, altitude_interval,
 brightness_interval, getdelay_interval;
 
-var light_theme;
-
 function getTemperature(){
     var xhttp = new XMLHttpRequest();
 
@@ -197,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     press_interval = setInterval(getPressure, currentDelay);
     altitude_interval = setInterval(getAltitude, currentDelay);
     brightness_interval = setInterval(getBrightness, currentDelay);
-    getdelay_interval = setInterval(getDelay, currentDelay);
+    getdelay_interval = setInterval(getDelay, 1000);
 });
 
 function getDelay(){
@@ -212,7 +210,7 @@ function getDelay(){
                 const accepted_values = [1000, 2500, 5000, 10000];
                 var ok = false;
 
-                for(int i = 0; i < accepted_values.length; i++){
+                for(var i = 0; i < accepted_values.length; i++){
                     if(delay_int == accepted_values[i]){
                         currentDelay = delay_int;
 
@@ -231,8 +229,8 @@ function getDelay(){
                         clearInterval(brightness_interval);
                         brightness_interval = setInterval(getBrightness, currentDelay);
 
-                        clearInterval(getdelay_interval);
-                        getdelay_interval = setInterval(getDelay, currentDelay);
+                        var radiobuttons = document.getElementsByName('delay');
+                        radiobuttons[i].checked = true;
 
                         ok = true;
                         console.log("New delay requested from button set.");
@@ -243,9 +241,6 @@ function getDelay(){
                 if(!ok){
                     console.log("ERROR: delay was edited from the physical button \
                     but was sent incorrectly to client.");
-                }
-                else{
-                    document.alert("Physical button pressed, delay updated to " + currentDelay + ".");
                 }
             }
         }
@@ -306,7 +301,6 @@ function sendDelay(){
         if (this.readyState === 4 && this.status === 200) {
             console.log("--- SETDELAY received response: " + this.responseText);
             if(this.responseText == "ok"){
-                console.log("Received ok response for delay");
                 currentDelay = delay_int;
 
                 // change intervals
@@ -324,9 +318,6 @@ function sendDelay(){
 
                 clearInterval(brightness_interval);
                 brightness_interval = setInterval(getBrightness, currentDelay);
-
-                clearInterval(getdelay_interval);
-                getdelay_interval = setInterval(getDelay, currentDelay);
             }
 
             else

@@ -210,7 +210,8 @@ void buttonDelay(){
   if(delay_int.uint16 != 0){
     Serial_print("New delay: ");
     Serial.println(sensors_delay);
-    
+
+    Serial3.write('n');
     Serial3.write(delay_int.uint8[0]);
     Serial3.write(delay_int.uint8[1]);
   }

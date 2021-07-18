@@ -11,7 +11,7 @@
 #endif
 
 // #define DUE_ADDR 0x33
-// #define ISR_BUTTON_PIN 10
+#define WORKING_LED_PIN 4
 
 const char* ssid = STASSID;
 const char* password = STAPSK;
@@ -116,6 +116,8 @@ void setup(void) {
   // attachInterrupt(digitalPinToInterrupt(ISR_BUTTON_PIN), buttonDelay, RISING);
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, HIGH);
+  pinMode(WORKING_LED_PIN, OUTPUT);
+  digitalWrite(WORKING_LED_PIN, LOW);
   
   Serial.begin(115200);
   while(!Serial)
@@ -201,80 +203,79 @@ void loop(void) {
   
   server.handleClient();
 
-  if(!sending_pages){
-    if(SWSerial.available()){
-      Serial.println("SWSerial new data.");
-      char peeked = (char)SWSerial.peek();
-      Serial.println("First char: " + peeked);
+  if(SWSerial.available()){
+    digitalWrite(WORKING_LED_PIN, HIGH);
+    Serial.println("SWSerial new data.");
+    char peeked = (char)SWSerial.peek();
+    Serial.print("First char: ");
+    Serial.println(peeked);
+    
+    if(peeked == 'd'){
+      SWSerial.read();
       
-      if(peeked == 'd'){
-        SWSerial.read();
-        
-        for(uint8_t i=0; i<3; i++)
-          delay_answer[i] = (char)SWSerial.read();
+      for(uint8_t i=0; i<3; i++)
+        delay_answer[i] = (char)SWSerial.read();
 
-        char *result = (char *)malloc(sizeof(char) * 3);
-        
-        if(strcmp(delay_answer, "ok\0") == 0){
-          Serial.println("Arduino new delay ok.");
-          old_sensors_delay = sensors_delay;
-          sprintf(result, "ok");
-          Serial.println("new delay \"ok\" to client.");
-          server.send_P(200, "text/plain", result);
-        }
-        
-        else if(strcmp(delay_answer, "no\0") == 0){
-          Serial.println("Arduino bad new delay.");
-          sensors_delay = old_sensors_delay;
-          sprintf(result, "no");
-          Serial.println("new delay \"no\" to client.");
-          server.send_P(200, "text/plain", result);
-        }
-  
-        else{
-          Serial.println("Arduino bad answer.");
-          sprintf(result, "no");
-          Serial.println("new delay \"no\" to client.");
-          server.send_P(200, "text/plain", result);
-        }
-        
-        free(result);
+      char *result = (char *)malloc(sizeof(char) * 3);
+      
+      if(strcmp(delay_answer, "ok\0") == 0){
+        Serial.println("Arduino new delay ok.");
+        old_sensors_delay = sensors_delay;
+        sprintf(result, "ok");
+        Serial.println("new delay \"ok\" to client.");
+        server.send_P(200, "text/plain", result);
       }
-      else if(peeked == 'n'){
-        SWSerial.read();
-
-        Serial.print("New delay from button: ");
-        
-        union{
-          uint16_t uint16;
-          uint8_t uint8[2];
-        } new_delay;
-        
-        new_delay.uint8[0] = SWSerial.read();
-        new_delay.uint8[1] = SWSerial.read();
-
-        Serial.println(new_delay.uint16);
-
-        bool ok = set_new_delay(new_delay.uint16);
-        Serial1.write('n');
-        if(ok)
-          Serial1.write(0x01);
-        else
-          Serial1.write(0x00);
+      
+      else if(strcmp(delay_answer, "no\0") == 0){
+        Serial.println("Arduino bad new delay.");
+        sensors_delay = old_sensors_delay;
+        sprintf(result, "no");
+        Serial.println("new delay \"no\" to client.");
+        server.send_P(200, "text/plain", result);
       }
-  
+
       else{
-        digitalWrite(LED_BUILTIN, LOW);
-        Serial.println("New Data: ");
-        for(uint8_t i=0; i<sizeof(sensors_data_t); i++)
-          sent_data[i] = SWSerial.read();
-
-        digitalWrite(LED_BUILTIN, HIGH);
-        
-        Serial_print_data_struct();
-        
+        Serial.println("Arduino bad answer.");
+        sprintf(result, "no");
+        Serial.println("new delay \"no\" to client.");
+        server.send_P(200, "text/plain", result);
       }
+      
+      free(result);
     }
+    else if(peeked == 'n'){
+      SWSerial.read();
+
+      Serial.print("New delay from button: ");
+      
+      union{
+        uint16_t uint16;
+        uint8_t uint8[2];
+      } new_delay;
+      
+      new_delay.uint8[0] = SWSerial.read();
+      new_delay.uint8[1] = SWSerial.read();
+
+      Serial.println(new_delay.uint16);
+
+      bool ok = set_new_delay(new_delay.uint16);
+      Serial1.write('n');
+      if(ok)
+        Serial1.write(0x01);
+      else
+        Serial1.write(0x00);
+    }
+
+    else{
+      Serial.println("New Data: ");
+      for(uint8_t i=0; i<sizeof(sensors_data_t); i++)
+        sent_data[i] = SWSerial.read();
+      
+      Serial_print_data_struct();
+      
+    }
+
+    digitalWrite(WORKING_LED_PIN, LOW);
   }
 
   delay(50);
