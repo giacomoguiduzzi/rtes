@@ -5,7 +5,6 @@
 #include <MAX44009.h>
 
 #define SEALEVELPRESSURE_HPA (1013.25)//< Average sea level pressure is 1013.25 hPa
-// #define ESP8266_ADDR 0x33
 #define DUE_ADDR 0x33
 #define SENSORS_DELAY pdMS_TO_TICKS(sensors_delay)
 #define CHECK_DATA_DELAY pdMS_TO_TICKS(2000)
